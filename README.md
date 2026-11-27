@@ -10,7 +10,27 @@
 
 <img width="3051" height="1739" alt="3" src="https://github.com/user-attachments/assets/6029095e-b3de-4619-b99e-3578292dfd09" />
 
-## Controls and gameplay
+## Controls, Gameplay and Info
+
+Backyard Monsters NXT brings the classic monster-building strategy game into Unreal Engine 5.8. Build your backyard, grow your monster army, raid rivals and expand your territory across a persistent world shared by players and computer-controlled opponents.
+
+Using original Backyard Monsters artwork, animated sprites and source-based game mechanics, NXT preserves the familiar visual style while introducing a Host & Play multiplayer experience. Start your own server and play alongside friends using the same game package.
+
+Current features include:
+- Build your backyard: Construct, upgrade, move and repair buildings, manage resources and develop your defenses.
+- Train your monster army: Hatch monsters, unlock additional species through the Monster Locker and improve their abilities through Academy research.
+- Living yards: Up to 50 wandering monsters bring each backyard to life, displaying a variety of monsters from its owner’s trained army.
+- Animated action: Monster movement and attacks, building production animations, defensive effects and visible combat bring battles to life.
+- Backyard invasions: Scout opponents, deploy troops, break through defenses and raid resources. Damage-protection shields help main backyards recover between attacks.
+- Monster Bunkers: Assign trained monsters to defensive garrisons that emerge to fight invading armies.
+- Visual Map Room: Explore the hex world, scout backyards, bookmark locations and fight to capture resource outposts, strongholds and fortifications.
+- 1,000 rival bots by default: Persistent opponents build, train, research, invade and participate in territorial competition, with varied backyard layouts.
+- Shared ranking ladder: Players and bots compete for RP, gaining or losing points through invasion results.
+- Workers and yard expansion: Workers handle construction and mushroom clearing. Expand your buildable space within a clearly marked yard boundary.
+- Shiny and the General Store: Gather Shiny from mushrooms and spend it on additional workers, yard expansions, decorations and supported construction speedups.
+- Persistent multiplayer: Host-owned accounts and progress, automatic saving, configurable server settings and a player limit set to 100 by default.
+- Classic presentation: Original terrain, building and monster artwork, familiar resource displays and native menus recreate the game’s distinctive look.
+Currently in active development, with the core backyard, invasion, progression and territory systems already implemented and further original-game features still being recreated.
 
 - **WASD / arrows:** pan. **Mouse wheel:** zoom. **Right or middle drag:** pan. **Home:** center the yard.
 - **Left click:** select a structure or confirm placement. **Escape:** cancel the active placement/deploy tool.
