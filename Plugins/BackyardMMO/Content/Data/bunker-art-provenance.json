@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "uniqueAtlases": 1,
+  "buildingLevels": 5,
+  "animation": {
+    "texture": "derived/buildings/animations/22_L1_normal.png",
+    "frameWidth": 138,
+    "frameHeight": 100,
+    "textureWidth": 1104,
+    "textureHeight": 200,
+    "pixelWidth": 138,
+    "pixelHeight": 100,
+    "pivotX": 66,
+    "pivotY": 15,
+    "columns": 8,
+    "rows": 2,
+    "frames": 15,
+    "layers": [
+      {
+        "layer": "shadow",
+        "texture": "buildings/bunker/shadow.1.jpg",
+        "offset": [
+          -66,
+          10
+        ],
+        "frameWidth": 138,
+        "frameHeight": 75,
+        "textureWidth": 138,
+        "textureHeight": 75,
+        "availableFrames": 1,
+        "declaredFrames": 1,
+        "sourceImageWidth": 138,
+        "sourceImageHeight": 75,
+        "sha256": "f7f0ef1efc68afd942dbef71d538665ac196bd4eb7c18faa0520e035afd108b4"
+      },
+      {
+        "layer": "anim",
+        "texture": "buildings/bunker/anim.1.png",
+        "offset": [
+          -46,
+          -15
+        ],
+        "frameWidth": 90,
+        "frameHeight": 83,
+        "textureWidth": 1350,
+        "textureHeight": 83,
+        "availableFrames": 15,
+        "declaredFrames": 15,
+        "sourceImageWidth": 1350,
+        "sourceImageHeight": 83,
+        "sha256": "dc1e26a58bb8aa9e710048f7b876dc593fa6f589ff0074eb3085a7c95acb64ba"
+      }
+    ],
+    "layout": "linear_frame_index_in_row_major_atlas",
+    "method": "Original layer offsets; full source animation frames; multiply shadows encoded as alpha",
+    "mode": "bunker_door",
+    "fps": 40,
+    "loop": false,
+    "sourceDisplayHz": 40,
+    "sourcePhaseMaximum": 15,
+    "closedFrame": 0,
+    "openFrame": 14,
+    "source": "client/scripts/BUILDING22.as:TickFast",
+    "endpointPolicy": "Source phase15 clamps to the final available cell14; no sixteenth cell is invented",
+    "stateSource": "Authoritative battle.bunkers doorFrame/state/doorAt"
+  },
+  "sourceScriptSha256": "c40cc79f246fdbb2fc719c3bcb127155d9ff8bb5af1f31667aa7d2890571eb44",
+  "originalPixelsModified": false
+}

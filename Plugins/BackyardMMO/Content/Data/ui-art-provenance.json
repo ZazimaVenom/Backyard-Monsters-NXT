@@ -1,0 +1,196 @@
+{
+  "schema": 1,
+  "source": "client/scripts/_assets/assets.swf:ResourceBar1..4",
+  "behaviorSources": [
+    "client/scripts/UI_TOP.as",
+    "client/scripts/UI_MENU.as",
+    "client/scripts/StoneButton.as",
+    "client/scripts/BUILDINGSPOPUP.as"
+  ],
+  "method": "Original exported shapes composited at original local coordinates; live text and fill omitted for native UI.",
+  "inputs": {
+    "source_client/shapes/552.png": {
+      "sha256": "e6d45541aa8f81a8cb43f646292e6a36b379982aedbec46c22fea9c87280c1dc",
+      "width": 136,
+      "height": 34
+    },
+    "source_client/shapes/558.png": {
+      "sha256": "44401f4b6625084031cec385ff7e65e202b134a144873f2e67722ae893eac054",
+      "width": 40,
+      "height": 43
+    },
+    "source_client/shapes/565.png": {
+      "sha256": "7c67962e270566688ff94e9a8bb70153a3e40ec5b3468ea3e9d547c213a1ceaa",
+      "width": 41,
+      "height": 39
+    },
+    "source_client/shapes/568.png": {
+      "sha256": "0936cafbfb64ff2e62f7f4bc10b186a74e1d80538920ce10bcd5cb31441df8cb",
+      "width": 33,
+      "height": 36
+    },
+    "source_client/shapes/572.png": {
+      "sha256": "1e9ec4a5ae317b14e7615bba604cb0ba257734ae22de2bc3b32592af92a1b544",
+      "width": 125,
+      "height": 41
+    }
+  },
+  "resourceBars": {
+    "twigs": {
+      "texture": "derived/ui/original/resource_twigs.png",
+      "symbol": 563,
+      "background": "source_client/shapes/552.png",
+      "icon": "source_client/shapes/558.png",
+      "iconOrigin": [
+        -9,
+        -4
+      ],
+      "iconCrop": null,
+      "width": 146,
+      "height": 44,
+      "registrationOffset": [
+        10,
+        5
+      ],
+      "valuePosition": [
+        39,
+        15
+      ],
+      "sourceFontId": 31,
+      "sourceFontPixels": 12,
+      "sourceTextRGBA": [
+        255,
+        255,
+        255,
+        255
+      ]
+    },
+    "pebbles": {
+      "texture": "derived/ui/original/resource_pebbles.png",
+      "symbol": 566,
+      "background": "source_client/shapes/552.png",
+      "icon": "source_client/shapes/565.png",
+      "iconOrigin": [
+        -6,
+        -2
+      ],
+      "iconCrop": null,
+      "width": 146,
+      "height": 44,
+      "registrationOffset": [
+        10,
+        5
+      ],
+      "valuePosition": [
+        39,
+        15
+      ],
+      "sourceFontId": 31,
+      "sourceFontPixels": 12,
+      "sourceTextRGBA": [
+        255,
+        255,
+        255,
+        255
+      ]
+    },
+    "putty": {
+      "texture": "derived/ui/original/resource_putty.png",
+      "symbol": 569,
+      "background": "source_client/shapes/552.png",
+      "icon": "source_client/shapes/568.png",
+      "iconOrigin": [
+        -5,
+        -1
+      ],
+      "iconCrop": null,
+      "width": 146,
+      "height": 44,
+      "registrationOffset": [
+        10,
+        5
+      ],
+      "valuePosition": [
+        39,
+        15
+      ],
+      "sourceFontId": 31,
+      "sourceFontPixels": 12,
+      "sourceTextRGBA": [
+        255,
+        255,
+        255,
+        255
+      ]
+    },
+    "goo": {
+      "texture": "derived/ui/original/resource_goo.png",
+      "symbol": 573,
+      "background": "source_client/shapes/552.png",
+      "icon": "source_client/shapes/572.png",
+      "iconOrigin": [
+        -4,
+        -5
+      ],
+      "iconCrop": [
+        0,
+        0,
+        104,
+        41
+      ],
+      "width": 146,
+      "height": 44,
+      "registrationOffset": [
+        10,
+        5
+      ],
+      "valuePosition": [
+        39,
+        15
+      ],
+      "sourceFontId": 31,
+      "sourceFontPixels": 12,
+      "sourceTextRGBA": [
+        255,
+        255,
+        255,
+        255
+      ]
+    }
+  },
+  "originalMenu": {
+    "background": "ui/wood1.png",
+    "buttonVariants": [
+      "ui/stone1.png",
+      "ui/stone2.png",
+      "ui/stone3.png"
+    ],
+    "anchor": "bottom right",
+    "screenMargin": 10,
+    "woodMargin": 10,
+    "buttonSpacing": 3,
+    "buttonHeight": 36,
+    "sourceLabels": [
+      "Buildings",
+      "Quests",
+      "Store",
+      "Map"
+    ]
+  },
+  "originalConstruction": {
+    "categories": [
+      "Resources",
+      "Buildings",
+      "Defensive",
+      "Decorations"
+    ],
+    "columns": 5,
+    "rows": 2,
+    "columnPitch": 130,
+    "rowPitch": 170,
+    "cardPixels": [
+      120,
+      160
+    ]
+  }
+}

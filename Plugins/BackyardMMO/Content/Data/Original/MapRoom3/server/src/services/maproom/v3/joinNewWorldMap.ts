@@ -1,0 +1,101 @@
+import { WorldMapCell } from "../../../database/models/worldmapcell.model.js";
+import { User } from "../../../database/models/user.model.js";
+import { Save } from "../../../database/models/save.model.js";
+import { World } from "../../../database/models/world.model.js";
+import { MapRoom3, MapRoomVersion } from "../../../enums/MapRoom.js";
+import { postgres } from "../../../server.js";
+import { invalidateWorldsCache } from "../knownWorlds.js";
+import { findFreeSector, findFreeSectorNear } from "./findFreeSector.js";
+import { EnumYardType } from "../../../enums/EnumYardType.js";
+import { logger } from "../../../utils/logger.js";
+import { leaveWorld } from "../v2/leaveWorld.js";
+import { leavePosition } from "./leavePosition.js";
+import type { PostgresEM } from "../../../types/PostgresEM.js";
+
+export interface Destination {
+  world: World;
+  x: number;
+  y: number;
+}
+
+/**
+ * Assigns a user to a Map Room 3 world by either joining an existing one with available space
+ * or creating a new world if all are full.
+ *
+ * Creates the player's main yard cell and 6 surrounding defender outpost cells in a hexagon formation.
+ * Each defender gets its own Save entity with appropriate base data.
+ *
+ * Leaves the user's current world first, unless the chosen world is the one they are
+ * already in, where only their old position is freed and their outposts are kept.
+ *
+ * @param {User} user - The user who is joining or relocating in the world
+ * @param {Save} save - The user's main save data
+ * @param {EntityManager} em - The entity manager for database operations
+ * @param {Destination} [destination] - Where to land via relocating next to a friend
+ * @returns {Promise<void>} A promise that resolves when the operation is complete
+ */
+export const joinNewWorldMap = async (
+  user: User,
+  save: Save,
+  em: PostgresEM = postgres.em,
+  destination?: Destination
+) => {
+  let world: World | null = destination?.world ?? null;
+
+  if (!world) {
+    // Find available worlds with space (Map Room v3 only)
+    const availableWorlds = await em.find(World, {
+      playerCount: { $lt: MapRoom3.MAX_PLAYERS },
+      map_version: MapRoomVersion.V3,
+    });
+
+    // Randomly select from available worlds
+    const shuffledWorlds = availableWorlds.sort(() => Math.random() - 0.5);
+
+    if (shuffledWorlds.length > 0) {
+      world = shuffledWorlds[0];
+      logger.info(`User ${user.username} assigned to existing world: ${world.name}`);
+    } else {
+      world = em.create(World, {});
+      world.name = "New World";
+      world.map_version = MapRoomVersion.V3;
+
+      logger.info("All worlds full, created new world.");
+    }
+  }
+
+  const sameWorld = save.worldid === world.uuid;
+
+  if (sameWorld) {
+    await leavePosition(user, save);
+  } else {
+    await leaveWorld(user, save);
+    await em.refresh(world);
+
+    world.playerCount += 1;
+  }
+
+  save.usemap = 1;
+  save.worldid = world.uuid;
+
+  // Find an available cell for the user's main yard
+  const { x, y, terrainHeight } = destination
+    ? await findFreeSectorNear(world, em, destination.x, destination.y)
+    : await findFreeSector(world, em);
+
+  const homeCell = new WorldMapCell(world, x, y, terrainHeight);
+  homeCell.uid = user.userid;
+  homeCell.base_type = EnumYardType.PLAYER;
+  homeCell.baseid = save.baseid;
+  homeCell.map_version = MapRoomVersion.V3;
+
+  // Link the main yard cell to the user's save
+  save.cell = homeCell;
+  save.worldid = world.uuid;
+  save.homebase = [homeCell.x.toString(), homeCell.y.toString()];
+
+  em.persist([world, homeCell, save]);
+  await em.flush();
+
+  await invalidateWorldsCache();
+};

@@ -1,0 +1,106 @@
+{
+  "schema": 1,
+  "branch": "ordinary_non_mr3_overworld_main_yard",
+  "sources": {
+    "client/scripts/BUILDING22.as": {
+      "file": "BUILDING22.as",
+      "bytes": 31033,
+      "sha256": "c40cc79f246fdbb2fc719c3bcb127155d9ff8bb5af1f31667aa7d2890571eb44"
+    },
+    "client/scripts/Bunker.as": {
+      "file": "Bunker.as",
+      "bytes": 282,
+      "sha256": "41741aef41d7d4b7f6a2d0db5006ef6aab7323655596c328465a2d7294af0147"
+    },
+    "client/scripts/MONSTERBUNKER.as": {
+      "file": "MONSTERBUNKER.as",
+      "bytes": 7117,
+      "sha256": "d9bdc6147c6e7f41201d35a6b10f6ff922d1ff07c546663778bc62ad9c99841b"
+    },
+    "client/scripts/MONSTERBUNKERPOPUP.as": {
+      "file": "MONSTERBUNKERPOPUP.as",
+      "bytes": 37363,
+      "sha256": "c5c312fbc5b74061adbbac88df16155c3a005b437cc1d3d82f6ad16a8e55802a"
+    },
+    "client/scripts/GLOBAL.as": {
+      "file": "GLOBAL.as",
+      "bytes": 89645,
+      "sha256": "4e4c3fe3cedaf0239eb150ac64ee6e72371f2562155a545210fdeee575cba1a4"
+    },
+    "client/scripts/YARD_PROPS.as": {
+      "file": "YARD_PROPS.as",
+      "bytes": 375554,
+      "sha256": "53a68b85c398be7d1410cc48b2843ae2fb9a712072c8c88a34caec309b99b894"
+    },
+    "client/scripts/BUILDINGINFO.as": {
+      "file": "BUILDINGINFO.as",
+      "bytes": 31624,
+      "sha256": "c73f3b4806d9ab445fff2186a1f378d76b9ae417a050bf201431a8edd62b1d9b"
+    },
+    "client/scripts/Targeting.as": {
+      "file": "Targeting.as",
+      "bytes": 16424,
+      "sha256": "57e59eb7aa0fbc85d14e6aaef18bc7579f5d25044d740974e07c72691179132c"
+    },
+    "client/scripts/com/monsters/monsters/MonsterBase.as": {
+      "file": "MonsterBase.as",
+      "bytes": 52480,
+      "sha256": "f8bd10187026024407b1ebd020102a9b9ac9f75612bedc427dbbc568359047e5"
+    },
+    "client/scripts/com/monsters/monsters/creeps/CreepBase.as": {
+      "file": "CreepBase.as",
+      "bytes": 90786,
+      "sha256": "9b857d54d541e134d606f7d523fbd418aec4ac06f00f502bf21a108ced1449dc"
+    },
+    "client/scripts/com/monsters/pathing/PATHING.as": {
+      "file": "PATHING.as",
+      "bytes": 34262,
+      "sha256": "d23752c71edae421f9f1efafcaccfbb60da5ae7d2072b55fd90e530ffe7193bd"
+    }
+  },
+  "rules": {
+    "capacity": [
+      380,
+      450,
+      540,
+      660,
+      800
+    ],
+    "rawMapRoom3Capacity": [
+      190,
+      225,
+      270,
+      330,
+      400
+    ],
+    "triggerRangePixels": [
+      300,
+      350,
+      400,
+      450,
+      500
+    ],
+    "allowedSpecies": [
+      "C1",
+      "C2",
+      "C3",
+      "C4",
+      "C5",
+      "C6",
+      "C7",
+      "C8",
+      "C9",
+      "C10",
+      "C11",
+      "C12",
+      "C13",
+      "C17"
+    ],
+    "doorFrames": 15,
+    "displayFramesPerSecond": 40,
+    "releaseAttackSteps": 30,
+    "attackStepsPerSecond": 72,
+    "defensiveBlastRadius": 90,
+    "defensiveMinimumDamageFraction": 0.2
+  }
+}

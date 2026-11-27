@@ -1,0 +1,27 @@
+{
+  "assetFiles": 6561,
+  "importableAssets": 6449,
+  "sourceBytes": 234991377,
+  "buildings": 140,
+  "buildingLevels": 327,
+  "monsters": 28,
+  "sprites": 65,
+  "conversionIssues": 15,
+  "originalVisualAudioFontFiles": 6273,
+  "originalAssetsMapped": 6273,
+  "missingBuildingTextures": [
+    112,
+    122,
+    123,
+    124,
+    125,
+    126,
+    128,
+    130
+  ],
+  "originalCatalogCounts": {
+    "YARD_PROPS.as": 140,
+    "INFERNOYARDPROPS.as": 135,
+    "OUTPOST_YARD_PROPS.as": 135
+  }
+}

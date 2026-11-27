@@ -1,0 +1,4518 @@
+{
+  "schema": 1,
+  "mapRoomVersion": 3,
+  "selection": {
+    "sourceRebalancedMonstersEnabled": false,
+    "sourceContext": "MapRoomManager.instance.isInMapRoom3; the active client transforms monster costs globally in MR3, not only during combat.",
+    "sourceServerValidation": "server/src/services/maproom/validateAttack.ts:expectedProps",
+    "hatchCostMultiplier": 3,
+    "hatchTimeMultiplier": 3,
+    "healingFractionOfTransformedHatchCost": 0.25,
+    "healingFractionOfTransformedHatchTime": 0.25,
+    "shortArrayPolicy": "CREATURES.GetProperty clamps each property independently to its final array value.",
+    "excludedClientEntries": [
+      "C200"
+    ],
+    "excludedReason": "C200 is the blocked source AILooter1 entry; the MR3 server monster validation table does not contain it."
+  },
+  "monsters": [
+    {
+      "id": "C1",
+      "levels": [
+        {
+          "level": 1,
+          "hp": 200,
+          "damage": 60,
+          "speed": 1.2,
+          "range": 0,
+          "housing": 10,
+          "goo": 750,
+          "time": 45,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 11.25,
+          "healGoo": 187.5,
+          "bucket": 7
+        },
+        {
+          "level": 2,
+          "hp": 220,
+          "damage": 65,
+          "speed": 1.2,
+          "range": 0,
+          "housing": 10,
+          "goo": 1350,
+          "time": 30,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 7.5,
+          "healGoo": 337.5,
+          "bucket": 7
+        },
+        {
+          "level": 3,
+          "hp": 240,
+          "damage": 70,
+          "speed": 1.2,
+          "range": 0,
+          "housing": 10,
+          "goo": 2025,
+          "time": 24,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 6,
+          "healGoo": 506.25,
+          "bucket": 7
+        },
+        {
+          "level": 4,
+          "hp": 260,
+          "damage": 75,
+          "speed": 1.2,
+          "range": 0,
+          "housing": 9,
+          "goo": 2400,
+          "time": 21,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 5.25,
+          "healGoo": 600,
+          "bucket": 7
+        },
+        {
+          "level": 5,
+          "hp": 280,
+          "damage": 80,
+          "speed": 1.2,
+          "range": 0,
+          "housing": 8,
+          "goo": 3000,
+          "time": 18,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 4.5,
+          "healGoo": 750,
+          "bucket": 7
+        },
+        {
+          "level": 6,
+          "hp": 300,
+          "damage": 85,
+          "speed": 1.2,
+          "range": 0,
+          "housing": 7,
+          "goo": 3750,
+          "time": 15,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 3.75,
+          "healGoo": 937.5,
+          "bucket": 7
+        }
+      ],
+      "sourceProps": {
+        "speed": [
+          1.2
+        ],
+        "health": [
+          200,
+          220,
+          240,
+          260,
+          280,
+          300
+        ],
+        "damage": [
+          60,
+          65,
+          70,
+          75,
+          80,
+          85
+        ],
+        "cTime": [
+          45,
+          30,
+          24,
+          21,
+          18,
+          15
+        ],
+        "cResource": [
+          750,
+          1350,
+          2025,
+          2400,
+          3000,
+          3750
+        ],
+        "cStorage": [
+          10,
+          10,
+          10,
+          9,
+          8,
+          7
+        ],
+        "bucket": [
+          7
+        ],
+        "targetGroup": [
+          1
+        ],
+        "hTime": [
+          11.25,
+          7.5,
+          6,
+          5.25,
+          4.5,
+          3.75
+        ],
+        "hResource": [
+          187.5,
+          337.5,
+          506.25,
+          600,
+          750,
+          937.5
+        ]
+      },
+      "maxLevel": 6,
+      "sourceBlocked": false,
+      "sourceFake": false,
+      "abilityProperties": {}
+    },
+    {
+      "id": "C2",
+      "levels": [
+        {
+          "level": 1,
+          "hp": 1000,
+          "damage": 15,
+          "speed": 1.4,
+          "range": 0,
+          "housing": 10,
+          "goo": 1500,
+          "time": 45,
+          "targetGroup": 4,
+          "attackDelayFrames": 0,
+          "healTime": 11.25,
+          "healGoo": 375,
+          "bucket": 10
+        },
+        {
+          "level": 2,
+          "hp": 1100,
+          "damage": 15,
+          "speed": 1.4,
+          "range": 0,
+          "housing": 10,
+          "goo": 2700,
+          "time": 48,
+          "targetGroup": 4,
+          "attackDelayFrames": 0,
+          "healTime": 11.25,
+          "healGoo": 675,
+          "bucket": 10
+        },
+        {
+          "level": 3,
+          "hp": 1300,
+          "damage": 20,
+          "speed": 1.4,
+          "range": 0,
+          "housing": 10,
+          "goo": 4050,
+          "time": 48,
+          "targetGroup": 4,
+          "attackDelayFrames": 0,
+          "healTime": 11.25,
+          "healGoo": 1012.5,
+          "bucket": 10
+        },
+        {
+          "level": 4,
+          "hp": 1450,
+          "damage": 25,
+          "speed": 1.4,
+          "range": 0,
+          "housing": 10,
+          "goo": 5400,
+          "time": 48,
+          "targetGroup": 4,
+          "attackDelayFrames": 0,
+          "healTime": 11.25,
+          "healGoo": 1350,
+          "bucket": 10
+        },
+        {
+          "level": 5,
+          "hp": 1600,
+          "damage": 30,
+          "speed": 1.4,
+          "range": 0,
+          "housing": 10,
+          "goo": 6300,
+          "time": 48,
+          "targetGroup": 4,
+          "attackDelayFrames": 0,
+          "healTime": 11.25,
+          "healGoo": 1575,
+          "bucket": 10
+        },
+        {
+          "level": 6,
+          "hp": 1800,
+          "damage": 35,
+          "speed": 1.4,
+          "range": 0,
+          "housing": 10,
+          "goo": 7500,
+          "time": 48,
+          "targetGroup": 4,
+          "attackDelayFrames": 0,
+          "healTime": 11.25,
+          "healGoo": 1875,
+          "bucket": 10
+        }
+      ],
+      "sourceProps": {
+        "speed": [
+          1.4
+        ],
+        "health": [
+          1000,
+          1100,
+          1300,
+          1450,
+          1600,
+          1800
+        ],
+        "damage": [
+          15,
+          15,
+          20,
+          25,
+          30,
+          35
+        ],
+        "cTime": [
+          45,
+          48
+        ],
+        "cResource": [
+          1500,
+          2700,
+          4050,
+          5400,
+          6300,
+          7500
+        ],
+        "cStorage": [
+          10
+        ],
+        "bucket": [
+          10
+        ],
+        "targetGroup": [
+          4
+        ],
+        "hTime": [
+          11.25
+        ],
+        "hResource": [
+          375,
+          675,
+          1012.5,
+          1350,
+          1575,
+          1875
+        ]
+      },
+      "maxLevel": 6,
+      "sourceBlocked": false,
+      "sourceFake": false,
+      "abilityProperties": {}
+    },
+    {
+      "id": "C3",
+      "levels": [
+        {
+          "level": 1,
+          "hp": 150,
+          "damage": 15,
+          "speed": 2.5,
+          "range": 0,
+          "housing": 15,
+          "goo": 1050,
+          "time": 69,
+          "targetGroup": 3,
+          "attackDelayFrames": 0,
+          "healTime": 17.25,
+          "healGoo": 262.5,
+          "bucket": 15
+        },
+        {
+          "level": 2,
+          "hp": 150,
+          "damage": 20,
+          "speed": 2.55,
+          "range": 0,
+          "housing": 15,
+          "goo": 2025,
+          "time": 69,
+          "targetGroup": 3,
+          "attackDelayFrames": 0,
+          "healTime": 17.25,
+          "healGoo": 506.25,
+          "bucket": 15
+        },
+        {
+          "level": 3,
+          "hp": 150,
+          "damage": 25,
+          "speed": 2.6,
+          "range": 0,
+          "housing": 15,
+          "goo": 3045,
+          "time": 69,
+          "targetGroup": 3,
+          "attackDelayFrames": 0,
+          "healTime": 17.25,
+          "healGoo": 761.25,
+          "bucket": 15
+        },
+        {
+          "level": 4,
+          "hp": 150,
+          "damage": 35,
+          "speed": 2.8,
+          "range": 0,
+          "housing": 15,
+          "goo": 4200,
+          "time": 69,
+          "targetGroup": 3,
+          "attackDelayFrames": 0,
+          "healTime": 17.25,
+          "healGoo": 1050,
+          "bucket": 15
+        },
+        {
+          "level": 5,
+          "hp": 150,
+          "damage": 45,
+          "speed": 3,
+          "range": 0,
+          "housing": 15,
+          "goo": 5400,
+          "time": 69,
+          "targetGroup": 3,
+          "attackDelayFrames": 0,
+          "healTime": 17.25,
+          "healGoo": 1350,
+          "bucket": 15
+        },
+        {
+          "level": 6,
+          "hp": 150,
+          "damage": 55,
+          "speed": 3.2,
+          "range": 0,
+          "housing": 15,
+          "goo": 7200,
+          "time": 69,
+          "targetGroup": 3,
+          "attackDelayFrames": 0,
+          "healTime": 17.25,
+          "healGoo": 1800,
+          "bucket": 15
+        }
+      ],
+      "sourceProps": {
+        "speed": [
+          2.5,
+          2.55,
+          2.6,
+          2.8,
+          3,
+          3.2
+        ],
+        "health": [
+          150
+        ],
+        "damage": [
+          15,
+          20,
+          25,
+          35,
+          45,
+          55
+        ],
+        "cTime": [
+          69
+        ],
+        "cResource": [
+          1050,
+          2025,
+          3045,
+          4200,
+          5400,
+          7200
+        ],
+        "cStorage": [
+          15
+        ],
+        "bucket": [
+          15
+        ],
+        "targetGroup": [
+          3
+        ],
+        "hTime": [
+          17.25
+        ],
+        "hResource": [
+          262.5,
+          506.25,
+          761.25,
+          1050,
+          1350,
+          1800
+        ]
+      },
+      "maxLevel": 6,
+      "sourceBlocked": false,
+      "sourceFake": false,
+      "abilityProperties": {}
+    },
+    {
+      "id": "C4",
+      "levels": [
+        {
+          "level": 1,
+          "hp": 200,
+          "damage": 300,
+          "speed": 1.3,
+          "range": 0,
+          "housing": 20,
+          "goo": 4500,
+          "time": 300,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 75,
+          "healGoo": 1125,
+          "bucket": 20
+        },
+        {
+          "level": 2,
+          "hp": 200,
+          "damage": 330,
+          "speed": 1.3,
+          "range": 0,
+          "housing": 20,
+          "goo": 6750,
+          "time": 300,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 75,
+          "healGoo": 1687.5,
+          "bucket": 20
+        },
+        {
+          "level": 3,
+          "hp": 200,
+          "damage": 380,
+          "speed": 1.3,
+          "range": 0,
+          "housing": 20,
+          "goo": 10125,
+          "time": 300,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 75,
+          "healGoo": 2531.25,
+          "bucket": 20
+        },
+        {
+          "level": 4,
+          "hp": 200,
+          "damage": 430,
+          "speed": 1.3,
+          "range": 0,
+          "housing": 20,
+          "goo": 14400,
+          "time": 300,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 75,
+          "healGoo": 3600,
+          "bucket": 20
+        },
+        {
+          "level": 5,
+          "hp": 220,
+          "damage": 470,
+          "speed": 1.3,
+          "range": 0,
+          "housing": 20,
+          "goo": 21600,
+          "time": 270,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 67.5,
+          "healGoo": 5400,
+          "bucket": 20
+        },
+        {
+          "level": 6,
+          "hp": 240,
+          "damage": 520,
+          "speed": 1.3,
+          "range": 0,
+          "housing": 20,
+          "goo": 30000,
+          "time": 270,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 67.5,
+          "healGoo": 7500,
+          "bucket": 20
+        }
+      ],
+      "sourceProps": {
+        "speed": [
+          1.3
+        ],
+        "health": [
+          200,
+          200,
+          200,
+          200,
+          220,
+          240
+        ],
+        "damage": [
+          300,
+          330,
+          380,
+          430,
+          470,
+          520
+        ],
+        "cTime": [
+          300,
+          300,
+          300,
+          300,
+          270,
+          270
+        ],
+        "cResource": [
+          4500,
+          6750,
+          10125,
+          14400,
+          21600,
+          30000
+        ],
+        "cStorage": [
+          20
+        ],
+        "bucket": [
+          20
+        ],
+        "targetGroup": [
+          1
+        ],
+        "hTime": [
+          75,
+          75,
+          75,
+          75,
+          67.5,
+          67.5
+        ],
+        "hResource": [
+          1125,
+          1687.5,
+          2531.25,
+          3600,
+          5400,
+          7500
+        ]
+      },
+      "maxLevel": 6,
+      "sourceBlocked": false,
+      "sourceFake": false,
+      "abilityProperties": {}
+    },
+    {
+      "id": "C5",
+      "levels": [
+        {
+          "level": 1,
+          "hp": 600,
+          "damage": 4000,
+          "speed": 2,
+          "range": 0,
+          "housing": 60,
+          "goo": 15000,
+          "time": 4500,
+          "targetGroup": 2,
+          "attackDelayFrames": 0,
+          "healTime": 1125,
+          "healGoo": 3750,
+          "bucket": 60
+        },
+        {
+          "level": 2,
+          "hp": 900,
+          "damage": 8000,
+          "speed": 2.2,
+          "range": 0,
+          "housing": 60,
+          "goo": 45000,
+          "time": 4500,
+          "targetGroup": 2,
+          "attackDelayFrames": 0,
+          "healTime": 1125,
+          "healGoo": 11250,
+          "bucket": 60
+        },
+        {
+          "level": 3,
+          "hp": 1200,
+          "damage": 12000,
+          "speed": 2.4,
+          "range": 0,
+          "housing": 60,
+          "goo": 90000,
+          "time": 4500,
+          "targetGroup": 2,
+          "attackDelayFrames": 0,
+          "healTime": 1125,
+          "healGoo": 22500,
+          "bucket": 60
+        },
+        {
+          "level": 4,
+          "hp": 1600,
+          "damage": 16000,
+          "speed": 2.6,
+          "range": 0,
+          "housing": 60,
+          "goo": 135000,
+          "time": 4500,
+          "targetGroup": 2,
+          "attackDelayFrames": 0,
+          "healTime": 1125,
+          "healGoo": 33750,
+          "bucket": 60
+        },
+        {
+          "level": 5,
+          "hp": 2000,
+          "damage": 20000,
+          "speed": 2.8,
+          "range": 0,
+          "housing": 60,
+          "goo": 180000,
+          "time": 4500,
+          "targetGroup": 2,
+          "attackDelayFrames": 0,
+          "healTime": 1125,
+          "healGoo": 45000,
+          "bucket": 60
+        },
+        {
+          "level": 6,
+          "hp": 2400,
+          "damage": 24000,
+          "speed": 3,
+          "range": 0,
+          "housing": 60,
+          "goo": 240000,
+          "time": 4500,
+          "targetGroup": 2,
+          "attackDelayFrames": 0,
+          "healTime": 1125,
+          "healGoo": 60000,
+          "bucket": 60
+        }
+      ],
+      "sourceProps": {
+        "speed": [
+          2,
+          2.2,
+          2.4,
+          2.6,
+          2.8,
+          3
+        ],
+        "health": [
+          600,
+          900,
+          1200,
+          1600,
+          2000,
+          2400
+        ],
+        "damage": [
+          4000,
+          8000,
+          12000,
+          16000,
+          20000,
+          24000
+        ],
+        "cTime": [
+          4500
+        ],
+        "cResource": [
+          15000,
+          45000,
+          90000,
+          135000,
+          180000,
+          240000
+        ],
+        "cStorage": [
+          60
+        ],
+        "bucket": [
+          60
+        ],
+        "targetGroup": [
+          2
+        ],
+        "explode": [
+          1
+        ],
+        "hTime": [
+          1125,
+          1125,
+          1125,
+          1125,
+          1125,
+          1125
+        ],
+        "hResource": [
+          3750,
+          11250,
+          22500,
+          33750,
+          45000,
+          60000
+        ]
+      },
+      "maxLevel": 6,
+      "sourceBlocked": false,
+      "sourceFake": false,
+      "abilityProperties": {
+        "explode": [
+          1
+        ]
+      }
+    },
+    {
+      "id": "C6",
+      "levels": [
+        {
+          "level": 1,
+          "hp": 2000,
+          "damage": 50,
+          "speed": 1.2,
+          "range": 0,
+          "housing": 20,
+          "goo": 15000,
+          "time": 300,
+          "targetGroup": 4,
+          "attackDelayFrames": 0,
+          "healTime": 75,
+          "healGoo": 3750,
+          "bucket": 20
+        },
+        {
+          "level": 2,
+          "hp": 2100,
+          "damage": 60,
+          "speed": 1.2,
+          "range": 0,
+          "housing": 20,
+          "goo": 16875,
+          "time": 300,
+          "targetGroup": 4,
+          "attackDelayFrames": 0,
+          "healTime": 75,
+          "healGoo": 4218.75,
+          "bucket": 20
+        },
+        {
+          "level": 3,
+          "hp": 2200,
+          "damage": 70,
+          "speed": 1.2,
+          "range": 0,
+          "housing": 20,
+          "goo": 25320,
+          "time": 270,
+          "targetGroup": 4,
+          "attackDelayFrames": 0,
+          "healTime": 67.5,
+          "healGoo": 6330,
+          "bucket": 20
+        },
+        {
+          "level": 4,
+          "hp": 2300,
+          "damage": 80,
+          "speed": 1.2,
+          "range": 0,
+          "housing": 20,
+          "goo": 33600,
+          "time": 270,
+          "targetGroup": 4,
+          "attackDelayFrames": 0,
+          "healTime": 67.5,
+          "healGoo": 8400,
+          "bucket": 20
+        },
+        {
+          "level": 5,
+          "hp": 2500,
+          "damage": 95,
+          "speed": 1.2,
+          "range": 0,
+          "housing": 20,
+          "goo": 48000,
+          "time": 270,
+          "targetGroup": 4,
+          "attackDelayFrames": 0,
+          "healTime": 67.5,
+          "healGoo": 12000,
+          "bucket": 20
+        },
+        {
+          "level": 6,
+          "hp": 2800,
+          "damage": 110,
+          "speed": 1.2,
+          "range": 0,
+          "housing": 20,
+          "goo": 72000,
+          "time": 270,
+          "targetGroup": 4,
+          "attackDelayFrames": 0,
+          "healTime": 67.5,
+          "healGoo": 18000,
+          "bucket": 20
+        }
+      ],
+      "sourceProps": {
+        "speed": [
+          1.2
+        ],
+        "health": [
+          2000,
+          2100,
+          2200,
+          2300,
+          2500,
+          2800
+        ],
+        "damage": [
+          50,
+          60,
+          70,
+          80,
+          95,
+          110
+        ],
+        "cTime": [
+          300,
+          300,
+          270
+        ],
+        "cResource": [
+          15000,
+          16875,
+          25320,
+          33600,
+          48000,
+          72000
+        ],
+        "cStorage": [
+          20
+        ],
+        "bucket": [
+          20
+        ],
+        "targetGroup": [
+          4
+        ],
+        "hTime": [
+          75,
+          75,
+          67.5
+        ],
+        "hResource": [
+          3750,
+          4218.75,
+          6330,
+          8400,
+          12000,
+          18000
+        ]
+      },
+      "maxLevel": 6,
+      "sourceBlocked": false,
+      "sourceFake": false,
+      "abilityProperties": {}
+    },
+    {
+      "id": "C7",
+      "levels": [
+        {
+          "level": 1,
+          "hp": 500,
+          "damage": 200,
+          "speed": 1,
+          "range": 0,
+          "housing": 20,
+          "goo": 7500,
+          "time": 675,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 168.75,
+          "healGoo": 1875,
+          "bucket": 20
+        },
+        {
+          "level": 2,
+          "hp": 550,
+          "damage": 250,
+          "speed": 1,
+          "range": 0,
+          "housing": 20,
+          "goo": 13500,
+          "time": 675,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 168.75,
+          "healGoo": 3375,
+          "bucket": 20
+        },
+        {
+          "level": 3,
+          "hp": 600,
+          "damage": 300,
+          "speed": 1,
+          "range": 0,
+          "housing": 20,
+          "goo": 20250,
+          "time": 675,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 168.75,
+          "healGoo": 5062.5,
+          "bucket": 20
+        },
+        {
+          "level": 4,
+          "hp": 650,
+          "damage": 350,
+          "speed": 1,
+          "range": 0,
+          "housing": 20,
+          "goo": 26250,
+          "time": 675,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 168.75,
+          "healGoo": 6562.5,
+          "bucket": 20
+        },
+        {
+          "level": 5,
+          "hp": 750,
+          "damage": 400,
+          "speed": 1,
+          "range": 0,
+          "housing": 20,
+          "goo": 33600,
+          "time": 540,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 135,
+          "healGoo": 8400,
+          "bucket": 20
+        },
+        {
+          "level": 6,
+          "hp": 900,
+          "damage": 450,
+          "speed": 1,
+          "range": 0,
+          "housing": 20,
+          "goo": 43200,
+          "time": 540,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 135,
+          "healGoo": 10800,
+          "bucket": 20
+        }
+      ],
+      "sourceProps": {
+        "speed": [
+          1
+        ],
+        "health": [
+          500,
+          550,
+          600,
+          650,
+          750,
+          900
+        ],
+        "damage": [
+          200,
+          250,
+          300,
+          350,
+          400,
+          450
+        ],
+        "cTime": [
+          675,
+          675,
+          675,
+          675,
+          540,
+          540
+        ],
+        "cResource": [
+          7500,
+          13500,
+          20250,
+          26250,
+          33600,
+          43200
+        ],
+        "cStorage": [
+          20
+        ],
+        "bucket": [
+          20
+        ],
+        "targetGroup": [
+          1
+        ],
+        "hTime": [
+          168.75,
+          168.75,
+          168.75,
+          168.75,
+          135,
+          135
+        ],
+        "hResource": [
+          1875,
+          3375,
+          5062.5,
+          6562.5,
+          8400,
+          10800
+        ]
+      },
+      "maxLevel": 6,
+      "sourceBlocked": false,
+      "sourceFake": false,
+      "abilityProperties": {}
+    },
+    {
+      "id": "C8",
+      "levels": [
+        {
+          "level": 1,
+          "hp": 400,
+          "damage": 600,
+          "speed": 1.1,
+          "range": 0,
+          "housing": 30,
+          "goo": 54000,
+          "time": 1350,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 337.5,
+          "healGoo": 13500,
+          "bucket": 30
+        },
+        {
+          "level": 2,
+          "hp": 400,
+          "damage": 600,
+          "speed": 1.2,
+          "range": 0,
+          "housing": 30,
+          "goo": 81000,
+          "time": 1050,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 262.5,
+          "healGoo": 20250,
+          "bucket": 30
+        },
+        {
+          "level": 3,
+          "hp": 400,
+          "damage": 620,
+          "speed": 1.3,
+          "range": 0,
+          "housing": 30,
+          "goo": 121500,
+          "time": 750,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 187.5,
+          "healGoo": 30375,
+          "bucket": 30
+        },
+        {
+          "level": 4,
+          "hp": 400,
+          "damage": 660,
+          "speed": 1.4,
+          "range": 0,
+          "housing": 30,
+          "goo": 181500,
+          "time": 675,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 168.75,
+          "healGoo": 45375,
+          "bucket": 30
+        },
+        {
+          "level": 5,
+          "hp": 400,
+          "damage": 720,
+          "speed": 1.5,
+          "range": 0,
+          "housing": 30,
+          "goo": 240000,
+          "time": 585,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 146.25,
+          "healGoo": 60000,
+          "bucket": 30
+        },
+        {
+          "level": 6,
+          "hp": 400,
+          "damage": 800,
+          "speed": 1.6,
+          "range": 0,
+          "housing": 30,
+          "goo": 300000,
+          "time": 585,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 146.25,
+          "healGoo": 75000,
+          "bucket": 30
+        }
+      ],
+      "sourceProps": {
+        "speed": [
+          1.1,
+          1.2,
+          1.3,
+          1.4,
+          1.5,
+          1.6
+        ],
+        "health": [
+          400
+        ],
+        "damage": [
+          600,
+          600,
+          620,
+          660,
+          720,
+          800
+        ],
+        "cTime": [
+          1350,
+          1050,
+          750,
+          675,
+          585,
+          585
+        ],
+        "cResource": [
+          54000,
+          81000,
+          121500,
+          181500,
+          240000,
+          300000
+        ],
+        "cStorage": [
+          30
+        ],
+        "bucket": [
+          30
+        ],
+        "targetGroup": [
+          1
+        ],
+        "hTime": [
+          337.5,
+          262.5,
+          187.5,
+          168.75,
+          146.25,
+          146.25
+        ],
+        "hResource": [
+          13500,
+          20250,
+          30375,
+          45375,
+          60000,
+          75000
+        ]
+      },
+      "maxLevel": 6,
+      "sourceBlocked": false,
+      "sourceFake": false,
+      "abilityProperties": {}
+    },
+    {
+      "id": "C9",
+      "levels": [
+        {
+          "level": 1,
+          "hp": 600,
+          "damage": 100,
+          "speed": 2,
+          "range": 0,
+          "housing": 30,
+          "goo": 36000,
+          "time": 1026,
+          "targetGroup": 3,
+          "attackDelayFrames": 0,
+          "healTime": 256.5,
+          "healGoo": 9000,
+          "bucket": 30
+        },
+        {
+          "level": 2,
+          "hp": 700,
+          "damage": 100,
+          "speed": 2,
+          "range": 0,
+          "housing": 30,
+          "goo": 60750,
+          "time": 1026,
+          "targetGroup": 3,
+          "attackDelayFrames": 0,
+          "healTime": 256.5,
+          "healGoo": 15187.5,
+          "bucket": 30
+        },
+        {
+          "level": 3,
+          "hp": 750,
+          "damage": 200,
+          "speed": 2,
+          "range": 0,
+          "housing": 30,
+          "goo": 91125,
+          "time": 1026,
+          "targetGroup": 3,
+          "attackDelayFrames": 0,
+          "healTime": 256.5,
+          "healGoo": 22781.25,
+          "bucket": 30
+        },
+        {
+          "level": 4,
+          "hp": 800,
+          "damage": 250,
+          "speed": 2,
+          "range": 0,
+          "housing": 30,
+          "goo": 105000,
+          "time": 1026,
+          "targetGroup": 3,
+          "attackDelayFrames": 0,
+          "healTime": 256.5,
+          "healGoo": 26250,
+          "bucket": 30
+        },
+        {
+          "level": 5,
+          "hp": 1100,
+          "damage": 300,
+          "speed": 2.1,
+          "range": 0,
+          "housing": 30,
+          "goo": 150000,
+          "time": 1026,
+          "targetGroup": 3,
+          "attackDelayFrames": 0,
+          "healTime": 256.5,
+          "healGoo": 37500,
+          "bucket": 30
+        },
+        {
+          "level": 6,
+          "hp": 1400,
+          "damage": 350,
+          "speed": 2.2,
+          "range": 0,
+          "housing": 30,
+          "goo": 225000,
+          "time": 1026,
+          "targetGroup": 3,
+          "attackDelayFrames": 0,
+          "healTime": 256.5,
+          "healGoo": 56250,
+          "bucket": 30
+        }
+      ],
+      "sourceProps": {
+        "speed": [
+          2,
+          2,
+          2,
+          2,
+          2.1,
+          2.2
+        ],
+        "health": [
+          600,
+          700,
+          750,
+          800,
+          1100,
+          1400
+        ],
+        "damage": [
+          100,
+          100,
+          200,
+          250,
+          300,
+          350
+        ],
+        "cTime": [
+          1026
+        ],
+        "cResource": [
+          36000,
+          60750,
+          91125,
+          105000,
+          150000,
+          225000
+        ],
+        "cStorage": [
+          30
+        ],
+        "bucket": [
+          30
+        ],
+        "targetGroup": [
+          3
+        ],
+        "hTime": [
+          256.5
+        ],
+        "hResource": [
+          9000,
+          15187.5,
+          22781.25,
+          26250,
+          37500,
+          56250
+        ]
+      },
+      "maxLevel": 6,
+      "sourceBlocked": false,
+      "sourceFake": false,
+      "abilityProperties": {}
+    },
+    {
+      "id": "C10",
+      "levels": [
+        {
+          "level": 1,
+          "hp": 4000,
+          "damage": 100,
+          "speed": 1,
+          "range": 0,
+          "housing": 40,
+          "goo": 90000,
+          "time": 2250,
+          "targetGroup": 4,
+          "attackDelayFrames": 0,
+          "healTime": 562.5,
+          "healGoo": 22500,
+          "bucket": 40
+        },
+        {
+          "level": 2,
+          "hp": 4000,
+          "damage": 120,
+          "speed": 1,
+          "range": 0,
+          "housing": 40,
+          "goo": 135000,
+          "time": 2250,
+          "targetGroup": 4,
+          "attackDelayFrames": 0,
+          "healTime": 562.5,
+          "healGoo": 33750,
+          "bucket": 40
+        },
+        {
+          "level": 3,
+          "hp": 4300,
+          "damage": 130,
+          "speed": 1,
+          "range": 0,
+          "housing": 40,
+          "goo": 202500,
+          "time": 2250,
+          "targetGroup": 4,
+          "attackDelayFrames": 0,
+          "healTime": 562.5,
+          "healGoo": 50625,
+          "bucket": 40
+        },
+        {
+          "level": 4,
+          "hp": 4400,
+          "damage": 140,
+          "speed": 1.2,
+          "range": 0,
+          "housing": 40,
+          "goo": 225000,
+          "time": 2250,
+          "targetGroup": 4,
+          "attackDelayFrames": 0,
+          "healTime": 562.5,
+          "healGoo": 56250,
+          "bucket": 40
+        },
+        {
+          "level": 5,
+          "hp": 4600,
+          "damage": 150,
+          "speed": 1.4,
+          "range": 0,
+          "housing": 40,
+          "goo": 270000,
+          "time": 2250,
+          "targetGroup": 4,
+          "attackDelayFrames": 0,
+          "healTime": 562.5,
+          "healGoo": 67500,
+          "bucket": 40
+        },
+        {
+          "level": 6,
+          "hp": 4800,
+          "damage": 170,
+          "speed": 1.5,
+          "range": 0,
+          "housing": 40,
+          "goo": 360000,
+          "time": 2250,
+          "targetGroup": 4,
+          "attackDelayFrames": 0,
+          "healTime": 562.5,
+          "healGoo": 90000,
+          "bucket": 40
+        }
+      ],
+      "sourceProps": {
+        "speed": [
+          1,
+          1,
+          1,
+          1.2,
+          1.4,
+          1.5
+        ],
+        "health": [
+          4000,
+          4000,
+          4300,
+          4400,
+          4600,
+          4800
+        ],
+        "damage": [
+          100,
+          120,
+          130,
+          140,
+          150,
+          170
+        ],
+        "cTime": [
+          2250
+        ],
+        "cResource": [
+          90000,
+          135000,
+          202500,
+          225000,
+          270000,
+          360000
+        ],
+        "cStorage": [
+          40
+        ],
+        "bucket": [
+          40
+        ],
+        "targetGroup": [
+          4
+        ],
+        "hTime": [
+          562.5
+        ],
+        "hResource": [
+          22500,
+          33750,
+          50625,
+          56250,
+          67500,
+          90000
+        ]
+      },
+      "maxLevel": 6,
+      "sourceBlocked": false,
+      "sourceFake": false,
+      "abilityProperties": {}
+    },
+    {
+      "id": "C11",
+      "levels": [
+        {
+          "level": 1,
+          "hp": 800,
+          "damage": 1200,
+          "speed": 0.9,
+          "range": 0,
+          "housing": 70,
+          "goo": 180000,
+          "time": 4152,
+          "targetGroup": 4,
+          "attackDelayFrames": 0,
+          "healTime": 1038,
+          "healGoo": 45000,
+          "bucket": 70
+        },
+        {
+          "level": 2,
+          "hp": 900,
+          "damage": 1400,
+          "speed": 0.9,
+          "range": 0,
+          "housing": 70,
+          "goo": 270000,
+          "time": 4152,
+          "targetGroup": 4,
+          "attackDelayFrames": 0,
+          "healTime": 1038,
+          "healGoo": 67500,
+          "bucket": 70
+        },
+        {
+          "level": 3,
+          "hp": 950,
+          "damage": 1600,
+          "speed": 1,
+          "range": 0,
+          "housing": 70,
+          "goo": 405000,
+          "time": 4152,
+          "targetGroup": 4,
+          "attackDelayFrames": 0,
+          "healTime": 1038,
+          "healGoo": 101250,
+          "bucket": 70
+        },
+        {
+          "level": 4,
+          "hp": 1000,
+          "damage": 1800,
+          "speed": 1.2,
+          "range": 0,
+          "housing": 70,
+          "goo": 540000,
+          "time": 4152,
+          "targetGroup": 4,
+          "attackDelayFrames": 0,
+          "healTime": 1038,
+          "healGoo": 135000,
+          "bucket": 70
+        },
+        {
+          "level": 5,
+          "hp": 1100,
+          "damage": 2000,
+          "speed": 1.2,
+          "range": 0,
+          "housing": 70,
+          "goo": 702000,
+          "time": 4152,
+          "targetGroup": 4,
+          "attackDelayFrames": 0,
+          "healTime": 1038,
+          "healGoo": 175500,
+          "bucket": 70
+        },
+        {
+          "level": 6,
+          "hp": 1200,
+          "damage": 2200,
+          "speed": 1.3,
+          "range": 0,
+          "housing": 70,
+          "goo": 840000,
+          "time": 4152,
+          "targetGroup": 4,
+          "attackDelayFrames": 0,
+          "healTime": 1038,
+          "healGoo": 210000,
+          "bucket": 70
+        }
+      ],
+      "sourceProps": {
+        "speed": [
+          0.9,
+          0.9,
+          1,
+          1.2,
+          1.2,
+          1.3
+        ],
+        "health": [
+          800,
+          900,
+          950,
+          1000,
+          1100,
+          1200
+        ],
+        "damage": [
+          1200,
+          1400,
+          1600,
+          1800,
+          2000,
+          2200
+        ],
+        "cTime": [
+          4152
+        ],
+        "cResource": [
+          180000,
+          270000,
+          405000,
+          540000,
+          702000,
+          840000
+        ],
+        "cStorage": [
+          70
+        ],
+        "bucket": [
+          70
+        ],
+        "targetGroup": [
+          4
+        ],
+        "hTime": [
+          1038
+        ],
+        "hResource": [
+          45000,
+          67500,
+          101250,
+          135000,
+          175500,
+          210000
+        ]
+      },
+      "maxLevel": 6,
+      "sourceBlocked": false,
+      "sourceFake": false,
+      "abilityProperties": {}
+    },
+    {
+      "id": "C12",
+      "levels": [
+        {
+          "level": 1,
+          "hp": 8000,
+          "damage": 1500,
+          "speed": 0.8,
+          "range": 0,
+          "housing": 160,
+          "goo": 450000,
+          "time": 10800,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 2700,
+          "healGoo": 112500,
+          "bucket": 160
+        },
+        {
+          "level": 2,
+          "hp": 9100,
+          "damage": 1500,
+          "speed": 0.85,
+          "range": 0,
+          "housing": 160,
+          "goo": 675000,
+          "time": 10800,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 2700,
+          "healGoo": 168750,
+          "bucket": 160
+        },
+        {
+          "level": 3,
+          "hp": 10000,
+          "damage": 1600,
+          "speed": 0.9,
+          "range": 0,
+          "housing": 160,
+          "goo": 1012500,
+          "time": 10800,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 2700,
+          "healGoo": 253125,
+          "bucket": 160
+        },
+        {
+          "level": 4,
+          "hp": 12000,
+          "damage": 1700,
+          "speed": 1,
+          "range": 0,
+          "housing": 160,
+          "goo": 1320000,
+          "time": 10800,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 2700,
+          "healGoo": 330000,
+          "bucket": 160
+        },
+        {
+          "level": 5,
+          "hp": 16500,
+          "damage": 1800,
+          "speed": 1.1,
+          "range": 0,
+          "housing": 160,
+          "goo": 1800000,
+          "time": 10800,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 2700,
+          "healGoo": 450000,
+          "bucket": 160
+        },
+        {
+          "level": 6,
+          "hp": 21000,
+          "damage": 1900,
+          "speed": 1.2,
+          "range": 0,
+          "housing": 160,
+          "goo": 2400000,
+          "time": 10800,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 2700,
+          "healGoo": 600000,
+          "bucket": 160
+        }
+      ],
+      "sourceProps": {
+        "speed": [
+          0.8,
+          0.85,
+          0.9,
+          1,
+          1.1,
+          1.2
+        ],
+        "health": [
+          8000,
+          9100,
+          10000,
+          12000,
+          16500,
+          21000
+        ],
+        "damage": [
+          1500,
+          1500,
+          1600,
+          1700,
+          1800,
+          1900
+        ],
+        "cTime": [
+          10800
+        ],
+        "cResource": [
+          450000,
+          675000,
+          1012500,
+          1320000,
+          1800000,
+          2400000
+        ],
+        "cStorage": [
+          160
+        ],
+        "bucket": [
+          160
+        ],
+        "targetGroup": [
+          1
+        ],
+        "hTime": [
+          2700
+        ],
+        "hResource": [
+          112500,
+          168750,
+          253125,
+          330000,
+          450000,
+          600000
+        ]
+      },
+      "maxLevel": 6,
+      "sourceBlocked": false,
+      "sourceFake": false,
+      "abilityProperties": {}
+    },
+    {
+      "id": "C13",
+      "levels": [
+        {
+          "level": 1,
+          "hp": 600,
+          "damage": 300,
+          "speed": 3,
+          "range": 0,
+          "housing": 70,
+          "goo": 60000,
+          "time": 4152,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 1038,
+          "healGoo": 15000,
+          "bucket": 70
+        },
+        {
+          "level": 2,
+          "hp": 800,
+          "damage": 400,
+          "speed": 4,
+          "range": 0,
+          "housing": 70,
+          "goo": 75000,
+          "time": 4152,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 1038,
+          "healGoo": 18750,
+          "bucket": 70
+        },
+        {
+          "level": 3,
+          "hp": 1100,
+          "damage": 550,
+          "speed": 4,
+          "range": 0,
+          "housing": 70,
+          "goo": 90000,
+          "time": 4152,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 1038,
+          "healGoo": 22500,
+          "bucket": 70
+        },
+        {
+          "level": 4,
+          "hp": 1300,
+          "damage": 600,
+          "speed": 4,
+          "range": 0,
+          "housing": 70,
+          "goo": 105000,
+          "time": 4152,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 1038,
+          "healGoo": 26250,
+          "bucket": 70
+        },
+        {
+          "level": 5,
+          "hp": 1500,
+          "damage": 650,
+          "speed": 4,
+          "range": 0,
+          "housing": 70,
+          "goo": 120000,
+          "time": 4152,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 1038,
+          "healGoo": 30000,
+          "bucket": 70
+        },
+        {
+          "level": 6,
+          "hp": 1700,
+          "damage": 700,
+          "speed": 4,
+          "range": 0,
+          "housing": 70,
+          "goo": 142500,
+          "time": 4152,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 1038,
+          "healGoo": 35625,
+          "bucket": 70
+        }
+      ],
+      "sourceProps": {
+        "speed": [
+          3,
+          4
+        ],
+        "health": [
+          600,
+          800,
+          1100,
+          1300,
+          1500,
+          1700
+        ],
+        "damage": [
+          300,
+          400,
+          550,
+          600,
+          650,
+          700
+        ],
+        "cTime": [
+          4152
+        ],
+        "cResource": [
+          60000,
+          75000,
+          90000,
+          105000,
+          120000,
+          142500
+        ],
+        "cStorage": [
+          70
+        ],
+        "bucket": [
+          70
+        ],
+        "targetGroup": [
+          1
+        ],
+        "hTime": [
+          1038
+        ],
+        "hResource": [
+          15000,
+          18750,
+          22500,
+          26250,
+          30000,
+          35625
+        ]
+      },
+      "maxLevel": 6,
+      "sourceBlocked": false,
+      "sourceFake": false,
+      "abilityProperties": {}
+    },
+    {
+      "id": "C14",
+      "levels": [
+        {
+          "level": 1,
+          "hp": 1600,
+          "damage": 300,
+          "speed": 2.5,
+          "range": 150,
+          "housing": 70,
+          "goo": 210000,
+          "time": 5400,
+          "targetGroup": 1,
+          "attackDelayFrames": 90,
+          "healTime": 1350,
+          "healGoo": 52500,
+          "bucket": 70
+        },
+        {
+          "level": 2,
+          "hp": 1900,
+          "damage": 350,
+          "speed": 2.75,
+          "range": 150,
+          "housing": 70,
+          "goo": 285000,
+          "time": 5760,
+          "targetGroup": 1,
+          "attackDelayFrames": 90,
+          "healTime": 1440,
+          "healGoo": 71250,
+          "bucket": 70
+        },
+        {
+          "level": 3,
+          "hp": 2400,
+          "damage": 400,
+          "speed": 3,
+          "range": 150,
+          "housing": 70,
+          "goo": 435000,
+          "time": 6120,
+          "targetGroup": 1,
+          "attackDelayFrames": 90,
+          "healTime": 1530,
+          "healGoo": 108750,
+          "bucket": 70
+        },
+        {
+          "level": 4,
+          "hp": 3000,
+          "damage": 500,
+          "speed": 3.25,
+          "range": 150,
+          "housing": 70,
+          "goo": 600000,
+          "time": 6480,
+          "targetGroup": 1,
+          "attackDelayFrames": 90,
+          "healTime": 1620,
+          "healGoo": 150000,
+          "bucket": 70
+        },
+        {
+          "level": 5,
+          "hp": 3600,
+          "damage": 600,
+          "speed": 3.5,
+          "range": 150,
+          "housing": 70,
+          "goo": 900000,
+          "time": 6840,
+          "targetGroup": 1,
+          "attackDelayFrames": 90,
+          "healTime": 1710,
+          "healGoo": 225000,
+          "bucket": 70
+        },
+        {
+          "level": 6,
+          "hp": 4200,
+          "damage": 700,
+          "speed": 3.5,
+          "range": 150,
+          "housing": 70,
+          "goo": 1200000,
+          "time": 7200,
+          "targetGroup": 1,
+          "attackDelayFrames": 90,
+          "healTime": 1800,
+          "healGoo": 300000,
+          "bucket": 70
+        }
+      ],
+      "sourceProps": {
+        "range": [
+          150
+        ],
+        "attackDelay": [
+          90
+        ],
+        "speed": [
+          2.5,
+          2.75,
+          3,
+          3.25,
+          3.5
+        ],
+        "health": [
+          1600,
+          1900,
+          2400,
+          3000,
+          3600,
+          4200
+        ],
+        "damage": [
+          300,
+          350,
+          400,
+          500,
+          600,
+          700
+        ],
+        "cTime": [
+          5400,
+          5760,
+          6120,
+          6480,
+          6840,
+          7200
+        ],
+        "cResource": [
+          210000,
+          285000,
+          435000,
+          600000,
+          900000,
+          1200000
+        ],
+        "cStorage": [
+          70
+        ],
+        "bucket": [
+          70
+        ],
+        "targetGroup": [
+          1
+        ],
+        "hTime": [
+          1350,
+          1440,
+          1530,
+          1620,
+          1710,
+          1800
+        ],
+        "hResource": [
+          52500,
+          71250,
+          108750,
+          150000,
+          225000,
+          300000
+        ]
+      },
+      "maxLevel": 6,
+      "sourceBlocked": false,
+      "sourceFake": false,
+      "abilityProperties": {}
+    },
+    {
+      "id": "C15",
+      "levels": [
+        {
+          "level": 1,
+          "hp": 8000,
+          "damage": -400,
+          "speed": 0.75,
+          "range": 150,
+          "housing": 200,
+          "goo": 360000,
+          "time": 7200,
+          "targetGroup": 5,
+          "attackDelayFrames": 20,
+          "healTime": 1800,
+          "healGoo": 90000,
+          "bucket": 200
+        },
+        {
+          "level": 2,
+          "hp": 8000,
+          "damage": -550,
+          "speed": 0.8,
+          "range": 150,
+          "housing": 200,
+          "goo": 540000,
+          "time": 7200,
+          "targetGroup": 5,
+          "attackDelayFrames": 20,
+          "healTime": 1800,
+          "healGoo": 135000,
+          "bucket": 200
+        },
+        {
+          "level": 3,
+          "hp": 8000,
+          "damage": -700,
+          "speed": 0.85,
+          "range": 150,
+          "housing": 200,
+          "goo": 768000,
+          "time": 7200,
+          "targetGroup": 5,
+          "attackDelayFrames": 20,
+          "healTime": 1800,
+          "healGoo": 192000,
+          "bucket": 200
+        },
+        {
+          "level": 4,
+          "hp": 8000,
+          "damage": -850,
+          "speed": 0.9,
+          "range": 150,
+          "housing": 200,
+          "goo": 972000,
+          "time": 7200,
+          "targetGroup": 5,
+          "attackDelayFrames": 20,
+          "healTime": 1800,
+          "healGoo": 243000,
+          "bucket": 200
+        },
+        {
+          "level": 5,
+          "hp": 8000,
+          "damage": -1000,
+          "speed": 0.95,
+          "range": 150,
+          "housing": 200,
+          "goo": 1404000,
+          "time": 7200,
+          "targetGroup": 5,
+          "attackDelayFrames": 20,
+          "healTime": 1800,
+          "healGoo": 351000,
+          "bucket": 200
+        }
+      ],
+      "sourceProps": {
+        "range": [
+          150
+        ],
+        "attackDelay": [
+          20
+        ],
+        "speed": [
+          0.75,
+          0.8,
+          0.85,
+          0.9,
+          0.95
+        ],
+        "health": [
+          8000
+        ],
+        "damage": [
+          -400,
+          -550,
+          -700,
+          -850,
+          -1000
+        ],
+        "cTime": [
+          7200
+        ],
+        "cResource": [
+          360000,
+          540000,
+          768000,
+          972000,
+          1404000
+        ],
+        "cStorage": [
+          200
+        ],
+        "bucket": [
+          200
+        ],
+        "targetGroup": [
+          5
+        ],
+        "hTime": [
+          1800
+        ],
+        "hResource": [
+          90000,
+          135000,
+          192000,
+          243000,
+          351000
+        ]
+      },
+      "maxLevel": 5,
+      "sourceBlocked": false,
+      "sourceFake": false,
+      "abilityProperties": {}
+    },
+    {
+      "id": "C16",
+      "levels": [
+        {
+          "level": 1,
+          "hp": 750,
+          "damage": -60,
+          "speed": 1.5,
+          "range": 150,
+          "housing": 60,
+          "goo": 48000,
+          "time": 3600,
+          "targetGroup": 5,
+          "attackDelayFrames": 10,
+          "healTime": 900,
+          "healGoo": 12000,
+          "bucket": 60
+        },
+        {
+          "level": 2,
+          "hp": 750,
+          "damage": -70,
+          "speed": 1.75,
+          "range": 150,
+          "housing": 60,
+          "goo": 75000,
+          "time": 3600,
+          "targetGroup": 5,
+          "attackDelayFrames": 10,
+          "healTime": 900,
+          "healGoo": 18750,
+          "bucket": 60
+        },
+        {
+          "level": 3,
+          "hp": 750,
+          "damage": -80,
+          "speed": 2,
+          "range": 150,
+          "housing": 60,
+          "goo": 115500,
+          "time": 3600,
+          "targetGroup": 5,
+          "attackDelayFrames": 10,
+          "healTime": 900,
+          "healGoo": 28875,
+          "bucket": 60
+        },
+        {
+          "level": 4,
+          "hp": 750,
+          "damage": -90,
+          "speed": 2.25,
+          "range": 150,
+          "housing": 60,
+          "goo": 187500,
+          "time": 3600,
+          "targetGroup": 5,
+          "attackDelayFrames": 10,
+          "healTime": 900,
+          "healGoo": 46875,
+          "bucket": 60
+        },
+        {
+          "level": 5,
+          "hp": 750,
+          "damage": -100,
+          "speed": 2.5,
+          "range": 150,
+          "housing": 60,
+          "goo": 225000,
+          "time": 3600,
+          "targetGroup": 5,
+          "attackDelayFrames": 10,
+          "healTime": 900,
+          "healGoo": 56250,
+          "bucket": 60
+        },
+        {
+          "level": 6,
+          "hp": 750,
+          "damage": -110,
+          "speed": 2.5,
+          "range": 150,
+          "housing": 60,
+          "goo": 270000,
+          "time": 3600,
+          "targetGroup": 5,
+          "attackDelayFrames": 10,
+          "healTime": 900,
+          "healGoo": 67500,
+          "bucket": 60
+        }
+      ],
+      "sourceProps": {
+        "range": [
+          150
+        ],
+        "attackDelay": [
+          10
+        ],
+        "speed": [
+          1.5,
+          1.75,
+          2,
+          2.25,
+          2.5
+        ],
+        "health": [
+          750
+        ],
+        "damage": [
+          -60,
+          -70,
+          -80,
+          -90,
+          -100,
+          -110
+        ],
+        "cTime": [
+          3600
+        ],
+        "cResource": [
+          48000,
+          75000,
+          115500,
+          187500,
+          225000,
+          270000
+        ],
+        "cStorage": [
+          60
+        ],
+        "bucket": [
+          60
+        ],
+        "targetGroup": [
+          5
+        ],
+        "hTime": [
+          900
+        ],
+        "hResource": [
+          12000,
+          18750,
+          28875,
+          46875,
+          56250,
+          67500
+        ]
+      },
+      "maxLevel": 6,
+      "sourceBlocked": true,
+      "sourceFake": false,
+      "abilityProperties": {}
+    },
+    {
+      "id": "C17",
+      "levels": [
+        {
+          "level": 1,
+          "hp": 700,
+          "damage": 850,
+          "speed": 1,
+          "range": 0,
+          "housing": 40,
+          "goo": 81000,
+          "time": 1500,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 375,
+          "healGoo": 20250,
+          "bucket": 40
+        },
+        {
+          "level": 2,
+          "hp": 725,
+          "damage": 850,
+          "speed": 1.1,
+          "range": 0,
+          "housing": 40,
+          "goo": 121500,
+          "time": 1350,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 337.5,
+          "healGoo": 30375,
+          "bucket": 40
+        },
+        {
+          "level": 3,
+          "hp": 750,
+          "damage": 900,
+          "speed": 1.2,
+          "range": 0,
+          "housing": 40,
+          "goo": 182250,
+          "time": 1200,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 300,
+          "healGoo": 45562.5,
+          "bucket": 40
+        },
+        {
+          "level": 4,
+          "hp": 800,
+          "damage": 1000,
+          "speed": 1.3,
+          "range": 0,
+          "housing": 40,
+          "goo": 270000,
+          "time": 1050,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 262.5,
+          "healGoo": 67500,
+          "bucket": 40
+        },
+        {
+          "level": 5,
+          "hp": 900,
+          "damage": 1200,
+          "speed": 1.4,
+          "range": 0,
+          "housing": 40,
+          "goo": 375000,
+          "time": 900,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 225,
+          "healGoo": 93750,
+          "bucket": 40
+        },
+        {
+          "level": 6,
+          "hp": 1000,
+          "damage": 1400,
+          "speed": 1.5,
+          "range": 0,
+          "housing": 40,
+          "goo": 450000,
+          "time": 750,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 187.5,
+          "healGoo": 112500,
+          "bucket": 40
+        }
+      ],
+      "sourceProps": {
+        "speed": [
+          1,
+          1.1,
+          1.2,
+          1.3,
+          1.4,
+          1.5
+        ],
+        "health": [
+          700,
+          725,
+          750,
+          800,
+          900,
+          1000
+        ],
+        "damage": [
+          850,
+          850,
+          900,
+          1000,
+          1200,
+          1400
+        ],
+        "cTime": [
+          1500,
+          1350,
+          1200,
+          1050,
+          900,
+          750
+        ],
+        "cResource": [
+          81000,
+          121500,
+          182250,
+          270000,
+          375000,
+          450000
+        ],
+        "cStorage": [
+          40
+        ],
+        "bucket": [
+          40
+        ],
+        "targetGroup": [
+          1
+        ],
+        "splits": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ],
+        "hTime": [
+          375,
+          337.5,
+          300,
+          262.5,
+          225,
+          187.5
+        ],
+        "hResource": [
+          20250,
+          30375,
+          45562.5,
+          67500,
+          93750,
+          112500
+        ]
+      },
+      "maxLevel": 6,
+      "sourceBlocked": true,
+      "sourceFake": false,
+      "abilityProperties": {
+        "splits": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    {
+      "id": "C18",
+      "levels": [
+        {
+          "level": 1,
+          "hp": 250,
+          "damage": 310,
+          "speed": 1.5,
+          "range": 0,
+          "housing": 40,
+          "goo": 81000,
+          "time": 1500,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 0,
+          "healGoo": 0,
+          "bucket": 40
+        },
+        {
+          "level": 2,
+          "hp": 250,
+          "damage": 320,
+          "speed": 1.6,
+          "range": 0,
+          "housing": 40,
+          "goo": 121500,
+          "time": 1350,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 0,
+          "healGoo": 0,
+          "bucket": 40
+        },
+        {
+          "level": 3,
+          "hp": 250,
+          "damage": 330,
+          "speed": 1.7,
+          "range": 0,
+          "housing": 40,
+          "goo": 182250,
+          "time": 1200,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 0,
+          "healGoo": 0,
+          "bucket": 40
+        },
+        {
+          "level": 4,
+          "hp": 250,
+          "damage": 340,
+          "speed": 1.8,
+          "range": 0,
+          "housing": 40,
+          "goo": 270000,
+          "time": 1050,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 0,
+          "healGoo": 0,
+          "bucket": 40
+        },
+        {
+          "level": 5,
+          "hp": 250,
+          "damage": 350,
+          "speed": 1.9,
+          "range": 0,
+          "housing": 40,
+          "goo": 375000,
+          "time": 900,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 0,
+          "healGoo": 0,
+          "bucket": 40
+        },
+        {
+          "level": 6,
+          "hp": 250,
+          "damage": 350,
+          "speed": 2,
+          "range": 0,
+          "housing": 40,
+          "goo": 450000,
+          "time": 750,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 0,
+          "healGoo": 0,
+          "bucket": 40
+        }
+      ],
+      "sourceProps": {
+        "speed": [
+          1.5,
+          1.6,
+          1.7,
+          1.8,
+          1.9,
+          2
+        ],
+        "health": [
+          250
+        ],
+        "damage": [
+          310,
+          320,
+          330,
+          340,
+          350
+        ],
+        "cTime": [
+          1500,
+          1350,
+          1200,
+          1050,
+          900,
+          750
+        ],
+        "cResource": [
+          81000,
+          121500,
+          182250,
+          270000,
+          375000,
+          450000
+        ],
+        "cStorage": [
+          40
+        ],
+        "bucket": [
+          40
+        ],
+        "targetGroup": [
+          1
+        ]
+      },
+      "maxLevel": 6,
+      "sourceBlocked": true,
+      "sourceFake": true,
+      "abilityProperties": {}
+    },
+    {
+      "id": "C19",
+      "levels": [
+        {
+          "level": 1,
+          "hp": 7000,
+          "damage": 700,
+          "speed": 0.8,
+          "range": 200,
+          "housing": 250,
+          "goo": 3000000,
+          "time": 13500,
+          "targetGroup": 4,
+          "attackDelayFrames": 0,
+          "healTime": 0,
+          "healGoo": 0,
+          "bucket": 250
+        },
+        {
+          "level": 2,
+          "hp": 7500,
+          "damage": 800,
+          "speed": 0.9,
+          "range": 200,
+          "housing": 250,
+          "goo": 3000000,
+          "time": 13500,
+          "targetGroup": 4,
+          "attackDelayFrames": 0,
+          "healTime": 0,
+          "healGoo": 0,
+          "bucket": 250
+        },
+        {
+          "level": 3,
+          "hp": 8000,
+          "damage": 900,
+          "speed": 1,
+          "range": 200,
+          "housing": 250,
+          "goo": 3000000,
+          "time": 13500,
+          "targetGroup": 4,
+          "attackDelayFrames": 0,
+          "healTime": 0,
+          "healGoo": 0,
+          "bucket": 250
+        },
+        {
+          "level": 4,
+          "hp": 8500,
+          "damage": 1000,
+          "speed": 1.1,
+          "range": 200,
+          "housing": 250,
+          "goo": 3000000,
+          "time": 13500,
+          "targetGroup": 4,
+          "attackDelayFrames": 0,
+          "healTime": 0,
+          "healGoo": 0,
+          "bucket": 250
+        },
+        {
+          "level": 5,
+          "hp": 9000,
+          "damage": 1100,
+          "speed": 1.2,
+          "range": 200,
+          "housing": 250,
+          "goo": 3000000,
+          "time": 13500,
+          "targetGroup": 4,
+          "attackDelayFrames": 0,
+          "healTime": 0,
+          "healGoo": 0,
+          "bucket": 250
+        },
+        {
+          "level": 6,
+          "hp": 10000,
+          "damage": 1200,
+          "speed": 1.3,
+          "range": 200,
+          "housing": 250,
+          "goo": 3000000,
+          "time": 13500,
+          "targetGroup": 4,
+          "attackDelayFrames": 0,
+          "healTime": 0,
+          "healGoo": 0,
+          "bucket": 250
+        }
+      ],
+      "sourceProps": {
+        "range": [
+          200
+        ],
+        "speed": [
+          0.8,
+          0.9,
+          1,
+          1.1,
+          1.2,
+          1.3
+        ],
+        "health": [
+          7000,
+          7500,
+          8000,
+          8500,
+          9000,
+          10000
+        ],
+        "damage": [
+          700,
+          800,
+          900,
+          1000,
+          1100,
+          1200
+        ],
+        "cTime": [
+          13500
+        ],
+        "cResource": [
+          3000000
+        ],
+        "cStorage": [
+          250
+        ],
+        "bucket": [
+          250
+        ],
+        "targetGroup": [
+          4
+        ],
+        "zombieSpeedMultiplier": [
+          0.75
+        ],
+        "zombieHealthMultiplier": [
+          1,
+          1.1,
+          1.2,
+          1.3,
+          1.4,
+          1.5
+        ],
+        "zombieDamageMultiplier": [
+          1,
+          1.1,
+          1.2,
+          1.3,
+          1.4,
+          1.5
+        ],
+        "resurrectCooldown": [
+          7,
+          7,
+          6,
+          6,
+          5,
+          4
+        ]
+      },
+      "maxLevel": 6,
+      "sourceBlocked": true,
+      "sourceFake": false,
+      "abilityProperties": {
+        "zombieSpeedMultiplier": [
+          0.75
+        ],
+        "zombieHealthMultiplier": [
+          1,
+          1.1,
+          1.2,
+          1.3,
+          1.4,
+          1.5
+        ],
+        "zombieDamageMultiplier": [
+          1,
+          1.1,
+          1.2,
+          1.3,
+          1.4,
+          1.5
+        ],
+        "resurrectCooldown": [
+          7,
+          7,
+          6,
+          6,
+          5,
+          4
+        ]
+      }
+    },
+    {
+      "id": "IC1",
+      "levels": [
+        {
+          "level": 1,
+          "hp": 400,
+          "damage": 160,
+          "speed": 1.2,
+          "range": 0,
+          "housing": 15,
+          "goo": 1500,
+          "time": 45,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 11.25,
+          "healGoo": 375,
+          "bucket": 15
+        },
+        {
+          "level": 2,
+          "hp": 425,
+          "damage": 200,
+          "speed": 1.2,
+          "range": 0,
+          "housing": 15,
+          "goo": 3000,
+          "time": 30,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 7.5,
+          "healGoo": 750,
+          "bucket": 15
+        },
+        {
+          "level": 3,
+          "hp": 450,
+          "damage": 200,
+          "speed": 1.2,
+          "range": 0,
+          "housing": 15,
+          "goo": 6000,
+          "time": 24,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 6,
+          "healGoo": 1500,
+          "bucket": 15
+        },
+        {
+          "level": 4,
+          "hp": 475,
+          "damage": 250,
+          "speed": 1.2,
+          "range": 0,
+          "housing": 15,
+          "goo": 12000,
+          "time": 21,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 6,
+          "healGoo": 3000,
+          "bucket": 15
+        },
+        {
+          "level": 5,
+          "hp": 510,
+          "damage": 300,
+          "speed": 1.2,
+          "range": 0,
+          "housing": 15,
+          "goo": 18000,
+          "time": 18,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 6,
+          "healGoo": 4500,
+          "bucket": 15
+        },
+        {
+          "level": 6,
+          "hp": 550,
+          "damage": 350,
+          "speed": 1.2,
+          "range": 0,
+          "housing": 15,
+          "goo": 30000,
+          "time": 15,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 6,
+          "healGoo": 7500,
+          "bucket": 15
+        }
+      ],
+      "sourceProps": {
+        "speed": [
+          1.2
+        ],
+        "health": [
+          400,
+          425,
+          450,
+          475,
+          510,
+          550
+        ],
+        "damage": [
+          160,
+          200,
+          200,
+          250,
+          300,
+          350
+        ],
+        "cTime": [
+          45,
+          30,
+          24,
+          21,
+          18,
+          15
+        ],
+        "cResource": [
+          1500,
+          3000,
+          6000,
+          12000,
+          18000,
+          30000
+        ],
+        "cStorage": [
+          15
+        ],
+        "bucket": [
+          15
+        ],
+        "targetGroup": [
+          1
+        ],
+        "hTime": [
+          11.25,
+          7.5,
+          6
+        ],
+        "hResource": [
+          375,
+          750,
+          1500,
+          3000,
+          4500,
+          7500
+        ]
+      },
+      "maxLevel": 6,
+      "sourceBlocked": false,
+      "sourceFake": false,
+      "abilityProperties": {}
+    },
+    {
+      "id": "IC2",
+      "levels": [
+        {
+          "level": 1,
+          "hp": 1500,
+          "damage": 80,
+          "speed": 1.8,
+          "range": 0,
+          "housing": 15,
+          "goo": 7500,
+          "time": 45,
+          "targetGroup": 4,
+          "attackDelayFrames": 0,
+          "healTime": 11.25,
+          "healGoo": 1875,
+          "bucket": 15
+        },
+        {
+          "level": 2,
+          "hp": 1820,
+          "damage": 85,
+          "speed": 1.8,
+          "range": 0,
+          "housing": 15,
+          "goo": 12000,
+          "time": 48,
+          "targetGroup": 4,
+          "attackDelayFrames": 0,
+          "healTime": 11.25,
+          "healGoo": 3000,
+          "bucket": 15
+        },
+        {
+          "level": 3,
+          "hp": 2300,
+          "damage": 90,
+          "speed": 1.8,
+          "range": 0,
+          "housing": 15,
+          "goo": 24000,
+          "time": 48,
+          "targetGroup": 4,
+          "attackDelayFrames": 0,
+          "healTime": 11.25,
+          "healGoo": 6000,
+          "bucket": 15
+        },
+        {
+          "level": 4,
+          "hp": 2800,
+          "damage": 95,
+          "speed": 1.8,
+          "range": 0,
+          "housing": 15,
+          "goo": 36000,
+          "time": 48,
+          "targetGroup": 4,
+          "attackDelayFrames": 0,
+          "healTime": 11.25,
+          "healGoo": 9000,
+          "bucket": 15
+        },
+        {
+          "level": 5,
+          "hp": 3350,
+          "damage": 100,
+          "speed": 1.8,
+          "range": 0,
+          "housing": 15,
+          "goo": 48000,
+          "time": 48,
+          "targetGroup": 4,
+          "attackDelayFrames": 0,
+          "healTime": 11.25,
+          "healGoo": 12000,
+          "bucket": 15
+        },
+        {
+          "level": 6,
+          "hp": 3600,
+          "damage": 110,
+          "speed": 1.8,
+          "range": 0,
+          "housing": 15,
+          "goo": 60000,
+          "time": 48,
+          "targetGroup": 4,
+          "attackDelayFrames": 0,
+          "healTime": 11.25,
+          "healGoo": 15000,
+          "bucket": 15
+        }
+      ],
+      "sourceProps": {
+        "speed": [
+          1.8
+        ],
+        "health": [
+          1500,
+          1820,
+          2300,
+          2800,
+          3350,
+          3600
+        ],
+        "damage": [
+          80,
+          85,
+          90,
+          95,
+          100,
+          110
+        ],
+        "cTime": [
+          45,
+          48,
+          48,
+          48,
+          48,
+          48
+        ],
+        "cResource": [
+          7500,
+          12000,
+          24000,
+          36000,
+          48000,
+          60000
+        ],
+        "cStorage": [
+          15
+        ],
+        "bucket": [
+          15
+        ],
+        "targetGroup": [
+          4
+        ],
+        "hTime": [
+          11.25
+        ],
+        "hResource": [
+          1875,
+          3000,
+          6000,
+          9000,
+          12000,
+          15000
+        ]
+      },
+      "maxLevel": 6,
+      "sourceBlocked": false,
+      "sourceFake": false,
+      "abilityProperties": {}
+    },
+    {
+      "id": "IC3",
+      "levels": [
+        {
+          "level": 1,
+          "hp": 450,
+          "damage": 100,
+          "speed": 3.2,
+          "range": 0,
+          "housing": 15,
+          "goo": 9000,
+          "time": 300,
+          "targetGroup": 3,
+          "attackDelayFrames": 0,
+          "healTime": 75,
+          "healGoo": 2250,
+          "bucket": 15
+        },
+        {
+          "level": 2,
+          "hp": 470,
+          "damage": 105,
+          "speed": 3.2,
+          "range": 0,
+          "housing": 15,
+          "goo": 10500,
+          "time": 300,
+          "targetGroup": 3,
+          "attackDelayFrames": 0,
+          "healTime": 75,
+          "healGoo": 2625,
+          "bucket": 15
+        },
+        {
+          "level": 3,
+          "hp": 500,
+          "damage": 110,
+          "speed": 3.2,
+          "range": 0,
+          "housing": 15,
+          "goo": 12300,
+          "time": 270,
+          "targetGroup": 3,
+          "attackDelayFrames": 0,
+          "healTime": 67.5,
+          "healGoo": 3075,
+          "bucket": 15
+        },
+        {
+          "level": 4,
+          "hp": 540,
+          "damage": 120,
+          "speed": 3.2,
+          "range": 0,
+          "housing": 15,
+          "goo": 14400,
+          "time": 270,
+          "targetGroup": 3,
+          "attackDelayFrames": 0,
+          "healTime": 67.5,
+          "healGoo": 3600,
+          "bucket": 15
+        },
+        {
+          "level": 5,
+          "hp": 580,
+          "damage": 130,
+          "speed": 3.2,
+          "range": 0,
+          "housing": 15,
+          "goo": 16500,
+          "time": 270,
+          "targetGroup": 3,
+          "attackDelayFrames": 0,
+          "healTime": 67.5,
+          "healGoo": 4125,
+          "bucket": 15
+        },
+        {
+          "level": 6,
+          "hp": 620,
+          "damage": 140,
+          "speed": 3.2,
+          "range": 0,
+          "housing": 15,
+          "goo": 21000,
+          "time": 270,
+          "targetGroup": 3,
+          "attackDelayFrames": 0,
+          "healTime": 67.5,
+          "healGoo": 5250,
+          "bucket": 15
+        }
+      ],
+      "sourceProps": {
+        "speed": [
+          3.2
+        ],
+        "health": [
+          450,
+          470,
+          500,
+          540,
+          580,
+          620
+        ],
+        "damage": [
+          100,
+          105,
+          110,
+          120,
+          130,
+          140
+        ],
+        "cTime": [
+          300,
+          300,
+          270,
+          270,
+          270,
+          270
+        ],
+        "cResource": [
+          9000,
+          10500,
+          12300,
+          14400,
+          16500,
+          21000
+        ],
+        "cStorage": [
+          15
+        ],
+        "bucket": [
+          15
+        ],
+        "targetGroup": [
+          3
+        ],
+        "hTime": [
+          75,
+          75,
+          67.5
+        ],
+        "hResource": [
+          2250,
+          2625,
+          3075,
+          3600,
+          4125,
+          5250
+        ]
+      },
+      "maxLevel": 6,
+      "sourceBlocked": false,
+      "sourceFake": false,
+      "abilityProperties": {}
+    },
+    {
+      "id": "IC4",
+      "levels": [
+        {
+          "level": 1,
+          "hp": 2000,
+          "damage": 490,
+          "speed": 2,
+          "range": 0,
+          "housing": 30,
+          "goo": 93000,
+          "time": 1350,
+          "targetGroup": 2,
+          "attackDelayFrames": 0,
+          "healTime": 337.5,
+          "healGoo": 23250,
+          "bucket": 30
+        },
+        {
+          "level": 2,
+          "hp": 2400,
+          "damage": 530,
+          "speed": 2,
+          "range": 0,
+          "housing": 30,
+          "goo": 105000,
+          "time": 1050,
+          "targetGroup": 2,
+          "attackDelayFrames": 0,
+          "healTime": 262.5,
+          "healGoo": 26250,
+          "bucket": 30
+        },
+        {
+          "level": 3,
+          "hp": 2800,
+          "damage": 580,
+          "speed": 2,
+          "range": 0,
+          "housing": 30,
+          "goo": 117000,
+          "time": 750,
+          "targetGroup": 2,
+          "attackDelayFrames": 0,
+          "healTime": 187.5,
+          "healGoo": 29250,
+          "bucket": 30
+        },
+        {
+          "level": 4,
+          "hp": 3200,
+          "damage": 645,
+          "speed": 2,
+          "range": 0,
+          "housing": 30,
+          "goo": 132000,
+          "time": 675,
+          "targetGroup": 2,
+          "attackDelayFrames": 0,
+          "healTime": 168.75,
+          "healGoo": 33000,
+          "bucket": 30
+        },
+        {
+          "level": 5,
+          "hp": 3600,
+          "damage": 700,
+          "speed": 2,
+          "range": 0,
+          "housing": 30,
+          "goo": 150000,
+          "time": 585,
+          "targetGroup": 2,
+          "attackDelayFrames": 0,
+          "healTime": 146.25,
+          "healGoo": 37500,
+          "bucket": 30
+        },
+        {
+          "level": 6,
+          "hp": 4000,
+          "damage": 775,
+          "speed": 2,
+          "range": 0,
+          "housing": 30,
+          "goo": 165000,
+          "time": 585,
+          "targetGroup": 2,
+          "attackDelayFrames": 0,
+          "healTime": 146.25,
+          "healGoo": 41250,
+          "bucket": 30
+        }
+      ],
+      "sourceProps": {
+        "speed": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "health": [
+          2000,
+          2400,
+          2800,
+          3200,
+          3600,
+          4000
+        ],
+        "damage": [
+          490,
+          530,
+          580,
+          645,
+          700,
+          775
+        ],
+        "cTime": [
+          1350,
+          1050,
+          750,
+          675,
+          585,
+          585
+        ],
+        "cResource": [
+          93000,
+          105000,
+          117000,
+          132000,
+          150000,
+          165000
+        ],
+        "cStorage": [
+          30
+        ],
+        "bucket": [
+          30
+        ],
+        "targetGroup": [
+          2
+        ],
+        "hTime": [
+          337.5,
+          262.5,
+          187.5,
+          168.75,
+          146.25,
+          146.25
+        ],
+        "hResource": [
+          23250,
+          26250,
+          29250,
+          33000,
+          37500,
+          41250
+        ]
+      },
+      "maxLevel": 6,
+      "sourceBlocked": false,
+      "sourceFake": false,
+      "abilityProperties": {}
+    },
+    {
+      "id": "IC5",
+      "levels": [
+        {
+          "level": 1,
+          "hp": 3200,
+          "damage": 600,
+          "speed": 4.5,
+          "range": 0,
+          "housing": 40,
+          "goo": 264000,
+          "time": 5400,
+          "targetGroup": 6,
+          "attackDelayFrames": 0,
+          "healTime": 1350,
+          "healGoo": 66000,
+          "bucket": 40
+        },
+        {
+          "level": 2,
+          "hp": 3600,
+          "damage": 665,
+          "speed": 4.5,
+          "range": 0,
+          "housing": 40,
+          "goo": 312000,
+          "time": 5760,
+          "targetGroup": 6,
+          "attackDelayFrames": 0,
+          "healTime": 1440,
+          "healGoo": 78000,
+          "bucket": 40
+        },
+        {
+          "level": 3,
+          "hp": 4000,
+          "damage": 730,
+          "speed": 4.5,
+          "range": 0,
+          "housing": 40,
+          "goo": 483000,
+          "time": 6120,
+          "targetGroup": 6,
+          "attackDelayFrames": 0,
+          "healTime": 1530,
+          "healGoo": 120750,
+          "bucket": 40
+        },
+        {
+          "level": 4,
+          "hp": 4500,
+          "damage": 795,
+          "speed": 4.5,
+          "range": 0,
+          "housing": 40,
+          "goo": 747000,
+          "time": 6480,
+          "targetGroup": 6,
+          "attackDelayFrames": 0,
+          "healTime": 1620,
+          "healGoo": 186750,
+          "bucket": 40
+        },
+        {
+          "level": 5,
+          "hp": 5000,
+          "damage": 860,
+          "speed": 4.5,
+          "range": 0,
+          "housing": 40,
+          "goo": 981000,
+          "time": 6840,
+          "targetGroup": 6,
+          "attackDelayFrames": 0,
+          "healTime": 1710,
+          "healGoo": 245250,
+          "bucket": 40
+        },
+        {
+          "level": 6,
+          "hp": 5600,
+          "damage": 930,
+          "speed": 4.5,
+          "range": 0,
+          "housing": 40,
+          "goo": 1461000,
+          "time": 7200,
+          "targetGroup": 6,
+          "attackDelayFrames": 0,
+          "healTime": 1800,
+          "healGoo": 365250,
+          "bucket": 40
+        }
+      ],
+      "sourceProps": {
+        "speed": [
+          4.5
+        ],
+        "health": [
+          3200,
+          3600,
+          4000,
+          4500,
+          5000,
+          5600
+        ],
+        "damage": [
+          600,
+          665,
+          730,
+          795,
+          860,
+          930
+        ],
+        "cTime": [
+          5400,
+          5760,
+          6120,
+          6480,
+          6840,
+          7200
+        ],
+        "cResource": [
+          264000,
+          312000,
+          483000,
+          747000,
+          981000,
+          1461000
+        ],
+        "cStorage": [
+          40
+        ],
+        "bucket": [
+          40
+        ],
+        "targetGroup": [
+          6
+        ],
+        "hTime": [
+          1350,
+          1440,
+          1530,
+          1620,
+          1710,
+          1800
+        ],
+        "hResource": [
+          66000,
+          78000,
+          120750,
+          186750,
+          245250,
+          365250
+        ]
+      },
+      "maxLevel": 6,
+      "sourceBlocked": false,
+      "sourceFake": false,
+      "abilityProperties": {}
+    },
+    {
+      "id": "IC6",
+      "levels": [
+        {
+          "level": 1,
+          "hp": 7600,
+          "damage": 400,
+          "speed": 1.3,
+          "range": 0,
+          "housing": 50,
+          "goo": 240000,
+          "time": 5400,
+          "targetGroup": 3,
+          "attackDelayFrames": 0,
+          "healTime": 1350,
+          "healGoo": 60000,
+          "bucket": 50
+        },
+        {
+          "level": 2,
+          "hp": 8750,
+          "damage": 425,
+          "speed": 1.3,
+          "range": 0,
+          "housing": 50,
+          "goo": 315000,
+          "time": 5400,
+          "targetGroup": 3,
+          "attackDelayFrames": 0,
+          "healTime": 1350,
+          "healGoo": 78750,
+          "bucket": 50
+        },
+        {
+          "level": 3,
+          "hp": 9900,
+          "damage": 450,
+          "speed": 1.4,
+          "range": 0,
+          "housing": 50,
+          "goo": 405000,
+          "time": 5400,
+          "targetGroup": 3,
+          "attackDelayFrames": 0,
+          "healTime": 1350,
+          "healGoo": 101250,
+          "bucket": 50
+        },
+        {
+          "level": 4,
+          "hp": 10100,
+          "damage": 475,
+          "speed": 1.4,
+          "range": 0,
+          "housing": 50,
+          "goo": 525000,
+          "time": 5400,
+          "targetGroup": 3,
+          "attackDelayFrames": 0,
+          "healTime": 1350,
+          "healGoo": 131250,
+          "bucket": 50
+        },
+        {
+          "level": 5,
+          "hp": 11300,
+          "damage": 500,
+          "speed": 1.5,
+          "range": 0,
+          "housing": 50,
+          "goo": 630000,
+          "time": 5400,
+          "targetGroup": 3,
+          "attackDelayFrames": 0,
+          "healTime": 1350,
+          "healGoo": 157500,
+          "bucket": 50
+        },
+        {
+          "level": 6,
+          "hp": 12500,
+          "damage": 550,
+          "speed": 1.6,
+          "range": 0,
+          "housing": 50,
+          "goo": 975000,
+          "time": 5400,
+          "targetGroup": 3,
+          "attackDelayFrames": 0,
+          "healTime": 1350,
+          "healGoo": 243750,
+          "bucket": 50
+        }
+      ],
+      "sourceProps": {
+        "speed": [
+          1.3,
+          1.3,
+          1.4,
+          1.4,
+          1.5,
+          1.6
+        ],
+        "health": [
+          7600,
+          8750,
+          9900,
+          10100,
+          11300,
+          12500
+        ],
+        "damage": [
+          400,
+          425,
+          450,
+          475,
+          500,
+          550
+        ],
+        "cTime": [
+          5400,
+          5400,
+          5400,
+          5400,
+          5400,
+          5400
+        ],
+        "cResource": [
+          240000,
+          315000,
+          405000,
+          525000,
+          630000,
+          975000
+        ],
+        "cStorage": [
+          50
+        ],
+        "bucket": [
+          50
+        ],
+        "targetGroup": [
+          3
+        ],
+        "hTime": [
+          1350
+        ],
+        "hResource": [
+          60000,
+          78750,
+          101250,
+          131250,
+          157500,
+          243750
+        ]
+      },
+      "maxLevel": 6,
+      "sourceBlocked": false,
+      "sourceFake": false,
+      "abilityProperties": {}
+    },
+    {
+      "id": "IC7",
+      "levels": [
+        {
+          "level": 1,
+          "hp": 1120,
+          "damage": 700,
+          "speed": 1.7,
+          "range": 240,
+          "housing": 80,
+          "goo": 180000,
+          "time": 4152,
+          "targetGroup": 4,
+          "attackDelayFrames": 0,
+          "healTime": 1038,
+          "healGoo": 45000,
+          "bucket": 80
+        },
+        {
+          "level": 2,
+          "hp": 1260,
+          "damage": 825,
+          "speed": 1.8,
+          "range": 240,
+          "housing": 80,
+          "goo": 270000,
+          "time": 4152,
+          "targetGroup": 4,
+          "attackDelayFrames": 0,
+          "healTime": 1038,
+          "healGoo": 67500,
+          "bucket": 80
+        },
+        {
+          "level": 3,
+          "hp": 1400,
+          "damage": 950,
+          "speed": 1.9,
+          "range": 240,
+          "housing": 80,
+          "goo": 435000,
+          "time": 4152,
+          "targetGroup": 4,
+          "attackDelayFrames": 0,
+          "healTime": 1038,
+          "healGoo": 108750,
+          "bucket": 80
+        },
+        {
+          "level": 4,
+          "hp": 1650,
+          "damage": 1075,
+          "speed": 2,
+          "range": 240,
+          "housing": 80,
+          "goo": 600000,
+          "time": 4152,
+          "targetGroup": 4,
+          "attackDelayFrames": 0,
+          "healTime": 1038,
+          "healGoo": 150000,
+          "bucket": 80
+        },
+        {
+          "level": 5,
+          "hp": 1900,
+          "damage": 1200,
+          "speed": 2.1,
+          "range": 240,
+          "housing": 80,
+          "goo": 990000,
+          "time": 4152,
+          "targetGroup": 4,
+          "attackDelayFrames": 0,
+          "healTime": 1038,
+          "healGoo": 247500,
+          "bucket": 80
+        },
+        {
+          "level": 6,
+          "hp": 2200,
+          "damage": 1350,
+          "speed": 2.2,
+          "range": 240,
+          "housing": 80,
+          "goo": 1350000,
+          "time": 4152,
+          "targetGroup": 4,
+          "attackDelayFrames": 0,
+          "healTime": 1038,
+          "healGoo": 337500,
+          "bucket": 80
+        }
+      ],
+      "sourceProps": {
+        "range": [
+          240
+        ],
+        "speed": [
+          1.7,
+          1.8,
+          1.9,
+          2,
+          2.1,
+          2.2
+        ],
+        "health": [
+          1120,
+          1260,
+          1400,
+          1650,
+          1900,
+          2200
+        ],
+        "damage": [
+          700,
+          825,
+          950,
+          1075,
+          1200,
+          1350
+        ],
+        "cTime": [
+          4152,
+          4152,
+          4152,
+          4152,
+          4152,
+          4152
+        ],
+        "cResource": [
+          180000,
+          270000,
+          435000,
+          600000,
+          990000,
+          1350000
+        ],
+        "cStorage": [
+          80
+        ],
+        "bucket": [
+          80
+        ],
+        "targetGroup": [
+          4
+        ],
+        "hTime": [
+          1038
+        ],
+        "hResource": [
+          45000,
+          67500,
+          108750,
+          150000,
+          247500,
+          337500
+        ]
+      },
+      "maxLevel": 6,
+      "sourceBlocked": false,
+      "sourceFake": false,
+      "abilityProperties": {}
+    },
+    {
+      "id": "IC8",
+      "levels": [
+        {
+          "level": 1,
+          "hp": 6200,
+          "damage": 1200,
+          "speed": 2.5,
+          "range": 0,
+          "housing": 100,
+          "goo": 1275000,
+          "time": 8100,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 2025,
+          "healGoo": 318750,
+          "bucket": 100
+        },
+        {
+          "level": 2,
+          "hp": 7600,
+          "damage": 1360,
+          "speed": 2.6,
+          "range": 0,
+          "housing": 100,
+          "goo": 1428000,
+          "time": 8100,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 2025,
+          "healGoo": 357000,
+          "bucket": 100
+        },
+        {
+          "level": 3,
+          "hp": 8700,
+          "damage": 1630,
+          "speed": 2.7,
+          "range": 0,
+          "housing": 100,
+          "goo": 1740000,
+          "time": 8100,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 2025,
+          "healGoo": 435000,
+          "bucket": 100
+        },
+        {
+          "level": 4,
+          "hp": 10900,
+          "damage": 1920,
+          "speed": 2.8,
+          "range": 0,
+          "housing": 100,
+          "goo": 2100000,
+          "time": 8100,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 2025,
+          "healGoo": 525000,
+          "bucket": 100
+        },
+        {
+          "level": 5,
+          "hp": 13100,
+          "damage": 2220,
+          "speed": 2.9,
+          "range": 0,
+          "housing": 100,
+          "goo": 2730000,
+          "time": 8100,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 2025,
+          "healGoo": 682500,
+          "bucket": 100
+        },
+        {
+          "level": 6,
+          "hp": 16000,
+          "damage": 2500,
+          "speed": 3,
+          "range": 0,
+          "housing": 100,
+          "goo": 3612000,
+          "time": 8100,
+          "targetGroup": 1,
+          "attackDelayFrames": 0,
+          "healTime": 2025,
+          "healGoo": 903000,
+          "bucket": 100
+        }
+      ],
+      "sourceProps": {
+        "speed": [
+          2.5,
+          2.6,
+          2.7,
+          2.8,
+          2.9,
+          3
+        ],
+        "health": [
+          6200,
+          7600,
+          8700,
+          10900,
+          13100,
+          16000
+        ],
+        "damage": [
+          1200,
+          1360,
+          1630,
+          1920,
+          2220,
+          2500
+        ],
+        "cTime": [
+          8100
+        ],
+        "cResource": [
+          1275000,
+          1428000,
+          1740000,
+          2100000,
+          2730000,
+          3612000
+        ],
+        "cStorage": [
+          100
+        ],
+        "bucket": [
+          100
+        ],
+        "targetGroup": [
+          1
+        ],
+        "hTime": [
+          2025
+        ],
+        "hResource": [
+          318750,
+          357000,
+          435000,
+          525000,
+          682500,
+          903000
+        ]
+      },
+      "maxLevel": 6,
+      "sourceBlocked": false,
+      "sourceFake": false,
+      "abilityProperties": {}
+    }
+  ],
+  "crossCheck": {
+    "matchingMonsters": 27,
+    "matchingNumericValues": 1008,
+    "clientServerMismatches": [],
+    "method": "Exact comparison of all server MR3 property arrays against active client literal data after modifyCreepData."
+  },
+  "housing": {
+    "buildingId": 15,
+    "capacityByLevel": [
+      250,
+      425,
+      520,
+      670,
+      740,
+      870,
+      1090,
+      1225,
+      1440,
+      1680
+    ],
+    "ordinaryCapacityByLevel": [
+      200,
+      260,
+      320,
+      380,
+      450,
+      540
+    ],
+    "completedHousingRetainsCapacityWhenDestroyed": true,
+    "destructionResidentHealthMultiplier": 0.5,
+    "usedCapacityIncludesBunkerReservations": true,
+    "capacitySource": "GLOBAL.SetBuildingProps chooses pristine YARD_PROPS for MR3; HOUSING.HousingSpace counts completed buildings regardless of HP.",
+    "destructionSource": "BUILDING15.Destroyed halves resident monster HP and skips ordinary Cull/RemoveHouse."
+  },
+  "flinger": {
+    "buildingId": 5,
+    "capacityByLevel": [
+      250,
+      850,
+      1500,
+      2500,
+      3500,
+      3500,
+      3500
+    ],
+    "ordinaryCapacityByLevel": [
+      500,
+      1000,
+      1750,
+      2250,
+      3000,
+      4000
+    ]
+  },
+  "bunker": {
+    "buildingId": 22,
+    "capacityByLevel": [
+      190,
+      225,
+      270,
+      330,
+      400
+    ],
+    "ordinaryCapacityByLevel": [
+      380,
+      450,
+      540,
+      660,
+      800
+    ],
+    "capacityUnit": "housing_space",
+    "eligibleMonsters": [
+      "IC1",
+      "IC2",
+      "IC3",
+      "IC4",
+      "IC5",
+      "IC6",
+      "IC7",
+      "IC8",
+      "C1",
+      "C2",
+      "C3",
+      "C4",
+      "C5",
+      "C6",
+      "C7",
+      "C8",
+      "C9",
+      "C10",
+      "C11",
+      "C12",
+      "C13",
+      "C17"
+    ],
+    "transferPuttyCost": 0,
+    "transferRequiresFullHealth": true,
+    "returnToHousingRequiresFullHealth": true,
+    "transferModel": "Reserve persistent owned monster with ownerID=bunker ID; return sets ownerID=0. Inventory count remains unchanged.",
+    "mainYardPersistence": true,
+    "nonMainYardRepresentation": "ordinary_counts",
+    "minimumDeploymentHealthFractionExclusive": 0.1,
+    "countAvailableHealthFractionInclusive": 0.1,
+    "destructionResidentHealthMultiplier": 0.5,
+    "individualSourceFields": [
+      "health",
+      "ownerID",
+      "queued",
+      "self"
+    ],
+    "persistentFieldNotes": "self is a transient MonsterBase reference, not serialized state. Health, owner reservation and healing queue require host-owned persistence.",
+    "source": "PersistentMonsterBunker; BUILDING22; MonsterData.reserve/release; CreepInfo"
+  },
+  "scope": [
+    "Exact original numerical data does not implement specialized monster abilities by itself.",
+    "Negative damage and additional ability properties are retained as source data; no new combat ability is inferred.",
+    "Original research/unlock rules and ordinary catalog values remain unchanged.",
+    "Housing/Bunker persistence rules are source requirements, not a claim that all runtime persistence is implemented."
+  ],
+  "sourceReferences": [
+    {
+      "path": "server/src/game-data/stats/monsterStats.ts",
+      "sha256": "91c3d5162d7ff5a3f7a288cfc36e60f7d4d1a075064e4a457495e7bdd65de41f"
+    },
+    {
+      "path": "server/src/services/maproom/validateAttack.ts",
+      "sha256": "2e3847b257f43a74af1def27e050b9714ecdd9a09ac5775718832181bb75a1f1"
+    },
+    {
+      "path": "client/scripts/CREATURELOCKER.as",
+      "sha256": "06bf63980fd38d931d4630ded77b5e5d136772b3d6495c17ab21a70928975371"
+    },
+    {
+      "path": "client/scripts/CREATURES.as",
+      "sha256": "e1cad92ee00b4a51817a09487ea6de4f8636680250a78d0539ab7f192253a9b6"
+    },
+    {
+      "path": "client/scripts/GLOBAL.as",
+      "sha256": "4e4c3fe3cedaf0239eb150ac64ee6e72371f2562155a545210fdeee575cba1a4"
+    },
+    {
+      "path": "client/scripts/YARD_PROPS.as",
+      "sha256": "53a68b85c398be7d1410cc48b2843ae2fb9a712072c8c88a34caec309b99b894"
+    },
+    {
+      "path": "client/scripts/HOUSING.as",
+      "sha256": "f692407f3d07167adc105f0b8ef233285ec3c0a5d6c8c62183dc9576308e1cd3"
+    },
+    {
+      "path": "client/scripts/BUILDING15.as",
+      "sha256": "8cbe7065145fa0fe9776bb41b7e7e793b2ab3e122636eb37c0e621df44bb065b"
+    },
+    {
+      "path": "client/scripts/BUILDING22.as",
+      "sha256": "c40cc79f246fdbb2fc719c3bcb127155d9ff8bb5af1f31667aa7d2890571eb44"
+    },
+    {
+      "path": "client/scripts/PersistentMonsterBunker.as",
+      "sha256": "961fa55b433b831870c2834f3efd1b5b152f33fdf98ce21e928a1f606a63d858"
+    },
+    {
+      "path": "client/scripts/MONSTERBUNKER.as",
+      "sha256": "d9bdc6147c6e7f41201d35a6b10f6ff922d1ff07c546663778bc62ad9c99841b"
+    },
+    {
+      "path": "client/scripts/com/monsters/player/MonsterData.as",
+      "sha256": "840f73dd9b78f00d9c8d5198e786131e4640f90cc2c754bec2f7965d39b8164b"
+    },
+    {
+      "path": "client/scripts/com/monsters/player/CreepInfo.as",
+      "sha256": "c2e43e426783f0ec79e78f04764640e87655f419dd725caffa2bf238c3d1e43d"
+    },
+    {
+      "path": "client/scripts/com/monsters/monsters/creeps/rebalance/RebalancedCreatures.as",
+      "sha256": "b0c7d393eca0637ae7c425e9a81713643e4e9568d46f745219472dcd9a9a7404"
+    }
+  ]
+}

@@ -1,0 +1,269 @@
+{
+  "sourceBranch": "Map Room 3 ordinary overworld",
+  "files": [
+    {
+      "path": "server/src/config/MapRoom3Config.ts",
+      "sha256": "87debae7f2a7d5a080910fc474219cbfac97e4bc56205ac3417e4498183cfe6f"
+    },
+    {
+      "path": "server/src/config/NeighbourConfig.ts",
+      "sha256": "67871a38a9faa8178ca840e8ec68db7a8fa59397cbc89e2a43b193bb9de24009"
+    },
+    {
+      "path": "server/src/enums/MapRoom.ts",
+      "sha256": "ff2b650ffbc871be39d80f05bcfb1214bb45af36e99cf77d7ba97d21a5cac5aa"
+    },
+    {
+      "path": "server/src/enums/EnumYardType.ts",
+      "sha256": "fa1b9a2cdcedf01abadf11e13e5e9441be2153b831d6c9456a1de97cebf6d24b"
+    },
+    {
+      "path": "server/src/services/maproom/v3/generateCells.ts",
+      "sha256": "dc6b287f9e67be4f95c28938a452e629bf477f62f74d9d87228cf3010dd91b5e"
+    },
+    {
+      "path": "server/src/services/maproom/v3/calculateStructureLevel.ts",
+      "sha256": "fa39094ba8ba1fa99b8546239a487085b6b7cb025bb57c9f02a59e4d43e25e7c"
+    },
+    {
+      "path": "server/src/services/maproom/v3/utils/isValidPosition.ts",
+      "sha256": "7bb396af3d40187a85fb517039331ceef55d7307e8ce54b61937c6b7be85e9d4"
+    },
+    {
+      "path": "server/src/services/maproom/v3/getHexNeighborOffsets.ts",
+      "sha256": "a9670e3dce16bebab9b5e850f8728a77495dc4abba85c016de02ba0422fccfa0"
+    },
+    {
+      "path": "server/src/services/maproom/v3/getDefenderCoords.ts",
+      "sha256": "46680664373228d1e9aaa40720184f5cf84ea5e14a0943aa85d8ac9f1ac7084d"
+    },
+    {
+      "path": "server/src/services/maproom/v3/getDefenderLevels.ts",
+      "sha256": "812054ba4b75e8252ac79359bfcb8506cfbc9f8a9887c09859fe230936c3807d"
+    },
+    {
+      "path": "server/src/services/maproom/v3/findFreeSector.ts",
+      "sha256": "43103544deb1e2e3cd628adaa67462f2fe394f4ba6f1b02c734618eb7c0eebd3"
+    },
+    {
+      "path": "server/src/services/maproom/v3/tribeSaveV3.ts",
+      "sha256": "94ccf676beff2a0414cae590f0d00d5c9ef343d09d119d35c6b5a836d72de49c"
+    },
+    {
+      "path": "server/src/services/maproom/v3/takeoverCellMR3.ts",
+      "sha256": "b9887258db186b0061ed8782ee79754486543249b2939fffe8adabb7bdcebd6e"
+    },
+    {
+      "path": "server/src/services/maproom/v3/joinNewWorldMap.ts",
+      "sha256": "d8fc26041ba272ca74466bcb6f6758e203979096361529ad14e5a1bc6d5d5df7"
+    },
+    {
+      "path": "server/src/services/maproom/v3/leavePosition.ts",
+      "sha256": "9b747c3777b1a277bb80af224f92e258c50dbc0e81ee16194cdc3a2a2737b34b"
+    },
+    {
+      "path": "server/src/services/maproom/v3/removeDefenders.ts",
+      "sha256": "1aadc53c33060ca6fa8698a836a4b217ad215220926b9649d40d49aa12e9a718"
+    },
+    {
+      "path": "server/src/controllers/maproom/setMapVersion.ts",
+      "sha256": "fda2269ac6a400b45a570e82c61ca3192d12b70e321d46958829ab7b00a28e67"
+    },
+    {
+      "path": "server/src/controllers/maproom/v3/getCells.ts",
+      "sha256": "ad0035eabd2cf210a9aa253f6fc8d9e60e3c420e536e13783464c0bcd53f0d33"
+    },
+    {
+      "path": "server/src/controllers/maproom/v3/relocate.ts",
+      "sha256": "4e167141f92cbc51fd4aa19c30946cd159421e6f0bf7a1e036e063488bb12d70"
+    },
+    {
+      "path": "server/src/controllers/maproom/v3/getFriendInfo.ts",
+      "sha256": "765b7ca4a0f68f38053f667b7b80ec547b337d1bb5e534a1a45ddb6b00e64c06"
+    },
+    {
+      "path": "server/src/schemas/RelocateSchema.ts",
+      "sha256": "e8bc05f5106d829dccaf21544b9c5b185e09525bb99526ccfafc37308545a634"
+    },
+    {
+      "path": "server/src/services/maproom/v3/getFriendYards.ts",
+      "sha256": "bd7a474512d2758b7f6374d2c672821bd34d9bed29a3add818b89e745cdd85cd"
+    },
+    {
+      "path": "server/src/services/maproom/attackPermission.ts",
+      "sha256": "601348fe95485f371e540d0f245282dac25c3a56624a446c512b174896cdaee8"
+    },
+    {
+      "path": "server/src/services/maproom/attackHistory.ts",
+      "sha256": "88a75132be0dd5d7247a2df3ad2f0617614d6fcf5bf9644e8778f7d9981b0956"
+    },
+    {
+      "path": "server/src/services/maproom/v3/createCellData.ts",
+      "sha256": "42a563c9a9a4d323ef73d740dcb0a3bbbb1285b588d74ff56a9809accf2f7ed9"
+    },
+    {
+      "path": "server/src/controllers/maproom/v3/cells/playerCell.ts",
+      "sha256": "fe14675b2065106fdcaaf06b5d40bd8f716852c08614d6e2eb135b7b6bbe5a30"
+    },
+    {
+      "path": "server/src/controllers/maproom/v3/cells/wildMonsterCell.ts",
+      "sha256": "e5df412137db1fd9b2aefbb6e9f09c516dc29c368fb339d58efb38284371a5ee"
+    },
+    {
+      "path": "server/src/controllers/maproom/v3/cells/tribeOutpostCell.ts",
+      "sha256": "26e1af1dd5c8e351d947b76f375cd49e379f79b1d5b2b2bca2d1313a44e92643"
+    },
+    {
+      "path": "server/src/enums/Tribes.ts",
+      "sha256": "d74d328c9047f3a5fc8bb759bdb9ca888a60f6e8a3804faeee4a3172de16622c"
+    },
+    {
+      "path": "server/src/controllers/base/load/baseLoad.ts",
+      "sha256": "ba9d3046e16f50be16440465fd382289bdbcd088487e90f852c5e1794eeb9a54"
+    },
+    {
+      "path": "server/src/controllers/base/load/modes/baseModeAttack.ts",
+      "sha256": "a424643b0ff9226fec42fe85cf5011f3e7044a9ed109fbc1463952bf4f61acfe"
+    },
+    {
+      "path": "server/src/controllers/base/save/baseSave.ts",
+      "sha256": "d3e74fe3bc038228f1e8657edeafb165fec3e151e1b80288287fc9b43c0926b5"
+    },
+    {
+      "path": "server/src/services/base/canAttack.ts",
+      "sha256": "a37bd7e3f5923ad4bd88847f7b4999e032038fc3dbd852c13d00ae8946a9d000"
+    },
+    {
+      "path": "server/src/services/base/mapSaveData.ts",
+      "sha256": "e39b7e1cb2f93d94d3fb4d96c0f1acf42ea7fbd9e7fa7a21f04c283a0d1d2c7d"
+    },
+    {
+      "path": "client/scripts/com/monsters/maproom3/MapRoom3Cell.as",
+      "sha256": "880f1c7e0efda9a9912242053f998c8bc78ad88ae4d10643cca4bbb5ba289fe6"
+    },
+    {
+      "path": "client/scripts/com/monsters/maproom3/MapRoom3CellGraphic.as",
+      "sha256": "a00022f554130a4b541b57fbe11d87916cf94689d6bfb60a76fbd548ae4bf719"
+    },
+    {
+      "path": "client/scripts/com/monsters/maproom3/data/MapRoom3CellData.as",
+      "sha256": "f8080c3c7c652629b974b889676d001b504458a8b48f48010e7262ddb417a85f"
+    },
+    {
+      "path": "client/scripts/com/monsters/maproom3/tiles/MapRoom3TileSetManager.as",
+      "sha256": "97a8439cfad8c4fbee3d7ead9c311a47ed23b69bca92c0388617f820ddcf06e6"
+    },
+    {
+      "path": "client/scripts/com/monsters/maproom_manager/MapRoomManager.as",
+      "sha256": "39c05993bdf704762417039bedd5ee19fe07cbcab06188481117e90651f22437"
+    },
+    {
+      "path": "client/scripts/BUILDINGS.as",
+      "sha256": "6459f59f42c055bbec6b6dab365c1c0f16814c5558e4cc42d69185e60e2c189e"
+    },
+    {
+      "path": "client/scripts/BUILDINGINFO.as",
+      "sha256": "c73f3b4806d9ab445fff2186a1f378d76b9ae417a050bf201431a8edd62b1d9b"
+    },
+    {
+      "path": "client/scripts/BUILDING11.as",
+      "sha256": "cac0a9e47027864a3a6742584784883515545be5cce04127c7e6a1821cd4e2cd"
+    },
+    {
+      "path": "client/scripts/BFOUNDATION.as",
+      "sha256": "29abd5161cbca96a6f91c3e8cc84c5c3341352c2568aae4427a77caf7e2e485b"
+    },
+    {
+      "path": "client/scripts/BASE.as",
+      "sha256": "12b017340b09f671e29aa7140ab9b32a2cda894f63f3fb568c1da6352d03bd2f"
+    },
+    {
+      "path": "client/scripts/GuardTower.as",
+      "sha256": "7249a85661c5ce4b5d23df93d0d3091f5d02f44f0da651f0e7f659add08c5273"
+    },
+    {
+      "path": "client/scripts/ResourceOutpost.as",
+      "sha256": "7c4d11fa4135b69cb5617bbca97e8fc3da7f99a54c9132400ca607cfb89585c6"
+    },
+    {
+      "path": "client/scripts/OutpostDefender.as",
+      "sha256": "f0c1a72a5da2fa7dfa80a169994b536f29171f7b61f89d78aa4647b74396a57d"
+    },
+    {
+      "path": "client/scripts/BTOWER.as",
+      "sha256": "24bb3377e4f1f26c07fabcfffba04e6b271fa193cdc261f24f355f70e4ec5501"
+    },
+    {
+      "path": "client/scripts/Targeting.as",
+      "sha256": "57e59eb7aa0fbc85d14e6aaef18bc7579f5d25044d740974e07c72691179132c"
+    },
+    {
+      "path": "client/scripts/GRID.as",
+      "sha256": "9001f7bbc8e0080cf2f46d6a21bec316bc655bf28d69db274e76b4acd7ee8983"
+    },
+    {
+      "path": "client/scripts/com/monsters/pathing/PATHING.as",
+      "sha256": "d23752c71edae421f9f1efafcaccfbb60da5ae7d2072b55fd90e530ffe7193bd"
+    },
+    {
+      "path": "client/scripts/com/monsters/utils/MathUtils.as",
+      "sha256": "e5872a4b7932ba561a43714d0e67401d24a9389273dd6fe8d6580ea2407d0d96"
+    },
+    {
+      "path": "client/scripts/YARD_PROPS.as",
+      "sha256": "53a68b85c398be7d1410cc48b2843ae2fb9a712072c8c88a34caec309b99b894"
+    },
+    {
+      "path": "client/scripts/com/monsters/ai/WMBASE.as",
+      "sha256": "70dfd7eb53b415d2eff4d70e9bd4b357edb3d349282d19fed93eeba22ecfcd12"
+    },
+    {
+      "path": "client/scripts/STORE.as",
+      "sha256": "6269301ca0485ff6e571378989500686b797f4eb1214d4c19c9c4271ede95b87"
+    },
+    {
+      "path": "client/scripts/com/monsters/baseBuffs/buffs/BuildingDefenseBuff.as",
+      "sha256": "135bd9cd19afd558ab8dcf851c8b67f4fd09afc293407687f22d71054001d78d"
+    },
+    {
+      "path": "client/scripts/com/monsters/baseBuffs/buffs/TowerDamageBuff.as",
+      "sha256": "ac229fa4d9d5abc9f94da609d779a3e8bf2849f06e7af9ac86513497459d65da"
+    },
+    {
+      "path": "client/scripts/com/monsters/baseBuffs/buffs/monsterDamageBuffs/MonsterAttackDamageBuff.as",
+      "sha256": "589a5ebb0554eb0cdb516292c29cfca15c74f30af59d01943b09de15c1e88d55"
+    },
+    {
+      "path": "client/scripts/com/monsters/baseBuffs/buffs/monsterDamageBuffs/MonsterDamageBuff.as",
+      "sha256": "6a6c5b00bc055b4ded234ec9a3b429c5a40a9b5f6b251f08abe9dd8903383859"
+    },
+    {
+      "path": "server/src/game-data/tribes/v3/resources.ts",
+      "sha256": "d71b4e70996c0462a9b8ed65854d79d351645e8e2ceec7ec0d28823a107a4707"
+    },
+    {
+      "path": "server/src/game-data/tribes/v3/strongholds.ts",
+      "sha256": "9e28283d8fd3a69c6678020648d283a2ab7fd55b691cde84b011eef94029da75"
+    },
+    {
+      "path": "server/src/game-data/tribes/v3/defenders.ts",
+      "sha256": "7ae1bafb430bbffb58c5b950a26ac533657767eeeb17dfd444087ac4e8cca557"
+    },
+    {
+      "path": "server/src/game-data/tribes/v3/outposts/legionnaire.ts",
+      "sha256": "c2cda73946d22712c9b20b734d5f554db9c8691d75ffcea7461041a017390b52"
+    },
+    {
+      "path": "server/src/game-data/tribes/v3/outposts/kozu.ts",
+      "sha256": "8c6e140206ecaf17d0688d81ae4becaf4d2a89ed3ef9e4802a067d81de833ad4"
+    },
+    {
+      "path": "server/src/game-data/tribes/v3/outposts/abunakki.ts",
+      "sha256": "10b40df1837074b96cf0447619ffe95219ba7da2dff0ae3c40237d8dc1ba060a"
+    },
+    {
+      "path": "server/src/game-data/tribes/v3/outposts/dreadnaught.ts",
+      "sha256": "106e85cc414c8f02c9b331bdf341caa247aa26765a8cba9b7208e73978fe2630"
+    }
+  ]
+}

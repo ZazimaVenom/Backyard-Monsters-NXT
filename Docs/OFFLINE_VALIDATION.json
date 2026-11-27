@@ -1,0 +1,20 @@
+{
+  "scope": "offline source and asset integrity only",
+  "unreal_compiled": false,
+  "runtime_tested": false,
+  "passed": true,
+  "checks": 66933,
+  "manifest_assets": 6561,
+  "importable_assets": 6449,
+  "atlas_descriptors_checked": 296,
+  "atlas_images_checked": 136,
+  "experience_thresholds": 100,
+  "asset_bytes_hashed": 234991377,
+  "building_records": 140,
+  "monster_records": 28,
+  "errors": [],
+  "warnings": [
+    "Source records without usable building art remain unavailable: 112, 122, 123, 124, 125, 126, 128, 130",
+    "Unreal Engine compilation, editor import, packaged gameplay, network security and 100-client/1,000-bot performance were NOT tested by this script."
+  ]
+}

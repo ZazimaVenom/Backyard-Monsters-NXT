@@ -1,0 +1,40 @@
+{
+  "result": "PASS",
+  "completed_at_utc": "2026-11-26T22:01:38.413838+00:00",
+  "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+  "source": "Plugins/BackyardMMO/Source/BackyardMMO/Private/BYMBoard.cpp",
+  "source_sha256": "40cdcf370dab091e3f96af7107b20cd9c11754b9fb3ffcc1635eb7432ed37d9f",
+  "checker": "Tools/OfflineValidation/check_packaging_contracts.py",
+  "checker_sha256": "116a46f3fcdfc249eb17ba68ce13a7fefa6f5ac5012c55002794afd45df0fd6b",
+  "extracted_block_sha256": "f4c8623d833a80cc8d7a6f51c7c2b25ebe170b36a37da1fe21827817180fbb4f",
+  "positive_compile_checks": 3,
+  "required_compile_failures": 1,
+  "actual_source_behavior_assertions": 24,
+  "historical_editor_behavior_assertions": 12,
+  "cases": [
+    {
+      "case": "actual_game",
+      "with_editor": 0,
+      "result": "PASS",
+      "behavior_assertions": 12
+    },
+    {
+      "case": "actual_editor",
+      "with_editor": 1,
+      "result": "PASS",
+      "behavior_assertions": 12
+    },
+    {
+      "case": "old_editor_control",
+      "with_editor": 1,
+      "result": "PASS",
+      "behavior_assertions": 12
+    },
+    {
+      "case": "reject_old_game_call",
+      "with_editor": 0,
+      "result": "EXPECTED_COMPILE_FAILURE"
+    }
+  ],
+  "scope": "Actual sprite texture-readiness block with WITH_EDITOR=0/1 against strict minimal texture/mesh stubs. Not an Unreal/UBT/UHT build, cook, or render test."
+}

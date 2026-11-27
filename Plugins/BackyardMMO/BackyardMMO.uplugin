@@ -1,0 +1,27 @@
+{
+  "FileVersion": 3,
+  "Version": 15,
+  "VersionName": "0.2.0.2-source-preview",
+  "FriendlyName": "Backyard Monsters NXT",
+  "Description": "Server-authoritative Backyard Monsters recreation: listen-server accounts, yard simulation and native editor setup.",
+  "Category": "Games",
+  "CreatedBy": "Backyard Monsters NXT Project",
+  "CanContainContent": true,
+  "IsBetaVersion": true,
+  "Installed": false,
+  "SupportedTargetPlatforms": [
+    "Win64"
+  ],
+  "Modules": [
+    {
+      "Name": "BackyardMMO",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    },
+    {
+      "Name": "BackyardMMOEditor",
+      "Type": "Editor",
+      "LoadingPhase": "Default"
+    }
+  ]
+}

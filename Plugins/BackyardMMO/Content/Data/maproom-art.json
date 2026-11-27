@@ -1,0 +1,1328 @@
+{
+  "schema": 1,
+  "branch": "MapRoom3",
+  "originalPixelsModified": false,
+  "geometry": {
+    "hexWidth": 104,
+    "hexHeight": 68,
+    "rowStride": 50,
+    "oddRowOffset": 52.0,
+    "edgeLength": 36,
+    "hexVertices": [
+      [
+        52,
+        0
+      ],
+      [
+        104,
+        17
+      ],
+      [
+        104,
+        50
+      ],
+      [
+        52,
+        68
+      ],
+      [
+        0,
+        50
+      ],
+      [
+        0,
+        17
+      ]
+    ]
+  },
+  "background": {
+    "path": "worldmap/background.jpg",
+    "imageWidth": 1200,
+    "imageHeight": 1200
+  },
+  "tiles": [
+    {
+      "path": "worldmap/tiles/clover01.png",
+      "imageWidth": 128,
+      "imageHeight": 78,
+      "offsetX": -12.0,
+      "offsetY": -10,
+      "minAltitude": 32,
+      "maxAltitude": 35
+    },
+    {
+      "path": "worldmap/tiles/clover02.png",
+      "imageWidth": 128,
+      "imageHeight": 78,
+      "offsetX": -12.0,
+      "offsetY": -10,
+      "minAltitude": 35,
+      "maxAltitude": 38
+    },
+    {
+      "path": "worldmap/tiles/clover03.png",
+      "imageWidth": 167,
+      "imageHeight": 95,
+      "offsetX": -31.5,
+      "offsetY": -27,
+      "minAltitude": 38,
+      "maxAltitude": 41
+    },
+    {
+      "path": "worldmap/tiles/clover04.png",
+      "imageWidth": 153,
+      "imageHeight": 98,
+      "offsetX": -24.5,
+      "offsetY": -30,
+      "minAltitude": 41,
+      "maxAltitude": 44
+    },
+    {
+      "path": "worldmap/tiles/clover05.png",
+      "imageWidth": 133,
+      "imageHeight": 78,
+      "offsetX": -14.5,
+      "offsetY": -10,
+      "minAltitude": 44,
+      "maxAltitude": 47
+    },
+    {
+      "path": "worldmap/tiles/clover06.png",
+      "imageWidth": 171,
+      "imageHeight": 96,
+      "offsetX": -33.5,
+      "offsetY": -28,
+      "minAltitude": 47,
+      "maxAltitude": 50
+    },
+    {
+      "path": "worldmap/tiles/brownplant01.png",
+      "imageWidth": 103,
+      "imageHeight": 80,
+      "offsetX": 0.5,
+      "offsetY": -12,
+      "minAltitude": 50,
+      "maxAltitude": 52
+    },
+    {
+      "path": "worldmap/tiles/brownplant02.png",
+      "imageWidth": 135,
+      "imageHeight": 106,
+      "offsetX": -15.5,
+      "offsetY": -38,
+      "minAltitude": 52,
+      "maxAltitude": 54
+    },
+    {
+      "path": "worldmap/tiles/brownplant03.png",
+      "imageWidth": 157,
+      "imageHeight": 108,
+      "offsetX": -26.5,
+      "offsetY": -40,
+      "minAltitude": 54,
+      "maxAltitude": 56
+    },
+    {
+      "path": "worldmap/tiles/brownplant04.png",
+      "imageWidth": 129,
+      "imageHeight": 135,
+      "offsetX": -12.5,
+      "offsetY": -67,
+      "minAltitude": 56,
+      "maxAltitude": 58
+    },
+    {
+      "path": "worldmap/tiles/brownplant05.png",
+      "imageWidth": 162,
+      "imageHeight": 151,
+      "offsetX": -29.0,
+      "offsetY": -83,
+      "minAltitude": 58,
+      "maxAltitude": 60
+    },
+    {
+      "path": "worldmap/tiles/greenplant01.png",
+      "imageWidth": 103,
+      "imageHeight": 80,
+      "offsetX": 0.5,
+      "offsetY": -12,
+      "minAltitude": 60,
+      "maxAltitude": 62
+    },
+    {
+      "path": "worldmap/tiles/greenplant02.png",
+      "imageWidth": 135,
+      "imageHeight": 106,
+      "offsetX": -15.5,
+      "offsetY": -38,
+      "minAltitude": 62,
+      "maxAltitude": 64
+    },
+    {
+      "path": "worldmap/tiles/greenplant03.png",
+      "imageWidth": 157,
+      "imageHeight": 118,
+      "offsetX": -26.5,
+      "offsetY": -50,
+      "minAltitude": 64,
+      "maxAltitude": 66
+    },
+    {
+      "path": "worldmap/tiles/greenplant04.png",
+      "imageWidth": 129,
+      "imageHeight": 135,
+      "offsetX": -12.5,
+      "offsetY": -67,
+      "minAltitude": 66,
+      "maxAltitude": 68
+    },
+    {
+      "path": "worldmap/tiles/greenplant05.png",
+      "imageWidth": 162,
+      "imageHeight": 151,
+      "offsetX": -29.0,
+      "offsetY": -83,
+      "minAltitude": 68,
+      "maxAltitude": 70
+    },
+    {
+      "path": "worldmap/tiles/spiky01.png",
+      "imageWidth": 129,
+      "imageHeight": 72,
+      "offsetX": -12.5,
+      "offsetY": -4,
+      "minAltitude": 70,
+      "maxAltitude": 71
+    },
+    {
+      "path": "worldmap/tiles/spiky02.png",
+      "imageWidth": 131,
+      "imageHeight": 90,
+      "offsetX": -13.5,
+      "offsetY": -22,
+      "minAltitude": 71,
+      "maxAltitude": 72
+    },
+    {
+      "path": "worldmap/tiles/spiky03.png",
+      "imageWidth": 119,
+      "imageHeight": 73,
+      "offsetX": -7.5,
+      "offsetY": -5,
+      "minAltitude": 72,
+      "maxAltitude": 73
+    },
+    {
+      "path": "worldmap/tiles/spiky04.png",
+      "imageWidth": 141,
+      "imageHeight": 93,
+      "offsetX": -18.5,
+      "offsetY": -25,
+      "minAltitude": 73,
+      "maxAltitude": 75
+    },
+    {
+      "path": "worldmap/tiles/spiky05.png",
+      "imageWidth": 136,
+      "imageHeight": 96,
+      "offsetX": -16.0,
+      "offsetY": -28,
+      "minAltitude": 75,
+      "maxAltitude": 77
+    },
+    {
+      "path": "worldmap/tiles/spiky06.png",
+      "imageWidth": 132,
+      "imageHeight": 95,
+      "offsetX": -14.0,
+      "offsetY": -27,
+      "minAltitude": 77,
+      "maxAltitude": 79
+    },
+    {
+      "path": "worldmap/tiles/spiky07.png",
+      "imageWidth": 146,
+      "imageHeight": 91,
+      "offsetX": -21.0,
+      "offsetY": -23,
+      "minAltitude": 78,
+      "maxAltitude": 80
+    },
+    {
+      "path": "worldmap/tiles/borderplant01.png",
+      "imageWidth": 129,
+      "imageHeight": 135,
+      "offsetX": -12.5,
+      "offsetY": -67,
+      "minAltitude": 99,
+      "maxAltitude": 100
+    },
+    {
+      "path": "worldmap/tiles/borderplant02.png",
+      "imageWidth": 162,
+      "imageHeight": 151,
+      "offsetX": -29.0,
+      "offsetY": -83,
+      "minAltitude": 99,
+      "maxAltitude": 100
+    },
+    {
+      "path": "worldmap/tiles/borderplant03.png",
+      "imageWidth": 129,
+      "imageHeight": 135,
+      "offsetX": -12.5,
+      "offsetY": -67,
+      "minAltitude": 99,
+      "maxAltitude": 100
+    },
+    {
+      "path": "worldmap/tiles/borderplant04.png",
+      "imageWidth": 162,
+      "imageHeight": 151,
+      "offsetX": -29.0,
+      "offsetY": -83,
+      "minAltitude": 99,
+      "maxAltitude": 100
+    },
+    {
+      "path": "worldmap/tiles/borderplant05.png",
+      "imageWidth": 132,
+      "imageHeight": 95,
+      "offsetX": -14.0,
+      "offsetY": -27,
+      "minAltitude": 99,
+      "maxAltitude": 100
+    }
+  ],
+  "altitudeRanges": [
+    {
+      "start": 32,
+      "end": 35,
+      "tileIndices": [
+        0
+      ]
+    },
+    {
+      "start": 35,
+      "end": 38,
+      "tileIndices": [
+        1
+      ]
+    },
+    {
+      "start": 38,
+      "end": 41,
+      "tileIndices": [
+        2
+      ]
+    },
+    {
+      "start": 41,
+      "end": 44,
+      "tileIndices": [
+        3
+      ]
+    },
+    {
+      "start": 44,
+      "end": 47,
+      "tileIndices": [
+        4
+      ]
+    },
+    {
+      "start": 47,
+      "end": 50,
+      "tileIndices": [
+        5
+      ]
+    },
+    {
+      "start": 50,
+      "end": 52,
+      "tileIndices": [
+        6
+      ]
+    },
+    {
+      "start": 52,
+      "end": 54,
+      "tileIndices": [
+        7
+      ]
+    },
+    {
+      "start": 54,
+      "end": 56,
+      "tileIndices": [
+        8
+      ]
+    },
+    {
+      "start": 56,
+      "end": 58,
+      "tileIndices": [
+        9
+      ]
+    },
+    {
+      "start": 58,
+      "end": 60,
+      "tileIndices": [
+        10
+      ]
+    },
+    {
+      "start": 60,
+      "end": 62,
+      "tileIndices": [
+        11
+      ]
+    },
+    {
+      "start": 62,
+      "end": 64,
+      "tileIndices": [
+        12
+      ]
+    },
+    {
+      "start": 64,
+      "end": 66,
+      "tileIndices": [
+        13
+      ]
+    },
+    {
+      "start": 66,
+      "end": 68,
+      "tileIndices": [
+        14
+      ]
+    },
+    {
+      "start": 68,
+      "end": 70,
+      "tileIndices": [
+        15
+      ]
+    },
+    {
+      "start": 70,
+      "end": 71,
+      "tileIndices": [
+        16
+      ]
+    },
+    {
+      "start": 71,
+      "end": 72,
+      "tileIndices": [
+        17
+      ]
+    },
+    {
+      "start": 72,
+      "end": 73,
+      "tileIndices": [
+        18
+      ]
+    },
+    {
+      "start": 73,
+      "end": 75,
+      "tileIndices": [
+        19
+      ]
+    },
+    {
+      "start": 75,
+      "end": 77,
+      "tileIndices": [
+        20
+      ]
+    },
+    {
+      "start": 77,
+      "end": 78,
+      "tileIndices": [
+        21
+      ]
+    },
+    {
+      "start": 78,
+      "end": 79,
+      "tileIndices": [
+        21,
+        22
+      ]
+    },
+    {
+      "start": 79,
+      "end": 80,
+      "tileIndices": [
+        22
+      ]
+    },
+    {
+      "start": 80,
+      "end": 99,
+      "tileIndices": []
+    },
+    {
+      "start": 99,
+      "end": 100,
+      "tileIndices": [
+        23,
+        24,
+        25,
+        26,
+        27
+      ]
+    }
+  ],
+  "blockedAltitude": 51,
+  "borderAltitude": 100,
+  "icons": {
+    "playerBase": {
+      "path": "worldmap/icons/player_base.png",
+      "imageWidth": 72,
+      "imageHeight": 100,
+      "offsetX": 16,
+      "offsetY": -16
+    },
+    "resourceCell": {
+      "path": "worldmap/icons/resource_cell.png",
+      "imageWidth": 90,
+      "imageHeight": 94,
+      "offsetX": 7,
+      "offsetY": -13
+    },
+    "stronghold": {
+      "path": "worldmap/icons/guard_tower.png",
+      "imageWidth": 104,
+      "imageHeight": 128,
+      "offsetX": 0,
+      "offsetY": -30
+    },
+    "wildMonsterBase": {
+      "path": "worldmap/icons/wild_monster_base_v2.png",
+      "imageWidth": 58,
+      "imageHeight": 61,
+      "offsetX": 23,
+      "offsetY": 4
+    },
+    "damageProtection": {
+      "path": "worldmap/icons/damage_protection.png",
+      "imageWidth": 104,
+      "imageHeight": 106,
+      "offsetX": 0,
+      "offsetY": -19
+    },
+    "fortification": {
+      "path": "worldmap/icons/fortification_v2.png",
+      "imageWidth": 90,
+      "imageHeight": 61,
+      "offsetX": 7,
+      "offsetY": 4
+    },
+    "fortificationEast": {
+      "path": "worldmap/icons/fortification_east_v2.png",
+      "imageWidth": 90,
+      "imageHeight": 61,
+      "offsetX": 7,
+      "offsetY": 4
+    },
+    "fortificationWest": {
+      "path": "worldmap/icons/fortification_west_v2.png",
+      "imageWidth": 90,
+      "imageHeight": 61,
+      "offsetX": 7,
+      "offsetY": 4
+    },
+    "fortificationNorthEast": {
+      "path": "worldmap/icons/fortification_north_east_v2.png",
+      "imageWidth": 90,
+      "imageHeight": 61,
+      "offsetX": 7,
+      "offsetY": 4
+    },
+    "fortificationNorthWest": {
+      "path": "worldmap/icons/fortification_north_west_v2.png",
+      "imageWidth": 90,
+      "imageHeight": 61,
+      "offsetX": 7,
+      "offsetY": 4
+    },
+    "fortificationSouthEast": {
+      "path": "worldmap/icons/fortification_south_east_v2.png",
+      "imageWidth": 90,
+      "imageHeight": 61,
+      "offsetX": 7,
+      "offsetY": 4
+    },
+    "fortificationSouthWest": {
+      "path": "worldmap/icons/fortification_south_west_v2.png",
+      "imageWidth": 90,
+      "imageHeight": 61,
+      "offsetX": 7,
+      "offsetY": 4
+    },
+    "fullyFortifiedBack": {
+      "path": "worldmap/icons/fully_fortified_back.png",
+      "imageWidth": 91,
+      "imageHeight": 67,
+      "offsetX": 7,
+      "offsetY": 1
+    },
+    "fullyFortifiedFront": {
+      "path": "worldmap/icons/fully_fortified_front.png",
+      "imageWidth": 126,
+      "imageHeight": 94,
+      "offsetX": -11,
+      "offsetY": -13
+    }
+  },
+  "overlays": {
+    "self": {
+      "path": "worldmap/overlays/glow_blue.png",
+      "imageWidth": 104,
+      "imageHeight": 68
+    },
+    "ally": {
+      "path": "worldmap/overlays/glow_green.png",
+      "imageWidth": 104,
+      "imageHeight": 68
+    },
+    "neutral": {
+      "path": "worldmap/overlays/glow_yellow.png",
+      "imageWidth": 104,
+      "imageHeight": 68
+    },
+    "enemy": {
+      "path": "worldmap/overlays/glow_red.png",
+      "imageWidth": 104,
+      "imageHeight": 68
+    }
+  },
+  "fortificationLights": {
+    "self": {
+      "path": "worldmap/icons/fortification_light_blue_v2.png",
+      "imageWidth": 90,
+      "imageHeight": 61,
+      "offsetX": 7,
+      "offsetY": 4
+    },
+    "ally": {
+      "path": "worldmap/icons/fortification_light_green_v2.png",
+      "imageWidth": 90,
+      "imageHeight": 61,
+      "offsetX": 7,
+      "offsetY": 4
+    },
+    "neutral": {
+      "path": "worldmap/icons/fortification_light_yellow_v2.png",
+      "imageWidth": 90,
+      "imageHeight": 61,
+      "offsetX": 7,
+      "offsetY": 4
+    },
+    "enemy": {
+      "path": "worldmap/icons/fortification_light_red_v2.png",
+      "imageWidth": 90,
+      "imageHeight": 61,
+      "offsetX": 7,
+      "offsetY": 4
+    }
+  },
+  "strongholdEffects": {
+    "neutral": {
+      "path": "worldmap/icons/guard_tower_buff_effect.v2.png",
+      "imageWidth": 4000,
+      "imageHeight": 110,
+      "frames": 40,
+      "frameWidth": 100,
+      "frameHeight": 110,
+      "offsetX": 2,
+      "offsetY": -41
+    },
+    "enemy": {
+      "path": "worldmap/icons/guard_tower_buff_effect_enemy.v3.png",
+      "imageWidth": 4000,
+      "imageHeight": 110,
+      "frames": 40,
+      "frameWidth": 100,
+      "frameHeight": 110,
+      "offsetX": 2,
+      "offsetY": -41
+    },
+    "player": {
+      "path": "worldmap/icons/guard_tower_buff_effect_player.v3.png",
+      "imageWidth": 4000,
+      "imageHeight": 110,
+      "frames": 40,
+      "frameWidth": 100,
+      "frameHeight": 110,
+      "offsetX": 2,
+      "offsetY": -41
+    },
+    "mixed": {
+      "path": "worldmap/icons/guard_tower_buff_effect_mixed.v3.png",
+      "imageWidth": 4000,
+      "imageHeight": 110,
+      "frames": 40,
+      "frameWidth": 100,
+      "frameHeight": 110,
+      "offsetX": 2,
+      "offsetY": -41
+    }
+  },
+  "damageBar": {
+    "path": "worldmap/cell_health_bar.png",
+    "imageWidth": 41,
+    "imageHeight": 68,
+    "frameWidth": 41,
+    "frameHeight": 4,
+    "frames": 17
+  },
+  "hud": {
+    "zoomIn": {
+      "path": "worldmap/hud/options/button_zoom_in.png",
+      "imageWidth": 26,
+      "imageHeight": 26
+    },
+    "zoomOut": {
+      "path": "worldmap/hud/options/button_zoom_out.png",
+      "imageWidth": 26,
+      "imageHeight": 26
+    },
+    "fullScreen": {
+      "path": "worldmap/hud/options/button_full_screen.png",
+      "imageWidth": 26,
+      "imageHeight": 26
+    },
+    "buttonsBackground": {
+      "path": "worldmap/hud/buttons_background.png",
+      "imageWidth": 276,
+      "imageHeight": 54
+    },
+    "coordinatesBackground": {
+      "path": "worldmap/hud/coordinates_background.png",
+      "imageWidth": 122,
+      "imageHeight": 39
+    },
+    "bookmarkResource": {
+      "path": "worldmap/hud/bookmark_thumbnail_resource.png",
+      "imageWidth": 40,
+      "imageHeight": 32
+    },
+    "bookmarkStronghold": {
+      "path": "worldmap/hud/bookmark_thumbnail_stronghold.png",
+      "imageWidth": 40,
+      "imageHeight": 32
+    },
+    "mouseoverBackground": {
+      "path": "worldmap/rollover/background.png",
+      "imageWidth": 200,
+      "imageHeight": 55
+    },
+    "buttonBackground": {
+      "path": "worldmap/rollover/button_background.png",
+      "imageWidth": 36,
+      "imageHeight": 36
+    },
+    "enter": {
+      "path": "worldmap/rollover/button_enter.png",
+      "imageWidth": 36,
+      "imageHeight": 36
+    },
+    "enterHover": {
+      "path": "worldmap/rollover/button_enter_rollover.png",
+      "imageWidth": 36,
+      "imageHeight": 36
+    },
+    "scoutAttack": {
+      "path": "worldmap/rollover/button_scout_attack.png",
+      "imageWidth": 36,
+      "imageHeight": 36
+    },
+    "scoutAttackHover": {
+      "path": "worldmap/rollover/button_scout_attack_rollover.png",
+      "imageWidth": 36,
+      "imageHeight": 36
+    },
+    "bookmarkAdd": {
+      "path": "worldmap/rollover/button_bookmark_add.png",
+      "imageWidth": 36,
+      "imageHeight": 36
+    },
+    "bookmarkAddHover": {
+      "path": "worldmap/rollover/button_bookmark_add_rollover.png",
+      "imageWidth": 36,
+      "imageHeight": 36
+    },
+    "bookmarkRemove": {
+      "path": "worldmap/rollover/button_bookmark_remove.png",
+      "imageWidth": 36,
+      "imageHeight": 36
+    },
+    "bookmarkRemoveHover": {
+      "path": "worldmap/rollover/button_bookmark_remove_rollover.png",
+      "imageWidth": 36,
+      "imageHeight": 36
+    }
+  },
+  "selection": {
+    "rangeRule": "Require height >= first start; use first range with end >= height; empty options means no plant tile.",
+    "index": "cellY * mapWidth + cellX",
+    "hash": "uint32 v=index; v^=v<<21; v^=v>>3; v^=v<<4; abs(int64(int32(v))) % optionCount",
+    "notes": "AS3 shift counts wrap modulo32; >>>35 is >>>3. Preserve overlapping/spare source ranges rather than rounding altitude to a made-up tile."
+  },
+  "inputs": {
+    "worldmap/background.jpg": {
+      "sha256": "5175e887e80d2a671168e34abf9f677540435bb312229f45fb4f45886808c234",
+      "bytes": 249467,
+      "width": 1200,
+      "height": 1200,
+      "mode": "RGB"
+    },
+    "worldmap/cell_health_bar.png": {
+      "sha256": "31c1f31a8379dd718294925c5f238ffaee9c818dcbf0179e920962926a3508a2",
+      "bytes": 1726,
+      "width": 41,
+      "height": 68,
+      "mode": "RGB"
+    },
+    "worldmap/hud/bookmark_thumbnail_resource.png": {
+      "sha256": "2c4798301f4e007dfbd816a1849aaa3d7f90dce7ccbaaf21c4ed992dc9ca9e7c",
+      "bytes": 3712,
+      "width": 40,
+      "height": 32,
+      "mode": "RGB"
+    },
+    "worldmap/hud/bookmark_thumbnail_stronghold.png": {
+      "sha256": "71f311584a86fefea3c5041cb431e7896377fcb1df4c7dabd2a70e7145390ab5",
+      "bytes": 3690,
+      "width": 40,
+      "height": 32,
+      "mode": "RGB"
+    },
+    "worldmap/hud/buttons_background.png": {
+      "sha256": "8e01105f980285fc72befc5887ed7e9d944b272ce32246914d2ce893700ed9b8",
+      "bytes": 3570,
+      "width": 276,
+      "height": 54,
+      "mode": "P"
+    },
+    "worldmap/hud/coordinates_background.png": {
+      "sha256": "a78a013c1785b4d29c9da5200d1ab8cba46acc915c2a0144d9645e64b8b0850a",
+      "bytes": 1194,
+      "width": 122,
+      "height": 39,
+      "mode": "RGBA"
+    },
+    "worldmap/hud/options/button_full_screen.png": {
+      "sha256": "11dfcb21b7f614b803b20ce9cac8e2f4b4b82474022448d8091a9c353a30926d",
+      "bytes": 814,
+      "width": 26,
+      "height": 26,
+      "mode": "RGBA"
+    },
+    "worldmap/hud/options/button_zoom_in.png": {
+      "sha256": "3f286a155570814f0ba1242c59d6a4f6ddb353f2dc28c6fc15623f11dc5100ce",
+      "bytes": 816,
+      "width": 26,
+      "height": 26,
+      "mode": "RGBA"
+    },
+    "worldmap/hud/options/button_zoom_out.png": {
+      "sha256": "357e4226a8bcbcfffb863f5b12a726f9334760d281a5cd024cf1055cf6531e3e",
+      "bytes": 792,
+      "width": 26,
+      "height": 26,
+      "mode": "RGBA"
+    },
+    "worldmap/icons/damage_protection.png": {
+      "sha256": "4a7116a84fa50f80e14c8035c4985c5aa161bec4c681fd3aa6635ac1c6deebbb",
+      "bytes": 10283,
+      "width": 104,
+      "height": 106,
+      "mode": "RGBA"
+    },
+    "worldmap/icons/fortification_east_v2.png": {
+      "sha256": "bc86620485d7fd06ead39a4539fd7819921d90dea3a455f14b0f8c2643359ffe",
+      "bytes": 9177,
+      "width": 90,
+      "height": 61,
+      "mode": "RGBA"
+    },
+    "worldmap/icons/fortification_light_blue_v2.png": {
+      "sha256": "8ca94f4681d30410d22e3e38c3f188e95ad7e23c39de5e822915c0d6d9ee23ae",
+      "bytes": 4012,
+      "width": 90,
+      "height": 61,
+      "mode": "RGBA"
+    },
+    "worldmap/icons/fortification_light_green_v2.png": {
+      "sha256": "09ec1108190ffeac948f932765f5a01774d86fd24414f6750f57d15034013b3b",
+      "bytes": 4008,
+      "width": 90,
+      "height": 61,
+      "mode": "RGBA"
+    },
+    "worldmap/icons/fortification_light_red_v2.png": {
+      "sha256": "bce197b8fd25c9d174130e9b8161d9f9d8b25b7ca3d3b0929257e6907abef54c",
+      "bytes": 4093,
+      "width": 90,
+      "height": 61,
+      "mode": "RGBA"
+    },
+    "worldmap/icons/fortification_light_yellow_v2.png": {
+      "sha256": "44d61b737f836a18191a07ff47ef9f00f50c0f30d2f5cd2a17c4a453d9136057",
+      "bytes": 4167,
+      "width": 90,
+      "height": 61,
+      "mode": "RGBA"
+    },
+    "worldmap/icons/fortification_north_east_v2.png": {
+      "sha256": "a63d2229023169e457e3274a0357db2ea67f4936f7fc5587a228c7e9a30328f1",
+      "bytes": 9638,
+      "width": 90,
+      "height": 61,
+      "mode": "RGBA"
+    },
+    "worldmap/icons/fortification_north_west_v2.png": {
+      "sha256": "ea2514ea111b71db1f1bd2acbd8eba3630f0b9855c903684cb2e6e42eb14381c",
+      "bytes": 9886,
+      "width": 90,
+      "height": 61,
+      "mode": "RGBA"
+    },
+    "worldmap/icons/fortification_south_east_v2.png": {
+      "sha256": "05974cbad7071d41e70902a63d73cb84a25b5bae3bb46302b9c61e6dd7f85140",
+      "bytes": 10151,
+      "width": 90,
+      "height": 61,
+      "mode": "RGBA"
+    },
+    "worldmap/icons/fortification_south_west_v2.png": {
+      "sha256": "30b2e7713004dd2bf74c823789776d380e89f2259d3941fb312fb528c75aa932",
+      "bytes": 10527,
+      "width": 90,
+      "height": 61,
+      "mode": "RGBA"
+    },
+    "worldmap/icons/fortification_v2.png": {
+      "sha256": "8dfd1e3c8bd4d7e28117c11fa22ce40b07502c412f76e62d3b464ca1a9e4af86",
+      "bytes": 6953,
+      "width": 90,
+      "height": 61,
+      "mode": "RGBA"
+    },
+    "worldmap/icons/fortification_west_v2.png": {
+      "sha256": "a0321f1b54ec41cc0461025ddde175543cd7ee357bfe2aff6018dde6aeec355b",
+      "bytes": 9913,
+      "width": 90,
+      "height": 61,
+      "mode": "RGBA"
+    },
+    "worldmap/icons/fully_fortified_back.png": {
+      "sha256": "7fc6dbc7154ae708072192cd592be4a9969c3d505c35802b86930617cfed00f4",
+      "bytes": 2441,
+      "width": 91,
+      "height": 67,
+      "mode": "RGBA"
+    },
+    "worldmap/icons/fully_fortified_front.png": {
+      "sha256": "ca50f1ef4b6b782b3c3b0e3e8410d4b7fab60d43e51b879b15774c55df531a53",
+      "bytes": 8961,
+      "width": 126,
+      "height": 94,
+      "mode": "RGBA"
+    },
+    "worldmap/icons/guard_tower.png": {
+      "sha256": "1d589d12e4cbb7cd6dfdff269d1ac44ef9e78169e27da665a53c610ae7740236",
+      "bytes": 11474,
+      "width": 104,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    "worldmap/icons/guard_tower_buff_effect.v2.png": {
+      "sha256": "36f75c21bd2b291638ad4b8e15813da71d1f15a36b93f79d5be3d294571bdcc0",
+      "bytes": 19061,
+      "width": 4000,
+      "height": 110,
+      "mode": "P"
+    },
+    "worldmap/icons/guard_tower_buff_effect_enemy.v3.png": {
+      "sha256": "254766929db8ca7cb18504ee37323bfed3bb21705f4fa9425d33123463751470",
+      "bytes": 23581,
+      "width": 4000,
+      "height": 110,
+      "mode": "P"
+    },
+    "worldmap/icons/guard_tower_buff_effect_mixed.v3.png": {
+      "sha256": "ccd3702faa12153664b7fd472b7250438153a32e27e10a899ea49ea2e862f008",
+      "bytes": 51963,
+      "width": 4000,
+      "height": 110,
+      "mode": "P"
+    },
+    "worldmap/icons/guard_tower_buff_effect_player.v3.png": {
+      "sha256": "441d6ccbab37f06e67862e135a34a46e0903f9805c259a0c612e5c37357f23cc",
+      "bytes": 36430,
+      "width": 4000,
+      "height": 110,
+      "mode": "P"
+    },
+    "worldmap/icons/player_base.png": {
+      "sha256": "af044ee974ca68ca564d475ae5f01d9488eaf82f4de293d998636da7fe6d451f",
+      "bytes": 8003,
+      "width": 72,
+      "height": 100,
+      "mode": "RGBA"
+    },
+    "worldmap/icons/resource_cell.png": {
+      "sha256": "e6e34a5acd271cd9540477711df3c45c8e667e668d10a167b58dc38e473fc918",
+      "bytes": 12183,
+      "width": 90,
+      "height": 94,
+      "mode": "RGBA"
+    },
+    "worldmap/icons/wild_monster_base_v2.png": {
+      "sha256": "fb3a3ecfd8c5993a3c7733a2fb91ac45e92a8e8e4bcbff9e727ed0c11084ce83",
+      "bytes": 4981,
+      "width": 58,
+      "height": 61,
+      "mode": "RGBA"
+    },
+    "worldmap/overlays/glow_blue.png": {
+      "sha256": "fbbe8435f3173b55e1571f58a8ee71e714076ff7386d00886dc1fbe86f5a4355",
+      "bytes": 3374,
+      "width": 104,
+      "height": 68,
+      "mode": "RGBA"
+    },
+    "worldmap/overlays/glow_green.png": {
+      "sha256": "19f843929b4bafd3f45c6a103c4a6077a7a20a4971db6cb2c944d10bfedf1748",
+      "bytes": 3541,
+      "width": 104,
+      "height": 68,
+      "mode": "RGBA"
+    },
+    "worldmap/overlays/glow_red.png": {
+      "sha256": "a1930752a13167e578bd9b1d6b0f8c05f7314ace24f6dc2e1d5e88a409832d7a",
+      "bytes": 3481,
+      "width": 104,
+      "height": 68,
+      "mode": "RGBA"
+    },
+    "worldmap/overlays/glow_yellow.png": {
+      "sha256": "c413f6877e819cc2680d7ec044e535ba8b637994f3601fe1b479ca043ca69b9f",
+      "bytes": 3239,
+      "width": 104,
+      "height": 68,
+      "mode": "RGBA"
+    },
+    "worldmap/rollover/background.png": {
+      "sha256": "df877922f71f4d1be24b96d9d4c4e83343ad3967adcb4492a423839cc32dd916",
+      "bytes": 5666,
+      "width": 200,
+      "height": 55,
+      "mode": "P"
+    },
+    "worldmap/rollover/button_background.png": {
+      "sha256": "c7658a9151b4d7f1e643bccf9813cbd8345315d6ab6590448a55aeae82645272",
+      "bytes": 2885,
+      "width": 36,
+      "height": 36,
+      "mode": "RGBA"
+    },
+    "worldmap/rollover/button_bookmark_add.png": {
+      "sha256": "ca30a46e5964d91b299ec5f31fdf2219df4bdf2b189f5280f18722490fe190e8",
+      "bytes": 2691,
+      "width": 36,
+      "height": 36,
+      "mode": "RGBA"
+    },
+    "worldmap/rollover/button_bookmark_add_rollover.png": {
+      "sha256": "397f32dabad2dd628a1c4988a98553df38e1bddef4b8d8da5759fd869efc6b20",
+      "bytes": 2749,
+      "width": 36,
+      "height": 36,
+      "mode": "RGBA"
+    },
+    "worldmap/rollover/button_bookmark_remove.png": {
+      "sha256": "5e57989042e011226592f30d8af51efc9a269829c6d264770781b3a321a50063",
+      "bytes": 2627,
+      "width": 36,
+      "height": 36,
+      "mode": "RGBA"
+    },
+    "worldmap/rollover/button_bookmark_remove_rollover.png": {
+      "sha256": "06481da814af76c936591c7c18722c56b51557e294eba57816ec3a01cd5b068a",
+      "bytes": 2661,
+      "width": 36,
+      "height": 36,
+      "mode": "RGBA"
+    },
+    "worldmap/rollover/button_enter.png": {
+      "sha256": "279867b2f4cd534518f04b95b1ea6cd6cdcd1ca2ea9eeb5c1a354c6270d5c92c",
+      "bytes": 2343,
+      "width": 36,
+      "height": 36,
+      "mode": "RGBA"
+    },
+    "worldmap/rollover/button_enter_rollover.png": {
+      "sha256": "d58ac8cb810fdbbbd2b0de2d82eb718bfc759b545662d85f6c9481112115698e",
+      "bytes": 2361,
+      "width": 36,
+      "height": 36,
+      "mode": "RGBA"
+    },
+    "worldmap/rollover/button_scout_attack.png": {
+      "sha256": "4529888541e4730a875ceed56403fe9f598ae9d2659c9848262dac3b858b8dc4",
+      "bytes": 2748,
+      "width": 36,
+      "height": 36,
+      "mode": "RGBA"
+    },
+    "worldmap/rollover/button_scout_attack_rollover.png": {
+      "sha256": "be74ffa134468b8a98cd870f53374bf8f0c41d995fc3eefd0a4cf983fd679d4d",
+      "bytes": 2809,
+      "width": 36,
+      "height": 36,
+      "mode": "RGBA"
+    },
+    "worldmap/tiles/borderplant01.png": {
+      "sha256": "6ffdbcc14327183a92b8e63268b90e3cbbce55e7c6d4c7b8cc37e92193ad6fd0",
+      "bytes": 30148,
+      "width": 129,
+      "height": 135,
+      "mode": "RGBA"
+    },
+    "worldmap/tiles/borderplant02.png": {
+      "sha256": "1c93603dc0505580753aad9bd3c737a27922157d1c77f4e1325317e12b129c09",
+      "bytes": 41430,
+      "width": 162,
+      "height": 151,
+      "mode": "RGBA"
+    },
+    "worldmap/tiles/borderplant03.png": {
+      "sha256": "c32999c0c148f0d8919370f05c88f6b780f3113c703ace5d41fe43ec4f7eefb8",
+      "bytes": 30465,
+      "width": 129,
+      "height": 135,
+      "mode": "RGBA"
+    },
+    "worldmap/tiles/borderplant04.png": {
+      "sha256": "de809fb733dee956ff1257f2aa6785424b2a93dfa98c1e110593517722bc41aa",
+      "bytes": 41826,
+      "width": 162,
+      "height": 151,
+      "mode": "RGBA"
+    },
+    "worldmap/tiles/borderplant05.png": {
+      "sha256": "617ea30c54bd82c3e1c5898bcb877d6ad36e8c10d2fdb08916ab813d2e694e5e",
+      "bytes": 18003,
+      "width": 132,
+      "height": 95,
+      "mode": "RGBA"
+    },
+    "worldmap/tiles/brownplant01.png": {
+      "sha256": "275188cd18a668b19aca28240712916f1cd2725705d86f071c56a015bfda1e51",
+      "bytes": 15890,
+      "width": 103,
+      "height": 80,
+      "mode": "RGBA"
+    },
+    "worldmap/tiles/brownplant02.png": {
+      "sha256": "237671283a9598e08f7e0588a163b91bde80f58a9b61cb64cd988fedf58e71e6",
+      "bytes": 23901,
+      "width": 135,
+      "height": 106,
+      "mode": "RGBA"
+    },
+    "worldmap/tiles/brownplant03.png": {
+      "sha256": "187ee84b43cc7e555d5cedb814d8dd1c3007f50d132415294730a6472ed00ec3",
+      "bytes": 29628,
+      "width": 157,
+      "height": 108,
+      "mode": "RGBA"
+    },
+    "worldmap/tiles/brownplant04.png": {
+      "sha256": "6ffdbcc14327183a92b8e63268b90e3cbbce55e7c6d4c7b8cc37e92193ad6fd0",
+      "bytes": 30148,
+      "width": 129,
+      "height": 135,
+      "mode": "RGBA"
+    },
+    "worldmap/tiles/brownplant05.png": {
+      "sha256": "1c93603dc0505580753aad9bd3c737a27922157d1c77f4e1325317e12b129c09",
+      "bytes": 41430,
+      "width": 162,
+      "height": 151,
+      "mode": "RGBA"
+    },
+    "worldmap/tiles/clover01.png": {
+      "sha256": "e96e780f7d9169b983aa3ef4567a7981977306f7cfafa38344e172484e7139f9",
+      "bytes": 15013,
+      "width": 128,
+      "height": 78,
+      "mode": "RGBA"
+    },
+    "worldmap/tiles/clover02.png": {
+      "sha256": "f46888c985c6fe14d492e34abd68d500022958b0514278df7472ebbb7b3ea711",
+      "bytes": 14954,
+      "width": 128,
+      "height": 78,
+      "mode": "RGBA"
+    },
+    "worldmap/tiles/clover03.png": {
+      "sha256": "cef3452b509312ea68bc47577960e7ae41741eaefbc530d7b7d73cde0ff7a9b2",
+      "bytes": 22900,
+      "width": 167,
+      "height": 95,
+      "mode": "RGBA"
+    },
+    "worldmap/tiles/clover04.png": {
+      "sha256": "0fc62743ce40510969369194e1c14b289e1e83a2d624eac831c9f0f9aeb9a60d",
+      "bytes": 26022,
+      "width": 153,
+      "height": 98,
+      "mode": "RGBA"
+    },
+    "worldmap/tiles/clover05.png": {
+      "sha256": "f09d93dbfc3ea123908440b48712c474ccf8ec3b6cdafc0348890776bcba8174",
+      "bytes": 16994,
+      "width": 133,
+      "height": 78,
+      "mode": "RGBA"
+    },
+    "worldmap/tiles/clover06.png": {
+      "sha256": "7a651767fcfe5a4f03f79cac40caa1c66b84b10692174f4391be25d071d9c01a",
+      "bytes": 22832,
+      "width": 171,
+      "height": 96,
+      "mode": "RGBA"
+    },
+    "worldmap/tiles/greenplant01.png": {
+      "sha256": "28951d0a11ef29d4ffe9f3a3a31a1b2b6ccad8c4443c6f1c87a461c6a8a37f09",
+      "bytes": 16336,
+      "width": 103,
+      "height": 80,
+      "mode": "RGBA"
+    },
+    "worldmap/tiles/greenplant02.png": {
+      "sha256": "88eb9a85b868b44447a989738276854353aff593402a7eb81797080c37cadeae",
+      "bytes": 24105,
+      "width": 135,
+      "height": 106,
+      "mode": "RGBA"
+    },
+    "worldmap/tiles/greenplant03.png": {
+      "sha256": "7e0ee5e9644448b04872259184e6dcc6888c64f1156c6e17d1d866799615bd04",
+      "bytes": 30875,
+      "width": 157,
+      "height": 118,
+      "mode": "RGBA"
+    },
+    "worldmap/tiles/greenplant04.png": {
+      "sha256": "c32999c0c148f0d8919370f05c88f6b780f3113c703ace5d41fe43ec4f7eefb8",
+      "bytes": 30465,
+      "width": 129,
+      "height": 135,
+      "mode": "RGBA"
+    },
+    "worldmap/tiles/greenplant05.png": {
+      "sha256": "de809fb733dee956ff1257f2aa6785424b2a93dfa98c1e110593517722bc41aa",
+      "bytes": 41826,
+      "width": 162,
+      "height": 151,
+      "mode": "RGBA"
+    },
+    "worldmap/tiles/spiky01.png": {
+      "sha256": "995973744b10741e0e253ec022a7f57f9ee21da8123bb388bdd6f8d907624084",
+      "bytes": 10185,
+      "width": 129,
+      "height": 72,
+      "mode": "RGBA"
+    },
+    "worldmap/tiles/spiky02.png": {
+      "sha256": "1a92551a937381541d237e67d4de5e3071de256840b4994ae81eb5f512fb84f7",
+      "bytes": 12358,
+      "width": 131,
+      "height": 90,
+      "mode": "RGBA"
+    },
+    "worldmap/tiles/spiky03.png": {
+      "sha256": "397d98eac5c46ac9a84cb1b41e71276788f75101fb2150ecaaeb146a9a25bc98",
+      "bytes": 12249,
+      "width": 119,
+      "height": 73,
+      "mode": "RGBA"
+    },
+    "worldmap/tiles/spiky04.png": {
+      "sha256": "c7ad98f801ef173cb55ce8c0c9345fbcbe636a7c20a482ca747e490256e939e7",
+      "bytes": 17571,
+      "width": 141,
+      "height": 93,
+      "mode": "RGBA"
+    },
+    "worldmap/tiles/spiky05.png": {
+      "sha256": "93711cba6560817219bc9039590ed07518eccd1c0222906883a20c4a7e83179f",
+      "bytes": 18903,
+      "width": 136,
+      "height": 96,
+      "mode": "RGBA"
+    },
+    "worldmap/tiles/spiky06.png": {
+      "sha256": "617ea30c54bd82c3e1c5898bcb877d6ad36e8c10d2fdb08916ab813d2e694e5e",
+      "bytes": 18003,
+      "width": 132,
+      "height": 95,
+      "mode": "RGBA"
+    },
+    "worldmap/tiles/spiky07.png": {
+      "sha256": "fbdcd2ec44183eaf10adda832b3c87bf218473b9911f13e1912fa4f9f0f2877a",
+      "bytes": 17430,
+      "width": 146,
+      "height": 91,
+      "mode": "RGBA"
+    }
+  },
+  "sourceReferences": [
+    {
+      "path": "client/scripts/com/monsters/maproom3/MapRoom3AssetCache.as",
+      "sha256": "e27f9c406ab3e63671a204234737be3bf4282fbcac511344c534d1d997738ab1"
+    },
+    {
+      "path": "client/scripts/com/monsters/maproom3/MapRoom3CellGraphic.as",
+      "sha256": "a00022f554130a4b541b57fbe11d87916cf94689d6bfb60a76fbd548ae4bf719"
+    },
+    {
+      "path": "client/scripts/com/monsters/maproom3/MapRoom3Window.as",
+      "sha256": "d86f4200ea54586e21210464388090ea80d6629155f64dd032f4be194158f4ef"
+    },
+    {
+      "path": "client/scripts/com/monsters/maproom3/MapRoom3WindowHUD.as",
+      "sha256": "94e4a252192fb794a81f256c5158434f80e9f3fcb4be812a1255c86b0b9d797c"
+    },
+    {
+      "path": "client/scripts/com/monsters/maproom3/tiles/MapRoom3TileSetManager.as",
+      "sha256": "97a8439cfad8c4fbee3d7ead9c311a47ed23b69bca92c0388617f820ddcf06e6"
+    },
+    {
+      "path": "client/scripts/com/monsters/maproom3/tiles/MapRoom3TileSet.as",
+      "sha256": "ae1cf85bc4bc13e11cdc22bd7b63a68535df98a8ba76b61f91f6a76035028eeb"
+    },
+    {
+      "path": "client/scripts/com/monsters/maproom3/tiles/MapRoom3TileSetRange.as",
+      "sha256": "7517ed4a0993ed29a537bbc38af11d82fef4a3d71261f33d050784b035310c21"
+    }
+  ],
+  "excluded": [
+    "Inferno-only worldmap/tiles/tests/lava.png is absent from the supplied assets and is not used by ordinary Map Room 3.",
+    "Hellraiser event icons and alliance/truce/message controls remain preserved source assets; this metadata does not claim their gameplay is implemented."
+  ]
+}

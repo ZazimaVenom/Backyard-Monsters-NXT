@@ -1,0 +1,24 @@
+{
+  "scope": "Optional offline developer map generation only; no Unreal runtime dependency",
+  "packages": {
+    "alea": {
+      "version": "1.0.1",
+      "url": "https://registry.npmjs.org/alea/-/alea-1.0.1.tgz",
+      "license": "MIT"
+    },
+    "simplex-noise": {
+      "version": "4.0.3",
+      "url": "https://registry.npmjs.org/simplex-noise/-/simplex-noise-4.0.3.tgz",
+      "license": "MIT"
+    }
+  },
+  "sha256": {
+    "alea/alea.js": "ff534a2e6cf5883ff490644299f8dce3dc1947e52be8455e6aa8eb45a7fa4f32",
+    "alea/package.json": "57e6e7ac3214999d9993af98e7a03a18c3c2fbf5db93dffa9d5e3957f71bb634",
+    "alea/LICENSE": "601f2e3cceeabd63cde81e8f82a00414e47a6daf6056b3d9a95cbf2550076016",
+    "simplex-noise/dist/esm/simplex-noise.js": "64e571e6d28da06fdd230110b8ce242285e76137e7258938f3b68a0fd6ff8146",
+    "simplex-noise/dist/esm/package.json": "48e847860dd4f0907ce91e346dbb00a4a12213163ad3d80a953c343eb9a11979",
+    "simplex-noise/package.json": "9549a06c228e610471a104795c318b1c008e9994ec63807f66cfa43328938b6c",
+    "simplex-noise/LICENSE": "01951c4f7d8e7ce92540c4f575a2aec39738b39d25a06a96059d82ed83fb594e"
+  }
+}

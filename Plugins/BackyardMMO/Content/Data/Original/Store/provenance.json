@@ -1,0 +1,110 @@
+{
+  "schema": 1,
+  "sources": {
+    "client/scripts/QUEUE.as": {
+      "file": "client/scripts/QUEUE.as",
+      "bytes": 11575,
+      "sha256": "c538aec4d9ffc1fbccbe31aea0d5e04367434c59c436d5302970009d2fa30586"
+    },
+    "client/scripts/WORKERS.as": {
+      "file": "client/scripts/WORKERS.as",
+      "bytes": 7292,
+      "sha256": "2d5d25e26526a01367eb35701e164b4d9af776c719b8b6e7fb316dc7d228c232"
+    },
+    "client/scripts/WORKER.as": {
+      "file": "client/scripts/WORKER.as",
+      "bytes": 13988,
+      "sha256": "b3ad4117b9698de1fe3a62fe2408e8ea4914af8c85fe1e2dd72c46b6578fc520"
+    },
+    "client/scripts/MUSHROOMS.as": {
+      "file": "client/scripts/MUSHROOMS.as",
+      "bytes": 10645,
+      "sha256": "45c99fabdee6b87e8bc1fcc87e521d8f570a2108e3b87caa1deb9553b5188bd6"
+    },
+    "client/scripts/BMUSHROOM.as": {
+      "file": "client/scripts/BMUSHROOM.as",
+      "bytes": 3899,
+      "sha256": "2d4db9b9e8faff730f7887ef63f32a840ada34249bfd9699a74bd77ffe217650"
+    },
+    "client/scripts/BFOUNDATION.as": {
+      "file": "client/scripts/BFOUNDATION.as",
+      "bytes": 165031,
+      "sha256": "29abd5161cbca96a6f91c3e8cc84c5c3341352c2568aae4427a77caf7e2e485b"
+    },
+    "client/scripts/BUILDING7.as": {
+      "file": "client/scripts/BUILDING7.as",
+      "bytes": 347,
+      "sha256": "befa44f65ff486d40ea080c1878db1103106173434e51f3bc79505b55cbdc148"
+    },
+    "client/scripts/BASE.as": {
+      "file": "client/scripts/BASE.as",
+      "bytes": 271598,
+      "sha256": "12b017340b09f671e29aa7140ab9b32a2cda894f63f3fb568c1da6352d03bd2f"
+    },
+    "client/scripts/GLOBAL.as": {
+      "file": "client/scripts/GLOBAL.as",
+      "bytes": 89645,
+      "sha256": "4e4c3fe3cedaf0239eb150ac64ee6e72371f2562155a545210fdeee575cba1a4"
+    },
+    "client/scripts/STORE.as": {
+      "file": "client/scripts/STORE.as",
+      "bytes": 134055,
+      "sha256": "6269301ca0485ff6e571378989500686b797f4eb1214d4c19c9c4271ede95b87"
+    },
+    "client/scripts/MAP.as": {
+      "file": "client/scripts/MAP.as",
+      "bytes": 33775,
+      "sha256": "3ef8a692b4e7d9d34cdea56e03fb7423677e61adbdd60e8584c586f7898683f2"
+    },
+    "client/scripts/YARD_PROPS.as": {
+      "file": "client/scripts/YARD_PROPS.as",
+      "bytes": 375554,
+      "sha256": "53a68b85c398be7d1410cc48b2843ae2fb9a712072c8c88a34caec309b99b894"
+    },
+    "client/scripts/BUILDINGBUTTON.as": {
+      "file": "client/scripts/BUILDINGBUTTON.as",
+      "bytes": 6518,
+      "sha256": "7cff9f78fe3c90dd8495c6d2e4ec9ff9ed1a5c096f000bfb689ad8bdbb57a3cf"
+    },
+    "client/scripts/BUILDINGSPOPUP.as": {
+      "file": "client/scripts/BUILDINGSPOPUP.as",
+      "bytes": 11984,
+      "sha256": "1fe527d456cb1d8b2332a3324c9a9e4fc887a87809758390c5a1d917b623449a"
+    },
+    "client/scripts/BDECORATION.as": {
+      "file": "client/scripts/BDECORATION.as",
+      "bytes": 1260,
+      "sha256": "d3e04e617f96bc12e3095463fb866f125dc2021c80b8240607fb29cafaad59a4"
+    },
+    "client/scripts/com/gskinner/utils/Rndm.as": {
+      "file": "client/scripts/com/gskinner/utils/Rndm.as",
+      "bytes": 4108,
+      "sha256": "9178747481d2c63167d5a6d24a18c37ad2b3879aca02b0ce94861eaa8556f927"
+    },
+    "server/src/game-data/store/storeItems.ts": {
+      "file": "server/src/game-data/store/storeItems.ts",
+      "bytes": 20278,
+      "sha256": "df163762f5213c239b2b59646db07aabcce91ea9a476d6c6850e4e8dad1dc951"
+    },
+    "server/src/game-data/store/purchaseKeys.ts": {
+      "file": "server/src/game-data/store/purchaseKeys.ts",
+      "bytes": 1884,
+      "sha256": "46ce6cf89b0c4deadfac50598a4e5746c632bb4696b33db94c468d01e7b57e3b"
+    },
+    "server/src/game-data/getDefaultBaseData.ts": {
+      "file": "server/src/game-data/getDefaultBaseData.ts",
+      "bytes": 2055,
+      "sha256": "be5f87186a4a0a8bbf68a3cc047ec7c777f4db4180d8074e0a1ef35e6fc19d8f"
+    },
+    "server/src/config/GameConfig.ts": {
+      "file": "server/src/config/GameConfig.ts",
+      "bytes": 2320,
+      "sha256": "a499d5fc8be24adfe0915f7a7987460a84628ae7cda9b6d173babf5483d0b4d5"
+    },
+    "server/public/gamestage/assets/english.json": {
+      "file": "server/public/gamestage/assets/english.json",
+      "bytes": 338078,
+      "sha256": "4fb94ef4cd42233e36caca787675ad26996ac75ddbd46a27bcc6e2adde1e01d6"
+    }
+  }
+}
