@@ -25,6 +25,8 @@ Currently in active development, with the core backyard, invasion, progression a
 
 ## Screenshots
 
+<img width="3840" height="2082" alt="0" src="https://github.com/user-attachments/assets/adfdaf75-01cf-4308-adc8-3deeaf09f5e7" />
+
 <img width="3046" height="1734" alt="1- RaGEZONE" src="https://github.com/user-attachments/assets/34e4afd8-1c21-4e5a-82ba-f90c8bd5b571" />
 
 <img width="3840" height="2160" alt="2- RaGEZONE" src="https://github.com/user-attachments/assets/43b9b1fc-6a67-440c-9a14-aafbd7e8fe9b" />
