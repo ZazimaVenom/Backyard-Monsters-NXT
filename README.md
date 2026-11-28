@@ -1,54 +1,37 @@
-# Backyard Monsters NXT — Unreal Engine 5.8 source preview
+# Backyard Monsters NXT — Unreal Engine 5.8 (WIP BETA)
 
-Current package **0.2.1.1** automatically caps rendering at **60 FPS** in the menu and gameplay, with low shadows, global illumination, reflections and post-processing, and medium effects. No Blueprint setup or console commands are needed. Project Settings > Plugins > Backyard Monsters NXT > Graphics exposes the cap and automatic-preset switch. Texture detail, resolution, Custom Depth, gameplay and the v0.2.1 bandwidth improvements are retained. See `Docs/GRAPHICS_DEFAULTS.md`.
+Backyard Monsters NXT brings the classic monster-building strategy game into Unreal Engine 5.8. Build your backyard, grow your monster army, raid rivals and expand your territory across a persistent world shared by players and computer-controlled opponents.
 
-This archive contains a C++ plugin, its bundled original assets, and a ready host project. It is an initial native recreation of the base-building and invasion loop. **It is not a finished 100% recreation, a compiled game, or a production-certified MMO.** Unreal Engine is not available in the development environment used to prepare this archive, so its C++ engine build, generated levels and multiplayer behavior must be verified on UE 5.8 before use.
+Using original Backyard Monsters artwork, animated sprites and source-based game mechanics, NXT preserves the familiar visual style while introducing a Host & Play multiplayer experience. Start your own server and play alongside friends using the same game package.
 
-Current package **0.2.1** substantially reduces repeated yard, Map Room and ranking data using lossless compression and updates containing only changed values. Large transfers wait for acknowledgement between chunks, and each player has a bounded queue with recovery from a lost baseline. Normal yard and combat update rates are retained. See `Docs/NETWORK_BANDWIDTH.md` for measurements, settings and validation limits. **Rebuild the host and every client from this same version** because the native RPC layout changed. Existing host saves keep their current formats.
+## Current features
 
-The retained **0.2.0.2** update fixes the Windows game-target compilation failure during packaging. The sprite atlas readiness check now calls the editor-only `IsDefaultTexture()` API only under `WITH_EDITOR`; the existing editor retry behavior is retained. The full project, plugin and original assets are included. See `Docs/PACKAGING_FIX_0_2_0_2.md`. Open `BackyardMonstersNXT.uproject` normally and use Unreal Editor's Windows packaging controls.
+Build your backyard: Construct, upgrade, move and repair buildings, manage resources and develop your defenses.
+Train your monster army: Hatch monsters, unlock additional species through the Monster Locker and improve their abilities through Academy research.
+Living yards: Up to 50 wandering monsters bring each backyard to life, displaying a variety of monsters from its owner’s trained army.
+Animated action: Monster movement and attacks, building production animations, defensive effects and visible combat bring battles to life.
+Backyard invasions: Scout opponents, deploy troops, break through defenses and raid resources. Damage-protection shields help main backyards recover between attacks.
+Monster Bunkers: Assign trained monsters to defensive garrisons that emerge to fight invading armies.
+Visual Map Room: Explore the hex world, scout backyards, bookmark locations and fight to capture resource outposts, strongholds and fortifications.
+1,000 rival bots by default: Persistent opponents build, train, research, invade and participate in territorial competition, with varied backyard layouts.
+Shared ranking ladder: Players and bots compete for RP, gaining or losing points through invasion results.
+Workers and yard expansion: Workers handle construction and mushroom clearing. Expand your buildable space within a clearly marked yard boundary.
+Shiny and the General Store: Gather Shiny from mushrooms and spend it on additional workers, yard expansions, decorations and supported construction speedups.
+Persistent multiplayer: Host-owned accounts and progress, automatic saving, configurable server settings and a player limit set to 100 by default.
+Classic presentation: Original terrain, building and monster artwork, familiar resource displays and native menus recreate the game’s distinctive look.
+Currently in active development, with the core backyard, invasion, progression and territory systems already implemented and further original-game features still being recreated.
 
-The retained **0.2.0.1** update fixes the compile errors reported in `Log(10).txt`: explicit UE 5.8 JSON key conversions, the math header for the map tests, and the renderer/focus Slate API calls. Gameplay, UI layout and all original assets are retained. See `Docs/COMPILE_FIX_0_2_0_1.md` for the changes and validation limits. Open `BackyardMonstersNXT.uproject` normally.
+Currently in active development, with the core backyard, invasion, progression and territory systems already implemented and further original-game features still being recreated.
 
-The retained **0.2.0** update adds the original Map Room 3 world, native visual scouting and territory commands, source defensive layouts, resource outposts, strongholds and fortifications. Rivals use the same host map rules. Bot yard layouts vary by identity and residents are tied to the displayed yard's roster. See `Docs/MAP_ROOM.md` for source rules, explicit NXT adaptations and remaining differences. The user confirmed the preceding **0.1.9.1** build worked well after testing; this new update still requires its own UE 5.8 build and playtest.
+## Screenshots
 
-The retained **0.1.9** update adds source-based workers, mushroom clearing and regrowth, host-owned Shiny, the General Store, decorations, and paid yard expansions with a visible boundary. See `Docs/WORKERS_AND_SHINY.md` for exact source rules, migration behaviour and remaining differences.
+<img width="3046" height="1734" alt="1- RaGEZONE" src="https://github.com/user-attachments/assets/34e4afd8-1c21-4e5a-82ba-f90c8bd5b571" />
 
-The retained **0.1.8.1** update corrects shared native UI sizing: original image dimensions are read from the source manifest, short labels do not auto-wrap, prose uses explicit widths, and the login form keeps actions within its frame. See `Docs/UI_LAYOUT_FIX.md` for the reported issue and validation limits.
+<img width="3840" height="2160" alt="2- RaGEZONE" src="https://github.com/user-attachments/assets/43b9b1fc-6a67-440c-9a14-aafbd7e8fe9b" />
 
-The **0.1.8** update adds the ordinary overworld **Monster Bunker**: its original two-column transfer screen, Putty fees and capacity rules, a saved garrison, released defensive monsters, attacks and retaliation, original door frames and sound, and bot use through the same host commands. Released defenders have separate inventory and battle state from the attacking army. See `Docs/MONSTER_BUNKER.md` for original source references, the specific game-mode branch and remaining differences.
+<img width="3051" height="1739" alt="3- RaGEZONE" src="https://github.com/user-attachments/assets/5614f6ed-f84c-4ca9-88cd-d00350d23897" />
 
-The **0.1.7** experience and building lifecycle changes remain included: original player experience and the native level-star/progress bar, independent construction/upgrade and repair states, retained work after damage, original upgrade destruction setbacks, and cancellation with host-checked refunds. Completed building levels remain valid for prerequisites during damage and upgrades. The original Locker/Academy shortcut access rules are preserved. See `Docs/PLAYER_EXPERIENCE.md` and `Docs/BUILDING_LIFECYCLE.md`.
-
-The **0.1.6** activity animations and gameplay changes remain included: 28 atlases cover 62 building levels, production is discrete and health-dependent, repairs restore health gradually, and each Hatchery has its own active creature and waiting groups. Combat includes Eye-Ra's original radial suicide blast, strict preferred-target categories and health-scaled tower damage. See `Docs/BUILDING_ANIMATION.md`, `Docs/RESOURCE_PRODUCTION.md`, `Docs/HATCHERY_PRODUCTION.md` and `Docs/COMBAT_PARITY.md`.
-
-The 0.1.5 wandering-sprite fix is retained: original-image dimensions, safe frame edges and retryable texture readiness prevent invalid atlas sampling. See `Docs/SPRITE_ATLAS_FIX.md`. All previously bundled original source assets are retained.
-
-Source preview **0.1.3** adds varied roaming yard residents, closer combat approach, state-driven animation and effects, and a clearer deployment marker. See `Docs/COMBAT_AND_YARD.md` for the implemented behavior and source-frame limitations.
-
-The original source was audited instead of treating texture import as a complete port. See `Docs/STATUS.md` for exactly what is implemented and still missing, and `Docs/ORIGINAL_GAME_AUDIT.md` for the source comparison and acceptance plan.
-
-## First run on Windows x64
-
-1. Extract the entire `BackyardMonstersNXT` folder to a writable folder, for example `C:\Games\BackyardMonstersNXT`. Keep `Plugins\BackyardMMO\SourceAssets` in place.
-2. Install Unreal Engine **5.8** and its supported Visual Studio C++ toolchain/Windows SDK.
-3. Open **`BackyardMonstersNXT.uproject`** normally and accept Unreal's module rebuild prompt if it appears.
-4. Once the editor opens, the plugin automatically prepares missing assets, materials and maps from its bundled `SourceAssets` folder. Updated bundled asset/catalog revisions also trigger import automatically. Wait for setup to finish. The toolbar's **Set Up Everything** action can also run this inside the editor.
-5. In Unreal, choose **Project Settings → Plugins → Backyard Monsters NXT** to set the host address, port and game rules. Use **Standalone Game** from the Play dropdown for the first test. Tick **Create a new account on this host**, enter a username/password and choose **Host & Play**.
-
-The editor toolbar contains **Backyard Monsters NXT → Setup All, Import / Refresh Assets, Generate Maps, Validate Setup**. These use the fixed plugin `SourceAssets` folder; there is no asset directory picker. Existing maps and the generated material are preserved. Incremental importing resumes without reimporting unchanged files. After all imports finish, a separate **Finalizing color texture defaults** pass checks every source texture, including cached imports, applies **Default** compression with **sRGB enabled**, and saves corrected assets. Source transparency, sprite edge clamping and terrain wrapping are preserved. The final setup report lists how many textures were verified and corrected. Unreal may still display normal-map detection notices during import; these precede the final pass and are not its result.
-
-If compilation fails before the editor opens, Unreal Build Tool records the error in `%LOCALAPPDATA%\UnrealBuildTool\Log.txt`.
-
-## Build the shared game package
-
-After setup completes, package the project using Unreal Editor's normal Windows packaging controls. The bundled command scripts remain optional convenience tools.
-
-Distribute the **whole Windows output folder** to every player. The same executable has both **Host & Play** and **Join Server**. Never include an existing host's `Saved` folder in the distributed package.
-
-Players join the host IP/DNS name shown in the menu. The configurable game port defaults to UDP 7777. For a remote internet connection, that port must be reachable on the host; this project does not provide a relay or automatic router traversal. Using the host's LAN IP works for machines on the same reachable LAN. A client on another computer must not use `127.0.0.1`, which points to itself.
-
-Login and account creation use the normal Unreal client/server connection to the selected host. The same game package can host and play or join another host. Accounts belong to the host that created them; hosting on another computer does not copy an account or its progress.
+<img width="3200" height="1854" alt="4- RaGEZONE" src="https://github.com/user-attachments/assets/afb263f6-26ca-4b79-ad2a-2b566da437a2" />
 
 ## Controls and gameplay
 
