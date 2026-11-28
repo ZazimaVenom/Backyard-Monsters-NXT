@@ -12,6 +12,8 @@ class BACKYARDMMO_API UBYMGameInstance : public UGameInstance
 public:
     virtual void Init() override;
     virtual void Shutdown() override;
+    /** Local rendering defaults; also applied after travel, never on a dedicated server. */
+    void ApplyGraphicsDefaults();
     bool HostAndPlay(const FString& Username, const FString& Password, bool bCreate, FString& Error);
     bool JoinHost(const FString& Address, const FString& Username, const FString& Password, bool bCreate, FString& Error);
     void ReturnToMenu(const FString& Reason = TEXT(""));

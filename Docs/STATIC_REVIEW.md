@@ -4,6 +4,16 @@ Reviewed 27 November 2026. This review covers the submitted C++ source, its cros
 
 The project remains the initial core-loop implementation described in `STATUS.md`. The preserved 140 building catalog records and 28 monster catalog records do not imply implementation of all original systems. See `ORIGINAL_GAME_AUDIT.md` for source mechanics, deviations and the larger parity acceptance matrix.
 
+## v0.2.1 network bandwidth review
+
+The audit traced the repeated upload to complete raw yard snapshots sent every two seconds, and every 0.2 seconds during visible combat. Original shop entries, descriptions, build/monster choices and duplicated home/view state were retransmitted even when unchanged. The board and roaming cosmetic monsters were not replicated actors; reducing the rival population was not needed.
+
+The replacement keeps the simulation's full JSON contract, with recursive lossless changes and optional native Zlib compression in a bounded binary transport. Codec review covered removals versus JSON null, array shape/type changes, Unicode conversion, canonical baseline identity, bounded decompression and atomic failure. Review corrected embedded-NUL key truncation and excessive sparse-array allocation before final validation.
+
+Connection review covered authentication, separate raw and locally enriched baselines, reconnect reset, local-host bypass, required command/view/battle transitions, coalescing, three-channel fairness and complete-frame recovery. A one-chunk credit per channel was added because a per-tick byte budget alone could still overflow Unreal's reliable queue on large frames. Only a valid partial acknowledgement extends the inactivity timer; only the final whole-frame acknowledgement commits a baseline. Unsent chunks are cancelled on an early rejection. A stale-sequence watermark survives malformed frames.
+
+Actual controller methods are separately exercised against strict role/time/RPC substitutes and the real codec/stream helpers. Native RPC declarations and call signatures are checked. New statistics conversions use explicit casts for MSVC warning compatibility. Epic's UE 5.8 compression, string-conversion and JSON signatures were checked. These checks do not execute UHT, the actual Unreal replication layer, Windows packaging or a real two-computer network.
+
 ## v0.2.0.2 Windows game-target correction
 
 Both supplied packaging logs report the same single C2039 failure in `BYMBoard.cpp`: `UTexture2D::IsDefaultTexture` is unavailable to the non-editor target. The initial editor target succeeds and the remaining listed runtime translation units compile. This explains why opening the project did not expose this game-target error. The renderer's readiness block now guards only the placeholder API with `WITH_EDITOR`, retains the null check in every target, and retains hide/retry for editor compilation placeholders. Original atlas dimensions and frame validation are unchanged.

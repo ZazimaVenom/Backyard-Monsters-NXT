@@ -2,7 +2,7 @@
 """Execute unchanged native runtime test bodies with explicit non-Unreal adapters.
 
 Optional developer validation only. Never needed to open, build or play the game.
-Python 3.9+ and a C++17 compiler (tested with GCC) are the only dependencies.
+Python 3.9+, a C++17 compiler (tested with GCC) and zlib development headers/library are required for this optional offline harness.
 """
 from __future__ import annotations
 import argparse
@@ -20,7 +20,7 @@ RUNTIME = ROOT / "Plugins" / "BackyardMMO" / "Source" / "BackyardMMO"
 ADAPTERS = Path(__file__).resolve().parent / "Adapters"
 EXCLUDED = {"BYMAccountSaveGameTests.cpp", "BYMPasswordTests.cpp"}
 PRODUCTION = [
-    "BYMSimulation.cpp", "BYMExperience.cpp", "BYMEconomy.cpp",
+    "BYMSimulation.cpp", "BYMExperience.cpp", "BYMEconomy.cpp", "BYMNetworkSnapshot.cpp", "BYMNetworkStream.cpp",
     "BYMCombatRules.cpp", "BYMBuildingLifecycle.cpp", "BYMBunkerRules.cpp",
     "BYMYardResidents.cpp", "BYMBuildingAnimation.cpp", "BYMSpriteAtlas.cpp", "BYMWorkerMovement.cpp", "BYMBotLayout.cpp", "BYMMapRoomRules.cpp",
 ]
@@ -115,7 +115,7 @@ int main(int argc,char** argv) {
             flags.append("-Wno-error=range-loop-construct")
         command = [args.cxx, *flags, "-I" + str(build), "-I" + str(ADAPTERS), "-I" + str(RUNTIME / "Public"), str(build / "main.cpp")]
         command.extend(str(RUNTIME / "Private" / name) for name in PRODUCTION)
-        command.extend(["-o", str(executable)])
+        command.extend(["-lz", "-o", str(executable)])
         print("Compiling current production simulation and unchanged native test bodies with test-only adapters...", flush=True)
         compiled = subprocess.run(command, check=False)
         if compiled.returncode:

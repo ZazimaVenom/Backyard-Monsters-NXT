@@ -4,6 +4,7 @@
 #include "BYMGameMode.h"
 #include "BYMServerSubsystem.h"
 #include "BYMSettings.h"
+#include "Containers/StringConv.h"
 #include "Dom/JsonObject.h"
 #include "Engine/World.h"
 #include "EngineUtils.h"
@@ -17,6 +18,8 @@
 #include "Interfaces/IPluginManager.h"
 #include "Serialization/JsonReader.h"
 #include "Serialization/JsonSerializer.h"
+
+DEFINE_LOG_CATEGORY_STATIC(LogBYMNetwork, Log, All);
 
 namespace
 {
@@ -73,6 +76,7 @@ bool ABYMPlayerController::IsHost() const
 void ABYMPlayerController::BeginPlay()
 {
     Super::BeginPlay();
+    ResetNetworkState();
     ConnectedAt = FPlatformTime::Seconds();
     RateWindowAt = ConnectedAt;
     if (HasAuthority()) { ConnectionKey = FGuid::NewGuid().ToString(EGuidFormats::Digits); }
@@ -80,6 +84,7 @@ void ABYMPlayerController::BeginPlay()
     SetInputMode(FInputModeGameAndUI().SetHideCursorDuringCapture(false).SetLockMouseToViewportBehavior(EMouseLockMode::DoNotLock));
     bShowMouseCursor = true;
     UBYMGameInstance* GI = Cast<UBYMGameInstance>(GetGameInstance());
+    if (GI) { GI->ApplyGraphicsDefaults(); }
     if (IsMenuWorld())
     {
         StatusMessage = GI ? GI->LastConnectionError : TEXT("");
@@ -101,6 +106,7 @@ void ABYMPlayerController::BeginPlay()
 void ABYMPlayerController::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
     ReleaseServerSession();
+    ResetNetworkState();
     Super::EndPlay(EndPlayReason);
 }
 
@@ -134,6 +140,7 @@ void ABYMPlayerController::Tick(float DeltaSeconds)
         RefreshSnapshot();
     }
     FlushServerMapRequest();
+    FlushNetworkPayloads();
 }
 
 void ABYMPlayerController::DisconnectAbusiveClient(const FString& Reason)
@@ -216,10 +223,11 @@ void ABYMPlayerController::ServerAuthenticate_Implementation(const FString& User
             ABYMPlayerController* Self = WeakThis.Get();
             Self->bAuthenticationInFlight = false;
             if (!bSuccess) { Self->ClientAuthentication(false, Error); return; }
+            Self->ResetNetworkState();
             Self->AuthenticatedId = AccountId;
             Self->ViewedYardId.Empty();
             Self->ClientAuthentication(true, TEXT("Welcome to your yard."));
-            Self->RefreshSnapshot();
+            Self->RefreshSnapshot(true);
         });
 }
 
@@ -230,6 +238,7 @@ void ABYMPlayerController::ClientAuthentication_Implementation(bool bSuccess, co
     StatusMessage = Message.Left(500);
     if (bSuccess)
     {
+        for (auto& Receiver : NetworkReceivers) { Receiver.Reset(); }
         RequestLadder(0);
         if (FSlateApplication::IsInitialized()) { FSlateApplication::Get().SetAllUserFocusToGameViewport(); }
     }
@@ -291,7 +300,7 @@ void ABYMPlayerController::ServerCommand_Implementation(const FString& Operation
     }
     if (bOk && Operation == TEXT("mapRelocate")) { ViewedYardId.Empty(); }
     ClientCommandResult(Operation, bOk, Message);
-    RefreshSnapshot();
+    RefreshSnapshot(true);
 }
 
 void ABYMPlayerController::ClientCommandResult_Implementation(const FString& Operation, bool bSuccess, const FString& Message)
@@ -318,9 +327,9 @@ void ABYMPlayerController::ClientCommandResult_Implementation(const FString& Ope
     }
 }
 
-void ABYMPlayerController::RefreshSnapshot()
+void ABYMPlayerController::RefreshSnapshot(bool bMustDeliver)
 {
-    if (!HasAuthority() || AuthenticatedId.IsEmpty()) { return; }
+    if (!HasAuthority() || AuthenticatedId.IsEmpty() || bNetworkFailed) { return; }
     if (UBYMServerSubsystem* Server = GetGameInstance()->GetSubsystem<UBYMServerSubsystem>())
     {
         const FString Payload = Server->GetSnapshot(AuthenticatedId, ViewedYardId);
@@ -331,13 +340,20 @@ void ABYMPlayerController::RefreshSnapshot()
             && StringField(Battle, TEXT("defender")) == StringField(Yard, TEXT("id"));
         const double Interval = bViewingBattle
             ? FMath::Clamp(static_cast<double>(GetDefault<UBYMSettings>()->BattleSnapshotIntervalSeconds), 0.1, 1.0)
-            : 2.0;
+            : FMath::Clamp(static_cast<double>(GetDefault<UBYMSettings>()->YardSnapshotIntervalSeconds), 0.5, 10.0);
         NextSnapshotAt = FPlatformTime::Seconds() + Interval;
-        SendSnapshotPayload(Payload);
+        const FString Identity = StringField(Yard, TEXT("id")) + TEXT("|")
+            + StringField(Battle, TEXT("id")) + TEXT("|")
+            + StringField(ObjectField(Snapshot, TEXT("completedBattle")), TEXT("id"));
+        // Preserve start/end and viewed-yard transitions under backpressure.
+        // Ordinary timer updates may coalesce; command results remain reliable.
+        const bool bTransition = Identity != LastQueuedSnapshotIdentity;
+        LastQueuedSnapshotIdentity = Identity;
+        QueueNetworkPayload(0, Payload, bMustDeliver || bTransition);
     }
 }
 
-void ABYMPlayerController::ClientSnapshot_Implementation(const FString& Json)
+void ABYMPlayerController::ApplySnapshotJson(const FString& Json)
 {
     if (Json.Len() > 1000000) { return; }
     const FString PreviousYard = StringField(ObjectField(ReadJson(LastSnapshot), TEXT("yard")), TEXT("id"));
@@ -377,10 +393,10 @@ void ABYMPlayerController::RequestLadder(int32 Page)
 void ABYMPlayerController::ServerLadder_Implementation(int32 Page)
 {
     if (!AllowServerCall(0, true)) { return; }
-    ClientLadder(GetGameInstance()->GetSubsystem<UBYMServerSubsystem>()->GetLadder(AuthenticatedId, FMath::Clamp(Page, 0, 100000)));
+    QueueNetworkPayload(2, GetGameInstance()->GetSubsystem<UBYMServerSubsystem>()->GetLadder(AuthenticatedId, FMath::Clamp(Page, 0, 100000)), false);
 }
 
-void ABYMPlayerController::ClientLadder_Implementation(const FString& Json)
+void ABYMPlayerController::ApplyLadderJson(const FString& Json)
 {
     if (Json.Len() > 100000) { return; }
     LastLadder = Json;
@@ -434,21 +450,10 @@ void ABYMPlayerController::FlushServerMapRequest()
     Request->SetStringField(TEXT("selected"),ServerMapSelected);
     Request->SetNumberField(TEXT("ownedPage"),ServerOwnedPage);
     const FString Json = GetGameInstance()->GetSubsystem<UBYMServerSubsystem>()->Execute(AuthenticatedId,TEXT("mapView"),WriteJson(Request));
-    constexpr int32 ChunkCharacters = 10000, MaxMapCharacters = 1000000;
-    if (Json.Len() > MaxMapCharacters)
-    {
-        const TSharedRef<FJsonObject> Error=MakeShared<FJsonObject>();Error->SetBoolField(TEXT("ok"),false);
-        Error->SetStringField(TEXT("error"),TEXT("The map view exceeds the host's response limit. Choose a different map center and retry."));
-        ClientWorldMap(WriteJson(Error));return;
-    }
-    if (Json.Len() <= ChunkCharacters) { ClientWorldMap(Json); return; }
-    OutboundMapSequence = (OutboundMapSequence+1)&0x3fffffff;
-    const int32 Count = FMath::DivideAndRoundUp(Json.Len(),ChunkCharacters);
-    for (int32 Index=0;Index<Count;++Index)
-        ClientWorldMapChunk(OutboundMapSequence,Index,Count,Json.Mid(Index*ChunkCharacters,ChunkCharacters));
+    QueueNetworkPayload(1, Json, false);
 }
 
-void ABYMPlayerController::ClientWorldMap_Implementation(const FString& Json)
+void ABYMPlayerController::ApplyWorldMapJson(const FString& Json)
 {
     if (Json.Len() > 1000000) { return; }
     const TSharedPtr<FJsonObject> Response = ReadJson(Json);
@@ -461,23 +466,6 @@ void ABYMPlayerController::ClientWorldMap_Implementation(const FString& Json)
     }
     LastWorldMap = Json;
     ++WorldMapRevision;
-}
-
-void ABYMPlayerController::ClientWorldMapChunk_Implementation(int32 Sequence, int32 Index, int32 Count, const FString& Chunk)
-{
-    if (Count<1 || Count>100 || Index<0 || Index>=Count || Chunk.Len()>10000) { return; }
-    if (Index==0)
-    { IncomingMapSequence=Sequence;IncomingMapIndex=0;IncomingMapCount=Count;IncomingMap.Empty(); }
-    if (Sequence!=IncomingMapSequence || Index!=IncomingMapIndex || Count!=IncomingMapCount)
-    { IncomingMap.Empty();IncomingMapSequence=-1;return; }
-    IncomingMap+=Chunk;
-    ++IncomingMapIndex;
-    if (IncomingMapIndex==IncomingMapCount)
-    {
-        const FString Complete=MoveTemp(IncomingMap);
-        IncomingMapSequence=-1;
-        ClientWorldMap_Implementation(Complete);
-    }
 }
 
 void ABYMPlayerController::ViewYard(const FString& Id)
@@ -517,7 +505,7 @@ void ABYMPlayerController::ServerViewYard_Implementation(const FString& YardId)
         }
     }
     ViewedYardId = YardId;
-    RefreshSnapshot();
+    RefreshSnapshot(true);
 }
 
 void ABYMPlayerController::ReturnHome()
@@ -587,49 +575,186 @@ void ABYMPlayerController::HandleBoardClick(int32 X, int32 Y, const FString& Bui
     }
 }
 
-void ABYMPlayerController::SendSnapshotPayload(const FString& Json)
+void ABYMPlayerController::ResetNetworkState()
 {
-    // Reliable RPC bunches have a finite size. Keep each payload well below 64 KiB,
-    // even when FString is encoded as UTF-16; bounded assembly handles large yards.
-    constexpr int32 ChunkCharacters = 10000;
-    constexpr int32 MaxSnapshotCharacters = 1000000;
-    if (Json.Len() > MaxSnapshotCharacters)
+    for (int32 Channel = 0; Channel < 3; ++Channel)
     {
-        ClientStatus(TEXT("This yard exceeds the snapshot limit. Ask the host to review its world data."));
+        NetworkSenders[Channel].Reset();
+        NetworkReceivers[Channel].Reset();
+        NetworkFrameStartedAt[Channel] = 0;
+        NetworkTrackedSequence[Channel] = 0;
+    }
+    NextNetworkStream = 0;
+    LastQueuedSnapshotIdentity.Empty();
+    bNetworkFailed = false;
+    NetworkStatsStartedAt = FPlatformTime::Seconds();
+    NetworkOfferedJsonBytes = NetworkReceivedBytes = NetworkReceivedFrames = 0;
+}
+
+void ABYMPlayerController::FailNetworkStream(const FString& Reason)
+{
+    if (bNetworkFailed) { return; }
+    bNetworkFailed = true;
+    UE_LOG(LogBYMNetwork, Warning, TEXT("State transfer stopped for %s: %s"), *AuthenticatedId.Left(8), *Reason);
+    ClientStatus(TEXT("The connection could not keep the yard synchronized. Rejoin the host to refresh it."));
+    DisconnectAbusiveClient(TEXT("State synchronization could not complete. Please rejoin."));
+}
+
+void ABYMPlayerController::QueueNetworkPayload(uint8 StreamId, const FString& Json, bool bMustDeliver)
+{
+    if (!HasAuthority() || AuthenticatedId.IsEmpty() || StreamId >= 3 || bNetworkFailed) { return; }
+    if (Json.Len() > BYMNetworkSnapshot::MaxDecodedCharacters)
+    {
+        FailNetworkStream(TEXT("Response exceeds the bounded state size."));
         return;
     }
-    if (Json.Len() <= ChunkCharacters) { ClientSnapshot(Json); return; }
-    OutboundSnapshotSequence = (OutboundSnapshotSequence + 1) & 0x3fffffff;
-    const int32 Count = FMath::DivideAndRoundUp(Json.Len(), ChunkCharacters);
-    for (int32 Index = 0; Index < Count; ++Index)
+    // A listen host already owns the data. Do not compress or run a network
+    // acknowledgement loop for its local player.
+    if (IsLocalController()) { ApplyNetworkPayload(StreamId, Json); return; }
+    FString Error;
+    if (!NetworkSenders[StreamId].Queue(Json, false, bMustDeliver, Error))
     {
-        ClientSnapshotChunk(OutboundSnapshotSequence, Index, Count, Json.Mid(Index * ChunkCharacters, ChunkCharacters));
+        FailNetworkStream(Error);
+        return;
+    }
+    const FTCHARToUTF8 Utf8(*Json);
+    NetworkOfferedJsonBytes += static_cast<uint64>(Utf8.Length());
+    // Dispatch only from Tick, so several commands in one frame cannot evade
+    // the shared chunk budget or recursively flush from an ACK callback.
+}
+
+void ABYMPlayerController::FlushNetworkPayloads()
+{
+    if (!HasAuthority() || IsLocalController() || AuthenticatedId.IsEmpty() || bNetworkFailed) { return; }
+    const UBYMSettings* Settings = GetDefault<UBYMSettings>();
+    const double Now = FPlatformTime::Seconds();
+    for (int32 Channel = 0; Channel < 3; ++Channel)
+    {
+        FString Error;
+        if (!NetworkSenders[Channel].Prepare(Settings->bUseNetworkDeltas, Settings->bCompressNetworkState, Error))
+        {
+            FailNetworkStream(Error);
+            return;
+        }
+        const int32 Sequence = NetworkSenders[Channel].GetInFlightSequence();
+        if (Sequence != NetworkTrackedSequence[Channel])
+        {
+            NetworkTrackedSequence[Channel] = Sequence;
+            NetworkFrameStartedAt[Channel] = Sequence ? Now : 0;
+        }
+        if (Sequence && Now - NetworkFrameStartedAt[Channel] > FMath::Clamp(static_cast<double>(Settings->NetworkAckTimeoutSeconds), 10.0, 120.0))
+        {
+            FailNetworkStream(TEXT("Timed out waiting for a state acknowledgement."));
+            return;
+        }
+    }
+    const int32 Budget = FMath::Clamp(Settings->NetworkChunksPerTick, 1, 8);
+    for (int32 Sent = 0; Sent < Budget; ++Sent)
+    {
+        bool bSent = false;
+        for (int32 Offset = 0; Offset < 3; ++Offset)
+        {
+            const int32 Channel = (NextNetworkStream + Offset) % 3;
+            BYMNetworkStream::FChunk Chunk;
+            if (!NetworkSenders[Channel].TakeNextChunk(Chunk)) { continue; }
+            NextNetworkStream = (Channel + 1) % 3;
+            ClientStateChunk(static_cast<uint8>(Channel), Chunk.Sequence, Chunk.BaseSequence,
+                Chunk.Index, Chunk.Count, Chunk.RawBytes, Chunk.bCompressed, Chunk.bDelta, Chunk.Bytes);
+            bSent = true;
+            break;
+        }
+        if (!bSent) { break; }
     }
 }
 
-void ABYMPlayerController::ClientSnapshotChunk_Implementation(int32 Sequence, int32 Index, int32 Count, const FString& Chunk)
+void ABYMPlayerController::ServerStateAck_Implementation(uint8 StreamId, int32 Sequence, bool bAccepted)
 {
-    if (Count < 1 || Count > 100 || Index < 0 || Index >= Count || Chunk.Len() > 10000) { return; }
-    if (Index == 0)
+    if (!HasAuthority() || IsMenuWorld() || AuthenticatedId.IsEmpty() || StreamId >= 3 || bNetworkFailed) { return; }
+    // ACKs acknowledge only an exact sent frame and do not mutate gameplay.
+    // They have their own bounded state gate instead of consuming the player's
+    // command allowance during five-per-second combat updates.
+    if (!NetworkSenders[StreamId].Acknowledge(Sequence, bAccepted)) { return; }
+    NetworkTrackedSequence[StreamId] = 0;
+    NetworkFrameStartedAt[StreamId] = 0;
+    if (NetworkSenders[StreamId].GetConsecutiveRejects() >= 3)
+        FailNetworkStream(TEXT("Repeated invalid state reconstruction."));
+}
+
+void ABYMPlayerController::ServerStateChunkAck_Implementation(uint8 StreamId, int32 Sequence, int32 Index)
+{
+    if (!HasAuthority() || IsMenuWorld() || AuthenticatedId.IsEmpty() || StreamId >= 3 || bNetworkFailed) { return; }
+    // One unacknowledged chunk per channel bounds Unreal's reliable queue even
+    // when a large full state is split over hundreds of chunks. This is progress
+    // only: the raw baseline is committed by the final whole-frame ACK.
+    if (NetworkSenders[StreamId].AcknowledgeChunk(Sequence, Index))
+        NetworkFrameStartedAt[StreamId] = FPlatformTime::Seconds();
+}
+
+void ABYMPlayerController::ClientStateChunk_Implementation(uint8 StreamId, int32 Sequence, int32 BaseSequence,
+    int32 Index, int32 Count, int32 RawBytes, bool bCompressed, bool bDelta, const TArray<uint8>& Bytes)
+{
+    if (!IsLocalController() || !bAuthenticated || StreamId >= 3) { return; }
+    BYMNetworkStream::FChunk Chunk;
+    Chunk.Sequence = Sequence; Chunk.BaseSequence = BaseSequence;
+    Chunk.Index = Index; Chunk.Count = Count; Chunk.RawBytes = RawBytes;
+    Chunk.bCompressed = bCompressed; Chunk.bDelta = bDelta; Chunk.Bytes = Bytes;
+    NetworkReceivedBytes += static_cast<uint64>(Bytes.Num());
+    FString Json, Error;
+    const BYMNetworkStream::EReceiveResult Result = NetworkReceivers[StreamId].Accept(Chunk, Json, Error);
+    if (Result == BYMNetworkStream::EReceiveResult::Complete)
     {
-        IncomingSnapshotSequence = Sequence;
-        IncomingSnapshotIndex = 0;
-        IncomingSnapshotCount = Count;
-        IncomingSnapshot.Empty();
+        ++NetworkReceivedFrames;
+        ApplyNetworkPayload(StreamId, Json);
+        ServerStateAck(StreamId, Sequence, true);
     }
-    if (Sequence != IncomingSnapshotSequence || Index != IncomingSnapshotIndex || Count != IncomingSnapshotCount)
+    else if (Result == BYMNetworkStream::EReceiveResult::Rejected)
     {
-        IncomingSnapshot.Empty();
-        IncomingSnapshotSequence = -1;
-        return;
+        UE_LOG(LogBYMNetwork, Warning, TEXT("State frame rejected; requesting a full refresh: %s"), *Error);
+        ServerStateAck(StreamId, Sequence, false);
     }
-    IncomingSnapshot += Chunk;
-    ++IncomingSnapshotIndex;
-    if (IncomingSnapshotIndex == IncomingSnapshotCount)
+    else if (Result == BYMNetworkStream::EReceiveResult::Pending)
     {
-        const FString Complete = MoveTemp(IncomingSnapshot);
-        IncomingSnapshotSequence = -1;
-        ClientSnapshot_Implementation(Complete);
+        ServerStateChunkAck(StreamId, Sequence, Index);
+    }
+}
+
+void ABYMPlayerController::ApplyNetworkPayload(uint8 StreamId, const FString& Json)
+{
+    if (StreamId == 0) { ApplySnapshotJson(Json); }
+    else if (StreamId == 1) { ApplyWorldMapJson(Json); }
+    else if (StreamId == 2) { ApplyLadderJson(Json); }
+}
+
+void ABYMPlayerController::BYMNetStats()
+{
+    if (!IsLocalController()) { return; }
+    if (HasAuthority())
+    {
+        for (TActorIterator<ABYMPlayerController> It(GetWorld()); It; ++It)
+        {
+            ABYMPlayerController* Remote = *It;
+            if (Remote->IsLocalController() || Remote->AuthenticatedId.IsEmpty()) { continue; }
+            uint64 PayloadBytes = 0, Frames = 0, Coalesced = 0, Suppressed = 0;
+            for (const auto& Sender : Remote->NetworkSenders)
+            {
+                PayloadBytes += Sender.GetPayloadBytesSent(); Frames += Sender.GetFramesSent();
+                Coalesced += Sender.GetCoalescedUpdates(); Suppressed += Sender.GetSuppressedUpdates();
+            }
+            const double Seconds = FMath::Max(1.0, FPlatformTime::Seconds() - Remote->NetworkStatsStartedAt);
+            UE_LOG(LogBYMNetwork, Display, TEXT("Client %s: offered JSON %.1f KiB, state payload %.1f KiB, average %.2f Kbit/s, frames %llu, coalesced %llu, unchanged %llu (excludes Unreal/UDP overhead)."),
+                *Remote->AuthenticatedId.Left(8), static_cast<double>(Remote->NetworkOfferedJsonBytes) / 1024.0, static_cast<double>(PayloadBytes) / 1024.0,
+                static_cast<double>(PayloadBytes) * 8.0 / Seconds / 1000.0, static_cast<unsigned long long>(Frames),
+                static_cast<unsigned long long>(Coalesced), static_cast<unsigned long long>(Suppressed));
+        }
+        StatusMessage = TEXT("Network payload totals for remote players were written to the log. The local host uses no state RPC payload.");
+    }
+    else
+    {
+        const double Seconds = FMath::Max(1.0, FPlatformTime::Seconds() - NetworkStatsStartedAt);
+        StatusMessage = FString::Printf(TEXT("Received state: %.1f KiB, average %.2f Kbit/s, %llu frames. Excludes Unreal/UDP overhead."),
+            static_cast<double>(NetworkReceivedBytes) / 1024.0, static_cast<double>(NetworkReceivedBytes) * 8.0 / Seconds / 1000.0,
+            static_cast<unsigned long long>(NetworkReceivedFrames));
+        UE_LOG(LogBYMNetwork, Display, TEXT("%s"), *StatusMessage);
     }
 }
 

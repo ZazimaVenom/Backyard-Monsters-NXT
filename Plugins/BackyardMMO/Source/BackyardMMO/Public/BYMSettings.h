@@ -12,6 +12,11 @@ public:
     UBYMSettings();
     virtual FName GetCategoryName() const override { return TEXT("Plugins"); }
 
+    UPROPERTY(Config, EditAnywhere, Category="Graphics", meta=(ToolTip="Automatically apply the FPS limit and inexpensive sprite-game graphics at startup and map entry. Disable before adding a custom video-settings system. Takes effect on the next game launch."))
+    bool bApplyOptimizedGraphicsDefaults = true;
+    UPROPERTY(Config, EditAnywhere, Category="Graphics", meta=(ClampMin="15.0", ClampMax="240.0", EditCondition="bApplyOptimizedGraphicsDefaults", ToolTip="Local rendering FPS cap for both the menu and gameplay. Defaults to 60; does not change simulation time or use a fixed timestep."))
+    float FrameRateLimit = 60.0f;
+
     UPROPERTY(Config, EditAnywhere, Category="Connection", meta=(ToolTip="Default host IP or DNS name, used by every packaged client. No protocol or password."))
     FString HostAddress = TEXT("127.0.0.1");
     UPROPERTY(Config, EditAnywhere, Category="Connection", meta=(ClampMin="1024", ClampMax="65535"))
@@ -54,8 +59,18 @@ public:
     float SimulationStepSeconds = 1.0f;
     UPROPERTY(Config, EditAnywhere, Category="Simulation", meta=(ClampMin="0.05", ClampMax="0.1", Units="s", ToolTip="Host update interval while battles are active. Bot decisions retain their separate scheduling."))
     float CombatSimulationStepSeconds = 0.1f;
-    UPROPERTY(Config, EditAnywhere, Category="Simulation", meta=(ClampMin="0.1", ClampMax="1.0", Units="s", ToolTip="Update interval for players viewing active battles. Smaller intervals use more bandwidth. Peaceful yards update every two seconds."))
+    UPROPERTY(Config, EditAnywhere, Category="Simulation", meta=(ClampMin="0.1", ClampMax="1.0", Units="s", ToolTip="Update interval for players viewing active battles. Smaller intervals use more bandwidth. Peaceful yards use Yard Snapshot Interval Seconds."))
     float BattleSnapshotIntervalSeconds = 0.2f;
+    UPROPERTY(Config, EditAnywhere, Category="Network bandwidth", meta=(ToolTip="Use Unreal's built-in lossless compression for yard, map and ranking payloads. No external service or additional installer is required."))
+    bool bCompressNetworkState = true;
+    UPROPERTY(Config, EditAnywhere, Category="Network bandwidth", meta=(ToolTip="Send only changes from each client's acknowledged state. A complete state is sent on first connection and after a resynchronization."))
+    bool bUseNetworkDeltas = true;
+    UPROPERTY(Config, EditAnywhere, Category="Network bandwidth", meta=(ClampMin="0.5", ClampMax="10.0", Units="s", ToolTip="Peaceful-yard update interval. Commands still request immediate updates; combat uses Battle Snapshot Interval Seconds."))
+    float YardSnapshotIntervalSeconds = 2.0f;
+    UPROPERTY(Config, EditAnywhere, Category="Network bandwidth", meta=(ClampMin="1", ClampMax="8", ToolTip="Maximum 8 KiB state chunks per controller tick across yard, map and rankings. Bounds bursts without changing simulation speed."))
+    int32 NetworkChunksPerTick = 4;
+    UPROPERTY(Config, EditAnywhere, Category="Network bandwidth", meta=(ClampMin="10.0", ClampMax="120.0", Units="s", ToolTip="Maximum time without progress or acknowledgement during a state transfer. Stalled connections are closed instead of accumulating an unbounded reliable queue."))
+    float NetworkAckTimeoutSeconds = 30.0f;
     UPROPERTY(Config, EditAnywhere, Category="Security", meta=(ClampMin="1024", ClampMax="65536"))
     int32 MaxCommandBytes = 16384;
     UPROPERTY(Config, EditAnywhere, Category="Security", meta=(ClampMin="2", ClampMax="30"))

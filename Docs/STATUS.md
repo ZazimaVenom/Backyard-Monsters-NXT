@@ -1,4 +1,6 @@
-# Implementation status — 27 November 2026
+# Implementation status — 28 November 2026
+
+**Network update 0.2.1:** yard, world-map and ladder responses now use compressed UTF-8 binary RPC chunks and per-client recursive changes. One acknowledged baseline per channel, bounded pending states, per-chunk credit and complete-state recovery keep slow links from accumulating a large reliable backlog. The local host applies state directly. Defaults retain 2-second peaceful-yard and 0.2-second battle snapshots. `BYMNetStats` reports state payload counters. All peers must use the rebuilt package. See `NETWORK_BANDWIDTH.md` for measured application-byte reductions and target-engine validation limits.
 
 **Windows packaging correction 0.2.0.2:** the atlas readiness check no longer references an editor-only texture API in game targets. Editor placeholder hiding/retry and all other sprite layout logic remain unchanged. Both supplied packaging logs identify this one blocking error; their initial editor build reports success. Focused game/editor compile-contract checks are recorded in `PACKAGING_FIX_0_2_0_2.md`. Full native packaging has not been run here.
 
@@ -35,6 +37,7 @@
 | Presentation | Straight-down orthographic camera, flat XY planes with original isometric projection, building previews, roof picking and translucent shadows; original grass swatches blended using MAPBG parameters and repeated at source-pixel scale, custom depth, native HUD, source music. |
 | Mainmenu | Native Slate host/join, login/registration, connection status through the native Unreal client/server connection. |
 | Accounts | Host-only native `.sav` records, normal owned-controller login/registration RPCs, asynchronous password verification and duplicate session control. |
+| Network state | Per-client compressed full/change frames for yards, maps and rankings; bounded chunk acknowledgements, latest-state coalescing, required-transition delivery and resynchronization. Existing Unreal host/client connection. |
 | Persistence | Exclusive host lock, hourly saves, logout retention, registration commit/rollback, backup and corrupt-save refusal. |
 | Economy | Four overworld resources, source-sized production batches and damage penalties, preserved countdowns, partial banking, completed-Silo storage, gradual free repairs, construction/upgrade/move, footprint and prerequisite checks. |
 | Building lifecycle | Independent paid work and repair; damage pauses work, destruction retains construction and applies source upgrade setbacks; job-specific cancellation, capped refunds, attained-level prerequisites and schema-4/5 persistence. |

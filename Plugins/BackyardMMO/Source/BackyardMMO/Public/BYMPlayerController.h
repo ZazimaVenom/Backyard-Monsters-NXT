@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
+#include "BYMNetworkStream.h"
 #include "BYMPlayerController.generated.h"
 
 class ABYMBoard;
@@ -27,6 +28,7 @@ public:
     bool IsHost() const;
     bool IsCommandPending() const { return !PendingOperation.IsEmpty(); }
     void ReleaseServerSession();
+    UFUNCTION(Exec) void BYMNetStats();
     FString GetAuthenticatedId() const { return AuthenticatedId; }
 
     FString LastSnapshot;
@@ -56,11 +58,10 @@ public:
     UFUNCTION(Server, Reliable) void ServerLadder(int32 Page);
     UFUNCTION(Server, Reliable) void ServerWorldMap(int32 CenterX, int32 CenterY, int32 Radius, const FString& SelectedCell, int32 OwnedPage);
     UFUNCTION(Client, Reliable) void ClientAuthentication(bool bSuccess, const FString& Message);
-    UFUNCTION(Client, Reliable) void ClientSnapshot(const FString& Json);
-    UFUNCTION(Client, Reliable) void ClientSnapshotChunk(int32 Sequence, int32 Index, int32 Count, const FString& Chunk);
-    UFUNCTION(Client, Reliable) void ClientLadder(const FString& Json);
-    UFUNCTION(Client, Reliable) void ClientWorldMap(const FString& Json);
-    UFUNCTION(Client, Reliable) void ClientWorldMapChunk(int32 Sequence, int32 Index, int32 Count, const FString& Chunk);
+    UFUNCTION(Client, Reliable) void ClientStateChunk(uint8 StreamId, int32 Sequence, int32 BaseSequence,
+        int32 Index, int32 Count, int32 RawBytes, bool bCompressed, bool bDelta, const TArray<uint8>& Bytes);
+    UFUNCTION(Server, Reliable) void ServerStateAck(uint8 StreamId, int32 Sequence, bool bAccepted);
+    UFUNCTION(Server, Reliable) void ServerStateChunkAck(uint8 StreamId, int32 Sequence, int32 Index);
     UFUNCTION(Client, Reliable) void ClientStatus(const FString& Message);
     UFUNCTION(Client, Reliable) void ClientCommandResult(const FString& Operation, bool bSuccess, const FString& Message);
 private:
@@ -86,21 +87,29 @@ private:
     TWeakObjectPtr<ABYMBoard> Board;
     TSharedPtr<FJsonObject> LocalCatalog;
     bool bCatalogLoadAttempted = false;
-    int32 OutboundSnapshotSequence = 0;
-    int32 IncomingSnapshotSequence = -1;
-    int32 IncomingSnapshotIndex = 0;
-    int32 IncomingSnapshotCount = 0;
-    FString IncomingSnapshot;
-    int32 OutboundMapSequence = 0;
-    int32 IncomingMapSequence = -1;
-    int32 IncomingMapIndex = 0;
-    int32 IncomingMapCount = 0;
-    FString IncomingMap;
+    BYMNetworkStream::FSender NetworkSenders[3];
+    BYMNetworkStream::FReceiver NetworkReceivers[3];
+    double NetworkFrameStartedAt[3] = {0, 0, 0};
+    int32 NetworkTrackedSequence[3] = {0, 0, 0};
+    int32 NextNetworkStream = 0;
+    FString LastQueuedSnapshotIdentity;
+    bool bNetworkFailed = false;
+    double NetworkStatsStartedAt = 0;
+    uint64 NetworkOfferedJsonBytes = 0;
+    uint64 NetworkReceivedBytes = 0;
+    uint64 NetworkReceivedFrames = 0;
+    void ResetNetworkState();
+    void QueueNetworkPayload(uint8 StreamId, const FString& Json, bool bMustDeliver);
+    void FlushNetworkPayloads();
+    void ApplyNetworkPayload(uint8 StreamId, const FString& Json);
+    void ApplySnapshotJson(const FString& Json);
+    void ApplyLadderJson(const FString& Json);
+    void ApplyWorldMapJson(const FString& Json);
+    void FailNetworkStream(const FString& Reason);
     FString EnrichSnapshotLocally(const FString& Json);
-    void SendSnapshotPayload(const FString& Json);
     void FlushPendingMapRequest();
     void FlushServerMapRequest();
     bool AllowServerCall(int32 PayloadLength, bool bRequiresAccount);
-    void RefreshSnapshot();
+    void RefreshSnapshot(bool bMustDeliver = false);
     void DisconnectAbusiveClient(const FString& Reason);
 };

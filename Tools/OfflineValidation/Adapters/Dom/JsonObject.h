@@ -10,8 +10,10 @@ struct FJsonValue {
  TSharedPtr<FJsonObject> AsObject()const{return Type==EJson::Object?Object:TSharedPtr<FJsonObject>();}
  const TArray<TSharedPtr<FJsonValue>>&AsArray()const{return Array;}
  double AsNumber()const{return Number;}
+ bool AsBool()const{return Boolean;}
  FString AsString()const{return String;}
 };
+struct FJsonValueNull:FJsonValue {};
 struct FJsonValueNumber:FJsonValue {explicit FJsonValueNumber(double value){Type=EJson::Number;Number=value;}};
 struct FJsonValueString:FJsonValue {explicit FJsonValueString(const FString&value){Type=EJson::String;String=value;}};
 struct FJsonValueBoolean:FJsonValue {explicit FJsonValueBoolean(bool value){Type=EJson::Boolean;Boolean=value;}};
@@ -58,6 +60,8 @@ public:
 struct FJsonObject {
  FOfflineJsonObjectValues Values;
  bool HasField(const FString&key)const{return Values.Contains(key);}
+ TSharedPtr<FJsonValue> TryGetField(const FString&key)const{const auto*value=Values.Find(key);return value?*value:TSharedPtr<FJsonValue>();}
+ void SetField(const FString&key,const TSharedPtr<FJsonValue>&value){Values.Add(key,value);}
  void RemoveField(const FString&key){Values.Remove(key);}
  void SetNumberField(const FString&key,double value){Values.Add(key,MakeShared<FJsonValueNumber>(value));}
  void SetStringField(const FString&key,const FString&value){Values.Add(key,MakeShared<FJsonValueString>(value));}

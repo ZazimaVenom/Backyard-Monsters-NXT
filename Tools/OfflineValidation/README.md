@@ -1,14 +1,16 @@
 # Optional source regression validation
 
+**v0.2.1 delivery status:** current network checks are recorded in `network-transport-results.json` (6 tests/238 assertions, 394 exact snapshot comparisons) and `network-controller-results.json` (71 assertions). The broader rerun was interrupted for the user's requested delivery deadline. `last-run.txt` and `last-run-manifest.json` retain the historical complete v0.2.0.1 run; they are not a current full-suite pass. No native Unreal build or live network test is claimed.
+
 The game opens normally through `BackyardMonstersNXT.uproject`. This directory is an optional developer test tool; it is not part of the game's build, launch, account system or server persistence.
 
-From the project directory, with Python 3.9+ and a C++17 compiler available:
+From the project directory, with Python 3.9+, a C++17 compiler and system zlib development headers/library available:
 
 ```sh
 python Tools/OfflineValidation/run.py
 ```
 
-Use `--filter Bunker` to execute only Bunker tests, or `--cxx /path/to/compiler` to select the compiler. Add `--record` to save the run log and exact input hashes in this directory; a run fails validation if any recorded dependency changes while it is running. The tool creates its executable in an automatically removed temporary directory. It does not modify the project, source assets or `.sav` files. No Python package or third-party C++ library is required. The recorded run used GCC 14.2.0 on Linux.
+Use `--filter Bunker` to execute only Bunker tests, or `--cxx /path/to/compiler` to select the compiler. Add `--record` to save the run log and exact input hashes in this directory; a run fails validation if any recorded dependency changes while it is running. The tool creates its executable in an automatically removed temporary directory. It does not modify the project, source assets or `.sav` files. No Python package is required. The optional transport adapters link system zlib (`-lz`) to exercise the real codec's compression paths. The game itself uses Unreal Core's built-in compression and needs no separate zlib installation. The recorded run used GCC 14.2.0 on Linux.
 
 ## What is executed
 
@@ -72,3 +74,13 @@ The run cannot establish UHT/UBT compatibility, Unreal JSON behavior in all edge
 The recorded dependency manifest includes every simulation `.inl`, the worker/rival/map rule implementations, the actual store and map JSON data, native test bodies, quoted local header dependencies and the isolated API adapters. It identifies the source compiled by this run; it does not establish engine ABI or Unreal rendering compatibility.
 
 The portable build uses `-O1`; this keeps repeated parsing of the complete source map practical across independent fixtures and is not a production performance measurement. Compiler warnings are treated as errors for the compiled production source. Test adapters are marked system headers. Unused native test parameters and existing compact multi-statement indentation warnings are excluded. GCC's temporary shared-pointer reference warning is excluded because existing tests retain the owning save object while referencing its child arrays. GCC also leaves `-Wrange-loop-construct` visible but nonfatal: its warning on the adapter's JSON pair-copy conversion is specific to this emulation, while the supplied UE 5.8.4 log accepts those existing typed loops. Other enabled warnings remain errors. The test-only map adapter uses hashed key lookup with Key/Value iteration; it is not an implementation of Unreal allocation or pointer-stability guarantees. Numeric TestEqual assertions reject mixed arithmetic types so the adapter cannot conceal Unreal numeric-overload errors. These adapters are isolated from the plugin build and do not add game runtime dependencies.
+
+## Bandwidth transport checks and measurements
+
+```sh
+python Tools/OfflineValidation/check_network_transport.py --record
+```
+
+This separate check compiles the actual snapshot codec, bounded stream helper and native network test bodies with the current host simulation. It verifies full/delta reconstruction, unchanged suppression, original JSON type/array/null values, Unicode, invalid data and decompression limits, semantic baseline identity, atomic rejection, partial-chunk credits, early/duplicate/wrong acknowledgements, ordered terminal-state barriers, bounded queues, sequence wrap and full recovery after rejected frames. Real snapshot fixtures exercise idle yards, production/hatching, invasion and the complete Map Room response at its two-second polling cadence.
+
+Every real decoded snapshot is independently parsed and compared with its pre-encoding JSON by Python. `network-transport-results.json` records exact source hashes, native test counts and before/after **application payload bytes**. These figures exclude Unreal RPC/packet headers, acknowledgements, retransmissions and other applications' traffic. They are not measured socket throughput or a prediction for 100 clients. The portable adapter uses system zlib at level 1 for Unreal's speed-biased compression option and represents TCHAR strings as UTF-8 bytes; Unreal's UTF-16 conversion and its native networking still require engine execution.

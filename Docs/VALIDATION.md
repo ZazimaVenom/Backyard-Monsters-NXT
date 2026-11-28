@@ -1,5 +1,24 @@
 # Validation record
 
+## Current graphics-default update — 0.2.1.1
+
+Adds automatic 60 FPS rendering and conservative graphics defaults at game startup and local map entry. Source/asset validation passes; original source assets are unchanged. Independent source review checked lifecycle placement, dedicated-server guards, API includes and CVar priorities. Engine compilation, Windows packaging, visual output and GPU/FPS measurements are not available in this environment. The network implementation remains the v0.2.1 implementation; only the local BeginPlay graphics call is added to its controller file. Earlier execution records below retain their original revision scope.
+
+Prepared on 28 November 2026 for v0.2.1. Current network changes passed the focused checks below. The user requested immediate delivery; the broader simulation rerun was stopped while its completed groups were passing. No full current-suite completion or native Unreal build is claimed.
+
+| Current check | Result | Scope |
+| --- | --- | --- |
+| Actual codec and stream | 6 tests, 238 assertions, zero failures | Lossless full/delta reconstruction, malformed input, bounds, one-chunk credit, ACK recovery and retained transitions. |
+| Real game snapshot benchmark | 394 snapshots reconstructed identically | Idle, production/hatching, invasion and full Map Room responses. Application bytes only; see NETWORK_BANDWIDTH.md. |
+| Actual controller integration | 71 assertions and 3 RPC declaration checks pass | Local-host bypass, shared budget, chunk credit, ACKs, coalescing, recovery, required transitions and timeout. |
+| Source/asset integrity | 66,958 checks pass | 6,561 assets retained; no original asset changes. |
+| Complete simulation rerun | Not completed for this release | Interrupted for the requested delivery deadline. Historical 114-test run below remains revision-specific. |
+| Native Unreal/Windows package and live network | Not run here | No Unreal installation is available; all current execution uses explicit test-only engine substitutes. |
+
+Exact current source hashes are in network-transport-results.json and network-controller-results.json under Tools/OfflineValidation. Both reports were verified against the packaged sources. The source includes 136 native automation tests; including a test is not the same as executing it in Unreal.
+
+## Retained earlier validation
+
 Prepared on 27 November 2026 for v0.2.0.2. Both new Windows packaging logs show one blocking C2039 error: the game-target atlas readiness check calls an editor-only texture method. The initial editor target reports success. Only the readiness block in `BYMBoard.cpp` changes production code in this correction.
 
 ## Current Windows packaging correction

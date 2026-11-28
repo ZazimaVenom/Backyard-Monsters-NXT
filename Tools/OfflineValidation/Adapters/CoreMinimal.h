@@ -23,6 +23,7 @@
 #include <limits>
 #include <stdexcept>
 using TCHAR=char;
+using ANSICHAR=char;
 using int32=int32_t;
 using int64=int64_t;
 using uint32=uint32_t;
@@ -44,6 +45,7 @@ class FString:public std::string {
 public:
  using std::string::string;
  FString(const std::string&s):std::string(s){}
+ FString(int32 count,const TCHAR*text):std::string(text,static_cast<size_t>(count)){}
  bool IsEmpty()const{return empty();}
  int32 Len()const{return static_cast<int32>(size());}
  const char* operator*()const{return c_str();}
@@ -55,6 +57,7 @@ public:
  template<class List>static FString Join(const List&items,const FString&separator){FString result;for(const auto&value:items){if(!result.empty())result+=separator;result+=value;}return result;}
  static FString Printf(const char*format,...){va_list args;va_start(args,format);va_list copied;va_copy(copied,args);int length=vsnprintf(nullptr,0,format,copied);va_end(copied);std::vector<char>buf(static_cast<size_t>(length)+1);vsnprintf(buf.data(),buf.size(),format,args);va_end(args);return FString(buf.data());}
  void Reset(){clear();}
+ void Empty(){clear();}
  static FString FromInt(int32 n){return std::to_string(n);}
  static FString ChrN(int32 n,TCHAR c){return FString(n,c);}
 };
@@ -72,6 +75,11 @@ public:
  template<class P>void RemoveAll(P predicate){this->erase(std::remove_if(this->begin(),this->end(),predicate),this->end());}
  void Reserve(int32 n){this->reserve(n);}
  void SetNum(int32 n){this->resize(n);}
+ void SetNumUninitialized(int32 n){this->resize(n);}
+ T* GetData(){return this->data();}
+ const T* GetData()const{return this->data();}
+ void Append(const T*values,int32 count){if(count>0)this->insert(this->end(),values,values+count);}
+ void Append(const TArray<T>&values){this->insert(this->end(),values.begin(),values.end());}
  void Init(const T&v,int32 n){this->assign(n,v);}
  void Add(const T&v){this->push_back(v);}
  void Add(T&&v){this->push_back(std::move(v));}
@@ -173,3 +181,5 @@ template<class T>using TUniquePtr=std::unique_ptr<T>;
 template<class T,class...A>TUniquePtr<T> MakeUnique(A&&...a){return std::make_unique<T>(std::forward<A>(a)...);}
 struct FCString{static int32 Atoi(const TCHAR*s){return std::atoi(s);}};
 inline uint32 GetTypeHash(const FString&s){return static_cast<uint32>(std::hash<std::string>{}(s));}
+
+struct FMemory { static void* Memcpy(void* destination,const void* source,size_t size){return std::memcpy(destination,source,size);} };

@@ -1,0 +1,8 @@
+Offline adapters only; not Unreal/socket execution.
+PASS BackyardMMO.Network.FullDeltaAndUnchangedSnapshots
+PASS BackyardMMO.Network.ArrayShapeTypesAndUnicode
+PASS BackyardMMO.Network.RejectMalformedAndOversizedFrames
+PASS BackyardMMO.Network.RejectInvalidDeltaOperationsAtomically
+PASS BackyardMMO.Network.AcknowledgementCoalescingAndBarriers
+PASS BackyardMMO.Network.ChunkValidationAndFullResynchronization
+NETWORK_TESTS 6 238 0

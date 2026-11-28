@@ -4,7 +4,9 @@
 #include "Engine/Engine.h"
 #include "Engine/World.h"
 #include "GameFramework/PlayerController.h"
+#include "HAL/IConsoleManager.h"
 #include "Kismet/GameplayStatics.h"
+#include "Misc/App.h"
 #include "Misc/PackageName.h"
 
 namespace
@@ -19,11 +21,42 @@ namespace
 void UBYMGameInstance::Init()
 {
     Super::Init();
+    ApplyGraphicsDefaults();
     if (GEngine)
     {
         NetworkFailureHandle = GEngine->OnNetworkFailure().AddUObject(this, &UBYMGameInstance::NetworkFailure);
         TravelFailureHandle = GEngine->OnTravelFailure().AddUObject(this, &UBYMGameInstance::TravelFailure);
     }
+}
+
+void UBYMGameInstance::ApplyGraphicsDefaults()
+{
+    // Startup covers the menu; local-controller BeginPlay reapplies after
+    // engine user settings and map travel. No console UI or Blueprint needed.
+    if (IsDedicatedServerInstance() || !FApp::CanEverRender()) { return; }
+    const UBYMSettings* Settings = GetDefault<UBYMSettings>();
+    if (!Settings->bApplyOptimizedGraphicsDefaults) { return; }
+
+    const float FPS = FMath::IsFinite(Settings->FrameRateLimit)
+        ? FMath::Clamp(Settings->FrameRateLimit, 15.0f, 240.0f) : 60.0f;
+    if (IConsoleVariable* Limit = IConsoleManager::Get().FindConsoleVariable(TEXT("t.MaxFPS")))
+    {
+        Limit->Set(FPS, ECVF_SetByGameOverride);
+    }
+    const auto SetQuality = [](const TCHAR* Name, int32 Value)
+    {
+        if (IConsoleVariable* Variable = IConsoleManager::Get().FindConsoleVariable(Name))
+        {
+            Variable->Set(Value, ECVF_SetByGameOverride);
+        }
+    };
+    SetQuality(TEXT("sg.ShadowQuality"), 0);
+    SetQuality(TEXT("sg.GlobalIlluminationQuality"), 0);
+    SetQuality(TEXT("sg.ReflectionQuality"), 0);
+    SetQuality(TEXT("sg.PostProcessQuality"), 0);
+    SetQuality(TEXT("sg.EffectsQuality"), 1);
+    // Preserve texture detail, resolution, antialiasing and custom depth.
+    // Never idle when unfocused: this executable may be a listen host.
 }
 
 void UBYMGameInstance::Shutdown()
